@@ -12,7 +12,7 @@ import { Crest } from "./TeamBadge";
  */
 const ZONE: Record<Qualification, { bar: string; badge: string; key: string }> = {
   r16: { bar: "bg-gold", badge: "bg-gold text-amber-900", key: "table.direct16" },
-  po: { bar: "bg-pitch", badge: "bg-pitch text-white", key: "table.playoff" },
+  po: { bar: "bg-accent", badge: "bg-accent text-white", key: "table.playoff" },
   out: { bar: "bg-line", badge: "bg-line text-muted", key: "table.out" },
 };
 
@@ -77,7 +77,7 @@ export default function LeagueTable({
                 className={`border-t ${
                   cut ? "border-b-2 border-b-muted/40" : ""
                 } border-line ${
-                  r.teamId === highlight ? "bg-emerald-50/70 font-semibold" : ""
+                  r.teamId === highlight ? "bg-highlight font-semibold" : ""
                 }`}
               >
                 <td className="py-2 pr-1 text-right">

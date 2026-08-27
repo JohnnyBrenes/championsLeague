@@ -503,12 +503,27 @@ Cada fase deja el repo compilando (`npm run build`) y desplegable.
   - ⚠️ Quedan **57 errores de tipos, todos en `app/` y `components/`**; `lib/` está
     limpio. Es exactamente el trabajo de la Fase 3
 
-- **Fase 3 — UI funcional**
-  `TeamBadge` con escudos · `LeagueTable` · `MatchCard` con ida/vuelta/global ·
-  `Bracket` con playoff · rutas y navegación · i18n completo ES/EN.
+- **Fase 3 — UI funcional** — ✅ **HECHA**
+  - ✅ `TeamBadge` con escudos (`<Crest>` reutilizable), `LeagueTable` de 36,
+    `MatchCard` con ida/vuelta y global, `Bracket` por eliminatoria
+  - ✅ Ruta `/groups` → `/table`; fuera `FlagFont` y `country-flag-emoji-polyfill`
+  - ✅ Hora local por defecto con toggle a hora del estadio
+  - ✅ i18n completo ES/EN, metadata y manifest renombrados
+  - 🐛 Encontrado probando en el navegador: la final mostraba el estadio de un
+    finalista como sede. Se juega en campo neutral → se omite ahí
 
-- **Fase 4 — Identidad visual** (§6)
-  Paleta, header, patrón de estrellas, iconos PWA, manifest, `sw.js`, metadata, README.
+- **Fase 4 — Identidad visual** — ✅ **HECHA** (§6)
+  - ✅ Paleta "noche europea" y **tema oscuro por defecto**; el verde césped era
+    del Mundial y leía completamente mal aquí
+  - ✅ Header con halo de reflector, estrella propia (`StarMark`) y franja dorada
+  - ✅ Patrón de estrellas propio de fondo al 4 % de opacidad
+  - ✅ Camino del ganador del cuadro en dorado
+  - ✅ Iconos PWA regenerados, `theme_color` y `background_color` a `#060b26`,
+    `favicon.ico` → `app/icon.png`
+  - ✅ `color-scheme: dark` para que los `<select>` nativos no salgan blancos
+  - 🐛 Encontrado al pasar a oscuro: el disco claro bajo el escudo se volvía un
+    borrón blanco mientras cargaba en diferido. Se quitó `loading="lazy"` — son
+    36 PNG de ~11 KB del mismo origen, no compensa el parpadeo
 
 - **Fase 5 — Automatización**
   Crons del workflow, secreto `FOOTBALL_DATA_TOKEN` en el repo, y el deploy hook de

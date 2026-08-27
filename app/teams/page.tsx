@@ -72,8 +72,8 @@ export default function TeamsPage() {
                 aria-pressed={active}
                 className={`flex items-center gap-2 rounded-xl border px-3 py-2 text-left text-sm font-semibold transition ${
                   active
-                    ? "border-pitch bg-emerald-50 text-pitch-dark"
-                    : "border-line bg-surface hover:border-pitch/50"
+                    ? "border-accent bg-highlight text-ink"
+                    : "border-line bg-surface hover:border-accent/50"
                 }`}
               >
                 <Crest team={tm} size={24} />

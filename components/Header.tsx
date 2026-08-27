@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useI18n } from "@/lib/i18n";
 import LanguageSwitcher from "./LanguageSwitcher";
 import TimezoneToggle from "./TimezoneToggle";
+import StarMark from "./StarMark";
 
 const NAV = [
   { href: "/", key: "nav.today" },
@@ -20,13 +21,18 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-gradient-to-br from-pitch to-pitch-dark text-white">
-      <div className="mx-auto w-full max-w-5xl px-5 pt-5">
+    <header className="relative overflow-hidden bg-gradient-to-br from-accent-dark to-night text-white">
+      {/* Floodlight: a soft radial glow spilling in from the top right, the way
+          a stadium light washes the stand. Pure decoration, so it is aria-hidden
+          and never intercepts clicks. */}
+      <div
+        className="pointer-events-none absolute -right-24 -top-32 h-72 w-72 rounded-full bg-accent/35 blur-3xl"
+        aria-hidden
+      />
+      <div className="relative mx-auto w-full max-w-5xl px-5 pt-5">
         <div className="flex items-start justify-between gap-3">
           <Link href="/" className="flex items-center gap-3">
-            <span className="text-3xl leading-none" aria-hidden>
-              ⚽
-            </span>
+            <StarMark size={30} className="shrink-0 text-gold" />
             <span>
               <span className="block text-xl font-extrabold leading-tight tracking-tight">
                 {t("app.title")}
@@ -43,7 +49,7 @@ export default function Header() {
         </div>
         <p className="mt-1 text-sm opacity-90">{t("app.tagline")}</p>
 
-        <nav className="mt-4 flex gap-1 overflow-x-auto">
+        <nav className="mt-4 flex gap-1 overflow-x-auto border-b border-gold/30">
           {NAV.map((item) => {
             const active =
               item.href === "/"

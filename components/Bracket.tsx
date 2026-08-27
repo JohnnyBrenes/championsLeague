@@ -26,7 +26,7 @@ function SideRow({
   return (
     <div
       className={`flex items-center justify-between gap-2 px-3 py-2 text-sm ${
-        isWinner ? "bg-emerald-50 font-bold text-pitch-dark" : ""
+        isWinner ? "bg-highlight font-bold text-gold" : ""
       }`}
     >
       <span className="flex min-w-0 items-center gap-1.5">
@@ -42,7 +42,7 @@ function SideRow({
       <span className="tabular-nums text-muted">
         {goals ?? ""}
         {pens != null && (
-          <span className="ml-1 text-[0.72rem] font-bold text-pitch-dark">
+          <span className="ml-1 text-[0.72rem] font-bold text-gold">
             ({pens})
           </span>
         )}
@@ -77,7 +77,7 @@ function TieCard({ tie }: { tie: Tie }) {
   return (
     <div className="overflow-hidden rounded-xl border border-line bg-surface">
       {twoLegs && (
-        <div className="bg-emerald-50/40 px-3 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-muted">
+        <div className="bg-highlight/70 px-3 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-muted">
           {tie.pending ? t("bracket.inProgress") : t("common.aggregate")}
         </div>
       )}
@@ -220,7 +220,7 @@ export default function Bracket() {
                 d={conn.d}
                 fill="none"
                 stroke={
-                  conn.highlight ? "var(--color-pitch)" : "var(--color-muted)"
+                  conn.highlight ? "var(--color-gold)" : "var(--color-muted)"
                 }
                 strokeOpacity={conn.highlight ? 0.9 : 0.28}
                 strokeWidth={conn.highlight ? 2.5 : 1.5}

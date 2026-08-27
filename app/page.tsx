@@ -6,6 +6,7 @@ import { useTimezone } from "@/lib/timezone";
 import { sortedMatches } from "@/lib/data";
 import { dayKey, todayKey } from "@/lib/time";
 import MatchDayList from "@/components/MatchDayList";
+import StarMark from "@/components/StarMark";
 
 // "Today" depends on the visitor's clock — read it client-side without hydration
 // drift: the server renders null, the client fills in the real date.
@@ -39,11 +40,15 @@ export default function HomePage() {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-2xl bg-gradient-to-br from-pitch to-pitch-dark p-8 text-white shadow-sm">
-        <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
+      <section className="relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-accent-dark to-night p-8 text-white shadow-sm">
+        <StarMark
+          size={180}
+          className="pointer-events-none absolute -right-10 -top-12 text-white/[0.06]"
+        />
+        <h1 className="relative text-2xl font-extrabold tracking-tight sm:text-3xl">
           {t("home.heroTitle")}
         </h1>
-        <p className="mt-2 max-w-xl text-sm opacity-90 sm:text-base">
+        <p className="relative mt-2 max-w-xl text-sm opacity-90 sm:text-base">
           {t("home.heroText")}
         </p>
       </section>

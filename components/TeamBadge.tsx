@@ -42,7 +42,10 @@ export function Crest({
       alt=""
       width={size}
       height={size}
-      loading="lazy"
+      // Not lazy on purpose. The crests are tiny same-origin PNGs (~11 KB, 36
+      // of them at most, deduplicated by the browser), while the light disc
+      // they sit on is very visible against the night background — lazy
+      // loading turned every crest into a white blob that popped in on scroll.
       decoding="async"
       className="shrink-0 rounded-full bg-white/90 object-contain p-0.5"
       style={box}

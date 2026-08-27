@@ -30,7 +30,7 @@ export default function TimezoneToggle() {
             onClick={() => setMode(opt.value)}
             aria-pressed={active}
             className={`rounded-full px-2.5 py-1 text-xs font-bold transition ${
-              active ? "bg-white text-pitch-dark" : "text-white/80 hover:text-white"
+              active ? "bg-white text-night" : "text-white/80 hover:text-white"
             }`}
           >
             {t(opt.key)}

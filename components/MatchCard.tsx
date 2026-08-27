@@ -41,13 +41,13 @@ export default function MatchCard({ match }: { match: Match }) {
 
       <div className="min-w-[96px] text-center">
         {status === "live" && (
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-red-100 px-2.5 py-0.5 text-[0.68rem] font-bold uppercase tracking-wide text-live">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-live/20 px-2.5 py-0.5 text-[0.68rem] font-bold uppercase tracking-wide text-live">
             <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-live" />
             {t("status.live")}
           </span>
         )}
         {status === "finished" && (
-          <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[0.68rem] font-bold uppercase tracking-wide text-pitch-dark">
+          <span className="rounded-full bg-highlight px-2.5 py-0.5 text-[0.68rem] font-bold uppercase tracking-wide text-gold">
             {t("status.ft")}
           </span>
         )}
@@ -69,7 +69,7 @@ export default function MatchCard({ match }: { match: Match }) {
         )}
 
         {aggregate && (
-          <div className="mt-0.5 text-[0.72rem] font-bold text-pitch-dark">
+          <div className="mt-0.5 text-[0.72rem] font-bold text-gold">
             {t("common.aggregate")} {aggregate.home}–{aggregate.away}
           </div>
         )}

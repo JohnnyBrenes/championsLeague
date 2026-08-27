@@ -1,28 +1,55 @@
 @import "tailwindcss";
 
+/*
+ * "European night" palette. The Champions League is a midwinter, floodlit,
+ * evening competition, so the site is dark by default — the previous green was
+ * inherited from a summer World Cup and read completely wrong here.
+ *
+ * Trademark note: none of this imitates UEFA's identity. There is no starball,
+ * no official wordmark and no official typeface — just our own star motif over
+ * a night-blue gradient. See CHAMPIONS_MIGRATION.md §6.1.
+ */
 @theme {
-  --color-pitch: #0a7d52;
-  --color-pitch-dark: #055f3d;
+  --color-night: #060b26;
+  --color-accent: #3b6bf0;
+  --color-accent-dark: #1a2f8f;
+  /* Light blue for text sitting on a dark highlight, where --color-accent
+     itself would fail contrast. */
+  --color-accent-soft: #a9c0ff;
   --color-gold: #f4c430;
-  --color-gold-dark: #e0a800;
-  --color-ink: #0f2417;
-  --color-muted: #5b6b62;
-  --color-surface: #ffffff;
-  --color-canvas: #f4f7f4;
-  --color-line: #e3ebe5;
-  --color-live: #e23b3b;
+  --color-gold-dark: #c99a13;
+  --color-ink: #eef2ff;
+  --color-muted: #94a3c4;
+  --color-surface: #101a3d;
+  --color-canvas: #060b26;
+  --color-line: #24326b;
+  --color-live: #ff4d5e;
+  /* Selected / winning rows. Kept translucent so it works over both surface
+     colours without a second token. */
+  --color-highlight: #1c2c66;
 
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Makes native controls (the schedule's <select> menus, scrollbars, form
+     focus rings) render dark instead of a bright white box on a dark page. */
+  color-scheme: dark;
 }
 
 body {
-  background: var(--color-canvas);
+  background-color: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  /*
+   * Our own star field: a sparse, geometric five-pointed star, nothing like
+   * the competition's ball-of-stars mark. Kept at ~4% opacity so it reads as
+   * texture and never competes with content. Fixed attachment makes it feel
+   * like a backdrop rather than part of the page.
+   */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M30,20 l1.411,4.058 l4.295,0.088 l-3.423,2.596 l1.244,4.112 l-3.527,-2.454 l-3.527,2.454 l1.244,-4.112 l-3.423,-2.596 l4.295,-0.088 Z'/%3E%3Cpath d='M120,55 l1.411,4.058 l4.295,0.088 l-3.423,2.596 l1.244,4.112 l-3.527,-2.454 l-3.527,2.454 l1.244,-4.112 l-3.423,-2.596 l4.295,-0.088 Z'/%3E%3Cpath d='M75,120 l1.411,4.058 l4.295,0.088 l-3.423,2.596 l1.244,4.112 l-3.527,-2.454 l-3.527,2.454 l1.244,-4.112 l-3.423,-2.596 l4.295,-0.088 Z'/%3E%3Cpath d='M155,145 l1.411,4.058 l4.295,0.088 l-3.423,2.596 l1.244,4.112 l-3.527,-2.454 l-3.527,2.454 l1.244,-4.112 l-3.423,-2.596 l4.295,-0.088 Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
 }
 
 /* Subtle pulse for LIVE indicators */
@@ -32,4 +59,11 @@ body {
 }
 .animate-pulse-dot {
   animation: pulse-dot 1.2s infinite;
+}
+
+/* Round labels ("FASE LIGA · J3") read better with letterspacing at small
+   sizes; applied via a class so the tracking value stays in one place. */
+.label-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
