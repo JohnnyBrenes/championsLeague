@@ -406,10 +406,17 @@ modelo de datos en el mismo commit.
 
 Cada fase deja el repo compilando (`npm run build`) y desplegable.
 
-- **Fase 0 — Preparación** *(sin riesgo)*
-  Verificaciones de §5.2 · borrar legacy · renombrar el paquete · quitar
-  `@vercel/analytics` · `output: "export"` en `next.config.ts` · desplegar tal cual en
-  Cloudflare Pages para validar el pipeline **antes** de tocar la lógica (§8).
+- **Fase 0 — Preparación** *(sin riesgo)* — **casi completa**
+  - ✅ Documentos del Mundial archivados en `docs/legacy/`
+  - ✅ Historial de git reiniciado (1 commit); el original vive en el repo padre
+  - ✅ Crons limitados a días de partido (§5.4)
+  - ✅ `package.json` renombrado y `@vercel/analytics` fuera
+  - ✅ `output: "export"` + `images.unoptimized` + `trailingSlash`; `manifest.ts`
+    marcado como `force-static`. **Build y lint verdes**: 8 rutas prerenderizadas,
+    `out/` con 95 archivos y 1.6 MB
+  - ✅ `next` 16.2.7 → 16.3.3 y `sharp` → 0.35.4 → `npm audit` en 0 vulnerabilidades
+  - ⬜ **Verificaciones de §5.2** — bloqueado: falta `FOOTBALL_DATA_TOKEN` en `.env.local`
+  - ⬜ **Crear el proyecto en Cloudflare Pages** (`DEPLOY.md`) — requiere cuenta
 
 - **Fase 1 — Datos y sync**
   `lib/types.ts` + `scripts/sync-data.mjs` + descarga de escudos. Ejecutar `npm run sync`
@@ -465,8 +472,10 @@ Además:
   `<script>` sin cookies que se activa desde el panel.
 - Servir los escudos como `<img>` normal (o `next/image` con `unoptimized`).
 - No introducir route handlers, server actions ni `revalidate`: romperían el export.
-- Verificar que `app/manifest.ts` sigue emitiendo `/manifest.webmanifest` dentro de
-  `out/`.
+- ⚠️ **Trampa ya encontrada y resuelta**: Next trata `app/manifest.ts` como route
+  handler y el exportador **falla el build** con
+  `export const dynamic = "force-static" not configured on route "/manifest.webmanifest"`.
+  Se arregla con `export const dynamic = "force-static";` en ese archivo. No lo quites.
 
 ### 8.2 Configuración en Cloudflare (una sola vez)
 
