@@ -9,17 +9,9 @@
     "schedule": "Calendario",
     "teams": "Equipos",
     "table": "Tabla",
-    "scorers": "Goleadores",
     "bracket": "Eliminatorias",
-    "records": "Récords"
-  },
-  "scorers": {
-    "title": "Goleadores",
-    "subtitle": "Tabla de goleadores del torneo",
-    "player": "Jugador",
-    "goals": "Goles",
-    "empty": "Aún no hay goles registrados.",
-    "note": "Datos de football-data.org"
+    "records": "Récords",
+    "players": "Jugadores"
   },
   "teams": {
     "title": "Equipos",
@@ -165,5 +157,19 @@
     "inMatches": "partidos",
     "note": "Los totales incluyen la fase liga y las eliminatorias, así que un club que llegó lejos ha jugado más partidos. Por eso la defensa se mide por partido y no por total: si no, ser eliminado pronto saldría premiado. Las tandas de penaltis no cuentan como goles.",
     "inN": "en"
+  },
+  "players": {
+    "title": "Jugadores",
+    "subtitle": "Máximos goleadores y asistentes del torneo",
+    "player": "Jugador",
+    "goals": "Goles",
+    "assists": "Asist.",
+    "topScorers": "Máximos goleadores",
+    "topAssists": "Más asistencias",
+    "assistsScope": "Solo entre los máximos goleadores: la fuente ordena por goles, así que un jugador sin goles no aparece aunque reparta asistencias.",
+    "showMore": "Mostrar más",
+    "showLess": "Mostrar menos",
+    "empty": "Aún no hay datos registrados.",
+    "note": "Datos de football-data.org · un guion significa que la fuente no reporta ese dato, no que sea cero."
   }
 }

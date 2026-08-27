@@ -9,17 +9,9 @@
     "schedule": "Schedule",
     "teams": "Clubs",
     "table": "Table",
-    "scorers": "Scorers",
     "bracket": "Knockouts",
-    "records": "Records"
-  },
-  "scorers": {
-    "title": "Top scorers",
-    "subtitle": "Leading scorers of the competition",
-    "player": "Player",
-    "goals": "Goals",
-    "empty": "No goals recorded yet.",
-    "note": "Data from football-data.org"
+    "records": "Records",
+    "players": "Players"
   },
   "teams": {
     "title": "Clubs",
@@ -165,5 +157,19 @@
     "inMatches": "matches",
     "note": "Totals cover the league phase and the knockouts, so a club that went far has played more matches. That is why defence is measured per match rather than by total — otherwise going out early would look like a record. Penalty shootouts do not count as goals.",
     "inN": "in"
+  },
+  "players": {
+    "title": "Players",
+    "subtitle": "Top scorers and assist providers",
+    "player": "Player",
+    "goals": "Goals",
+    "assists": "Assists",
+    "topScorers": "Top scorers",
+    "topAssists": "Most assists",
+    "assistsScope": "Among the top scorers only: the source ranks by goals, so a player without goals never appears no matter how many assists they provide.",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "empty": "No data recorded yet.",
+    "note": "Data from football-data.org · a dash means the source doesn't report that figure, not that it is zero."
   }
 }

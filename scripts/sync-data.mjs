@@ -526,7 +526,11 @@ async function main() {
   // --- scorers ---
   let scorers = readJSON("scorers.json", []);
   try {
-    const raw = await fetchJSON(`/competitions/CL/scorers${qs({ limit: 30 })}`);
+    // 100 rather than a top-30: the endpoint ranks by GOALS, so the assists
+    // table has to be drawn from this same pool. A short list would leave the
+    // assist leaders out. It still cannot show a player with 0 goals — the API
+    // never returns one — which is why the assists table states its scope.
+    const raw = await fetchJSON(`/competitions/CL/scorers${qs({ limit: 100 })}`);
     const list = (raw.scorers ?? []).map((s) => ({
       name: s.player?.name ?? "—",
       goals: s.goals ?? 0,
