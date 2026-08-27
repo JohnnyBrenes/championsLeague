@@ -1,23 +1,35 @@
-name: Update World Cup results
+name: Update Champions League results
 
 # Hybrid schedule:
-#  - Hourly polling during the daily match window (10:00–24:00 Mexico time), but
-#    the script only calls the API when a match is in progress (MATCH_WINDOW_ONLY=1).
+#  - Hourly polling only on match nights, and even then the script calls the API
+#    only while a match is actually in progress (MATCH_WINDOW_ONLY=1).
 #  - One full daily sync to pick up any schedule/fixture changes.
 #  - Manual trigger available any time.
 #  - Every run retries on transient upstream failure (see the job below).
-# A commit (and therefore a Vercel redeploy) only happens when data changes.
+# A commit (and therefore a redeploy) only happens when data changes.
 
 on:
   schedule:
-    # Hourly (at :02, to dodge top-of-hour congestion) across the daily match
-    # window: 10:00–24:00 Mexico time (UTC−6) == 16:00–06:00 UTC. GitHub delays/
-    # drops scheduled runs under load, but the per-run retry (see the job below)
-    # means each firing that DOES land refreshes reliably. The script no-ops when
-    # no match is live, so empty hours cost nothing.
-    - cron: "2 16-23 * * *" # 10:00–17:00 Mexico (afternoon/evening, Americas)
-    - cron: "2 0-6 * * *"   # 18:00–00:00 Mexico (evening into midnight)
-    # Daily full sync at 12:07 UTC (catches schedule/fixture changes)
+    # Champions League is played on Tuesday and Wednesday nights, with the final
+    # on a Saturday. Restricting the polling crons to those weekdays is the only
+    # "run only on match days" lever GitHub gives us — cron can't read
+    # data/schedule.json. The withinMatchWindow() guard in scripts/sync-data.mjs
+    # handles the rest (a Tuesday with no fixtures is a no-op).
+    #
+    # Hourly at :05 (dodging top-of-hour congestion) over 16:00–23:59 UTC. That
+    # single range covers both kickoff slots year-round: in CEST (Sep–Oct, May)
+    # 18:45 local == 16:45 UTC, and in CET (Nov–Feb) 21:00 local == 20:00 UTC,
+    # with room for extra time and penalties. No early-morning window is needed:
+    # UTC runs BEHIND central Europe, so a European evening match never rolls
+    # over into the next UTC day (the World Cup's Mexico-time kickoffs did, which
+    # is why this used to have a "0-6" cron).
+    #
+    # GitHub delays or drops scheduled runs under load, but the per-run retry
+    # (see the job below) means each firing that DOES land refreshes reliably.
+    - cron: "5 16-23 * * 2,3" # Tuesday & Wednesday match nights
+    - cron: "5 16-23 * * 6"   # Saturday — the final
+    # Daily full sync at 12:07 UTC (catches schedule/fixture changes).
+    # Keep this string identical to the one in MATCH_WINDOW_ONLY below.
     - cron: "7 12 * * *"
   workflow_dispatch: {}
 
@@ -39,7 +51,7 @@ jobs:
         with:
           node-version: 22
 
-      - name: Sync World Cup data (retry on failure)
+      - name: Sync Champions League data (retry on failure)
         env:
           FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
           # Windowed only for the frequent polling crons; the daily 12:00 UTC

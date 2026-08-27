@@ -288,14 +288,40 @@ pasando de código de país a `Team.id`.
 ### 5.4 Límites y ritmo
 - Tier gratuito: **10 peticiones/minuto** y marcadores en vivo con retraso (no es
   minuto a minuto). El workflow actual encaja de sobra: 2–3 llamadas por ejecución.
-- Días de Champions: martes y miércoles (~18:45 y 21:00 CET). Ajustar los `cron` de
-  `.github/workflows/update-results.yml`:
+- ✅ **Hecho**: `.github/workflows/update-results.yml` ya limita el sondeo a las noches
+  de partido y se llama "Update Champions League results":
   ```yaml
-  - cron: "5 16-23 * * 2,3"   # 18:00–01:00 CET, martes y miércoles
-  - cron: "5 0-1  * * 3,4"    # cierre de la noche europea
-  - cron: "7 11 * * *"        # sync completo diario
+  - cron: "5 16-23 * * 2,3"   # martes y miércoles
+  - cron: "5 16-23 * * 6"     # sábado — la final
+  - cron: "7 12 * * *"        # sync completo diario
   ```
-  Y renombrar el workflow ("Update Champions League results").
+  Un solo rango de 16:00–23:59 UTC cubre los dos horarios todo el año: en CEST
+  (sep–oct y mayo) las 18:45 locales son 16:45 UTC, y en CET (nov–feb) las 21:00
+  locales son 20:00 UTC, con margen para prórroga y penales. **No hace falta ventana
+  de madrugada**: UTC va *por detrás* de Europa central, así que un partido europeo
+  de noche nunca cruza al día UTC siguiente (con el Mundial sí pasaba, porque los
+  horarios eran de México, y por eso existía el cron `0-6`).
+- El cron no puede leer `data/schedule.json`; restringir por día de la semana es la
+  única palanca real de "solo días de partido". El guard `withinMatchWindow()` se
+  encarga del resto: un martes sin fixtures es un no-op de segundos.
+- **Ojo con la palabra "noche"**: son noches *europeas*. En América son mañana y
+  primera tarde, y por eso la app debe abrir en **hora local del navegador** (§3) —
+  mostrar "21:00" a alguien que va a ver el partido a la 1 p.m. es desorientador.
+
+  | Kickoff europeo | UTC | Costa Rica (UTC−6) |
+  |---|---|---|
+  | 18:45 CEST (sep–oct, mayo) | 16:45 | 10:45 |
+  | 21:00 CEST | 19:00 | 13:00 |
+  | 18:45 CET (nov–feb) | 17:45 | 11:45 |
+  | 21:00 CET | 20:00 | 14:00 |
+
+  Consecuencia para el UI: la etiqueta del toggle debe ser **"Hora del estadio"**, no
+  "hora de Europa" ni nada que implique noche. Y para husos al este de Europa (Asia,
+  Oceanía) el partido sí cae de madrugada del día siguiente, así que el agrupado por
+  día de `lib/time.ts` tiene que usar siempre la zona activa, nunca UTC.
+- ⚠️ GitHub **desactiva los workflows programados tras 60 días sin actividad en el
+  repo**. Durante la temporada no pasa (el bot commitea seguido), pero en el parón de
+  verano se apagará solo y hay que reactivarlo antes del arranque de la siguiente.
 
 ---
 
