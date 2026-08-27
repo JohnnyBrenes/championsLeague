@@ -7,10 +7,10 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Mundial 2026 — Calendario y Eliminatorias",
-    short_name: "Mundial 2026",
+    name: "Champions 2026/27 — Calendario y Eliminatorias",
+    short_name: "Champions 26/27",
     description:
-      "Calendario, resultados, grupos y eliminatorias del Mundial 2026. Schedule, results, groups and knockout bracket for the 2026 World Cup.",
+      "Calendario, resultados, fase liga y eliminatorias de la Champions League 2026/27. Sitio no oficial, sin afiliación con la UEFA.",
     start_url: "/",
     display: "standalone",
     orientation: "portrait",

@@ -7,14 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sync": "node scripts/sync-data.mjs",
-    "gen:venues": "node scripts/build-venues.mjs",
-    "gen:bracket": "node scripts/build-bracket.mjs",
-    "gen:thirds": "node scripts/build-third-combinations.mjs"
+    "sync": "node scripts/sync-data.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "country-flag-emoji-polyfill": "^0.1.8",
     "next": "^16.3.3",
     "react": "19.2.4",
     "react-dom": "19.2.4"

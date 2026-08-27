@@ -1,1922 +1,2953 @@
 [
   {
-    "id": "WC-537327",
-    "apiId": 537327,
-    "stage": "group",
-    "datetime": "2026-06-11T19:00:00Z",
-    "home": "MEX",
-    "away": "RSA",
-    "score": {
-      "home": 2,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "A",
-    "matchday": 1,
-    "venue": "Estadio Azteca",
-    "city": "Mexico City"
-  },
-  {
-    "id": "WC-537328",
-    "apiId": 537328,
-    "stage": "group",
-    "datetime": "2026-06-12T02:00:00Z",
-    "home": "KOR",
-    "away": "CZE",
-    "score": {
-      "home": 2,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "A",
-    "matchday": 1,
-    "venue": "Estadio Akron",
-    "city": "Guadalajara"
-  },
-  {
-    "id": "WC-537333",
-    "apiId": 537333,
-    "stage": "group",
-    "datetime": "2026-06-12T19:00:00Z",
-    "home": "CAN",
-    "away": "BIH",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "B",
-    "matchday": 1,
-    "venue": "BMO Field",
-    "city": "Toronto"
-  },
-  {
-    "id": "WC-537345",
-    "apiId": 537345,
-    "stage": "group",
-    "datetime": "2026-06-13T01:00:00Z",
-    "home": "USA",
-    "away": "PAR",
-    "score": {
-      "home": 4,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "D",
-    "matchday": 1,
-    "venue": "SoFi Stadium",
-    "city": "Los Angeles"
-  },
-  {
-    "id": "WC-537334",
-    "apiId": 537334,
-    "stage": "group",
-    "datetime": "2026-06-13T19:00:00Z",
-    "home": "QAT",
-    "away": "SUI",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "B",
-    "matchday": 1,
-    "venue": "Levi's Stadium",
-    "city": "San Francisco Bay Area"
-  },
-  {
-    "id": "WC-537339",
-    "apiId": 537339,
-    "stage": "group",
-    "datetime": "2026-06-13T22:00:00Z",
-    "home": "BRA",
-    "away": "MAR",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "C",
-    "matchday": 1,
-    "venue": "MetLife Stadium",
-    "city": "New York/New Jersey"
-  },
-  {
-    "id": "WC-537340",
-    "apiId": 537340,
-    "stage": "group",
-    "datetime": "2026-06-14T01:00:00Z",
-    "home": "HAI",
-    "away": "SCO",
+    "id": "CL-551981",
+    "apiId": 551981,
+    "stage": "league",
+    "datetime": "2025-09-16T16:45:00Z",
+    "home": 77,
+    "away": 57,
     "score": {
       "home": 0,
-      "away": 1
+      "away": 2
     },
     "winner": "away",
     "status": "finished",
-    "group": "C",
-    "matchday": 1,
-    "venue": "Gillette Stadium",
-    "city": "Boston"
+    "matchday": 1
   },
   {
-    "id": "WC-537346",
-    "apiId": 537346,
-    "stage": "group",
-    "datetime": "2026-06-14T04:00:00Z",
-    "home": "AUS",
-    "away": "TUR",
-    "score": {
-      "home": 2,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "D",
-    "matchday": 1,
-    "venue": "BC Place",
-    "city": "Vancouver"
-  },
-  {
-    "id": "WC-537351",
-    "apiId": 537351,
-    "stage": "group",
-    "datetime": "2026-06-14T17:00:00Z",
-    "home": "GER",
-    "away": "CUW",
-    "score": {
-      "home": 7,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "E",
-    "matchday": 1,
-    "venue": "NRG Stadium",
-    "city": "Houston"
-  },
-  {
-    "id": "WC-537357",
-    "apiId": 537357,
-    "stage": "group",
-    "datetime": "2026-06-14T20:00:00Z",
-    "home": "NED",
-    "away": "JPN",
-    "score": {
-      "home": 2,
-      "away": 2
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "F",
-    "matchday": 1,
-    "venue": "AT&T Stadium",
-    "city": "Dallas"
-  },
-  {
-    "id": "WC-537352",
-    "apiId": 537352,
-    "stage": "group",
-    "datetime": "2026-06-14T23:00:00Z",
-    "home": "CIV",
-    "away": "ECU",
+    "id": "CL-552049",
+    "apiId": 552049,
+    "stage": "league",
+    "datetime": "2025-09-16T16:45:00Z",
+    "home": 674,
+    "away": 3929,
     "score": {
       "home": 1,
-      "away": 0
+      "away": 3
     },
-    "winner": "home",
+    "winner": "away",
     "status": "finished",
-    "group": "E",
-    "matchday": 1,
-    "venue": "Lincoln Financial Field",
-    "city": "Philadelphia"
+    "matchday": 1
   },
   {
-    "id": "WC-537358",
-    "apiId": 537358,
-    "stage": "group",
-    "datetime": "2026-06-15T02:00:00Z",
-    "home": "SWE",
-    "away": "TUN",
+    "id": "CL-551941",
+    "apiId": 551941,
+    "stage": "league",
+    "datetime": "2025-09-16T19:00:00Z",
+    "home": 109,
+    "away": 4,
     "score": {
-      "home": 5,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "F",
-    "matchday": 1,
-    "venue": "Estadio BBVA",
-    "city": "Monterrey"
-  },
-  {
-    "id": "WC-537369",
-    "apiId": 537369,
-    "stage": "group",
-    "datetime": "2026-06-15T16:00:00Z",
-    "home": "ESP",
-    "away": "CPV",
-    "score": {
-      "home": 0,
-      "away": 0
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "H",
-    "matchday": 1,
-    "venue": "Mercedes-Benz Stadium",
-    "city": "Atlanta"
-  },
-  {
-    "id": "WC-537363",
-    "apiId": 537363,
-    "stage": "group",
-    "datetime": "2026-06-15T19:00:00Z",
-    "home": "BEL",
-    "away": "EGY",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "G",
-    "matchday": 1,
-    "venue": "Lumen Field",
-    "city": "Seattle"
-  },
-  {
-    "id": "WC-537370",
-    "apiId": 537370,
-    "stage": "group",
-    "datetime": "2026-06-15T22:00:00Z",
-    "home": "KSA",
-    "away": "URY",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "H",
-    "matchday": 1,
-    "venue": "Hard Rock Stadium",
-    "city": "Miami"
-  },
-  {
-    "id": "WC-537364",
-    "apiId": 537364,
-    "stage": "group",
-    "datetime": "2026-06-16T01:00:00Z",
-    "home": "IRN",
-    "away": "NZL",
-    "score": {
-      "home": 2,
-      "away": 2
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "G",
-    "matchday": 1,
-    "venue": "SoFi Stadium",
-    "city": "Los Angeles"
-  },
-  {
-    "id": "WC-537391",
-    "apiId": 537391,
-    "stage": "group",
-    "datetime": "2026-06-16T19:00:00Z",
-    "home": "FRA",
-    "away": "SEN",
-    "score": {
-      "home": 3,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "I",
-    "matchday": 1,
-    "venue": "MetLife Stadium",
-    "city": "New York/New Jersey"
-  },
-  {
-    "id": "WC-537392",
-    "apiId": 537392,
-    "stage": "group",
-    "datetime": "2026-06-16T22:00:00Z",
-    "home": "IRQ",
-    "away": "NOR",
-    "score": {
-      "home": 1,
+      "home": 4,
       "away": 4
     },
-    "winner": "away",
-    "status": "finished",
-    "group": "I",
-    "matchday": 1,
-    "venue": "Gillette Stadium",
-    "city": "Boston"
-  },
-  {
-    "id": "WC-537397",
-    "apiId": 537397,
-    "stage": "group",
-    "datetime": "2026-06-17T01:00:00Z",
-    "home": "ARG",
-    "away": "ALG",
-    "score": {
-      "home": 3,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "J",
-    "matchday": 1,
-    "venue": "Arrowhead Stadium",
-    "city": "Kansas City"
-  },
-  {
-    "id": "WC-537398",
-    "apiId": 537398,
-    "stage": "group",
-    "datetime": "2026-06-17T04:00:00Z",
-    "home": "AUT",
-    "away": "JOR",
-    "score": {
-      "home": 3,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "J",
-    "matchday": 1,
-    "venue": "Levi's Stadium",
-    "city": "San Francisco Bay Area"
-  },
-  {
-    "id": "WC-537403",
-    "apiId": 537403,
-    "stage": "group",
-    "datetime": "2026-06-17T17:00:00Z",
-    "home": "POR",
-    "away": "COD",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
     "winner": null,
     "status": "finished",
-    "group": "K",
-    "matchday": 1,
-    "venue": "NRG Stadium",
-    "city": "Houston"
+    "matchday": 1
   },
   {
-    "id": "WC-537409",
-    "apiId": 537409,
-    "stage": "group",
-    "datetime": "2026-06-17T20:00:00Z",
-    "home": "ENG",
-    "away": "CRO",
+    "id": "CL-551991",
+    "apiId": 551991,
+    "stage": "league",
+    "datetime": "2025-09-16T19:00:00Z",
+    "home": 1903,
+    "away": 611,
     "score": {
-      "home": 4,
-      "away": 2
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "L",
-    "matchday": 1,
-    "venue": "AT&T Stadium",
-    "city": "Dallas"
-  },
-  {
-    "id": "WC-537410",
-    "apiId": 537410,
-    "stage": "group",
-    "datetime": "2026-06-17T23:00:00Z",
-    "home": "GHA",
-    "away": "PAN",
-    "score": {
-      "home": 1,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "L",
-    "matchday": 1,
-    "venue": "BMO Field",
-    "city": "Toronto"
-  },
-  {
-    "id": "WC-537404",
-    "apiId": 537404,
-    "stage": "group",
-    "datetime": "2026-06-18T02:00:00Z",
-    "home": "UZB",
-    "away": "COL",
-    "score": {
-      "home": 1,
+      "home": 2,
       "away": 3
     },
     "winner": "away",
     "status": "finished",
-    "group": "K",
-    "matchday": 1,
-    "venue": "Estadio Azteca",
-    "city": "Mexico City"
+    "matchday": 1
   },
   {
-    "id": "WC-537329",
-    "apiId": 537329,
-    "stage": "group",
-    "datetime": "2026-06-18T16:00:00Z",
-    "home": "CZE",
-    "away": "RSA",
+    "id": "CL-552012",
+    "apiId": 552012,
+    "stage": "league",
+    "datetime": "2025-09-16T19:00:00Z",
+    "home": 73,
+    "away": 94,
     "score": {
       "home": 1,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1
+  },
+  {
+    "id": "CL-551927",
+    "apiId": 551927,
+    "stage": "league",
+    "datetime": "2025-09-16T19:00:00Z",
+    "home": 86,
+    "away": 516,
+    "score": {
+      "home": 2,
       "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1
+  },
+  {
+    "id": "CL-552023",
+    "apiId": 552023,
+    "stage": "league",
+    "datetime": "2025-09-17T16:45:00Z",
+    "home": 930,
+    "away": 5721,
+    "score": {
+      "home": 2,
+      "away": 2
     },
     "winner": null,
     "status": "finished",
-    "group": "A",
-    "matchday": 2,
-    "venue": "Mercedes-Benz Stadium",
-    "city": "Atlanta"
+    "matchday": 1
   },
   {
-    "id": "WC-537335",
-    "apiId": 537335,
-    "stage": "group",
-    "datetime": "2026-06-18T19:00:00Z",
-    "home": "SUI",
-    "away": "BIH",
+    "id": "CL-552031",
+    "apiId": 552031,
+    "stage": "league",
+    "datetime": "2025-09-17T16:45:00Z",
+    "home": 654,
+    "away": 11034,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 1
+  },
+  {
+    "id": "CL-551936",
+    "apiId": 551936,
+    "stage": "league",
+    "datetime": "2025-09-17T19:00:00Z",
+    "home": 678,
+    "away": 108,
+    "score": {
+      "home": 0,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 1
+  },
+  {
+    "id": "CL-551946",
+    "apiId": 551946,
+    "stage": "league",
+    "datetime": "2025-09-17T19:00:00Z",
+    "home": 64,
+    "away": 78,
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1
+  },
+  {
+    "id": "CL-551959",
+    "apiId": 551959,
+    "stage": "league",
+    "datetime": "2025-09-17T19:00:00Z",
+    "home": 524,
+    "away": 102,
+    "score": {
+      "home": 4,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1
+  },
+  {
+    "id": "CL-551908",
+    "apiId": 551908,
+    "stage": "league",
+    "datetime": "2025-09-17T19:00:00Z",
+    "home": 5,
+    "away": 61,
+    "score": {
+      "home": 3,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1
+  },
+  {
+    "id": "CL-551975",
+    "apiId": 551975,
+    "stage": "league",
+    "datetime": "2025-09-18T16:45:00Z",
+    "home": 1876,
+    "away": 3,
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 1
+  },
+  {
+    "id": "CL-551995",
+    "apiId": 551995,
+    "stage": "league",
+    "datetime": "2025-09-18T16:45:00Z",
+    "home": 851,
+    "away": 548,
     "score": {
       "home": 4,
       "away": 1
     },
     "winner": "home",
     "status": "finished",
-    "group": "B",
-    "matchday": 2,
-    "venue": "SoFi Stadium",
-    "city": "Los Angeles"
+    "matchday": 1
   },
   {
-    "id": "WC-537336",
-    "apiId": 537336,
-    "stage": "group",
-    "datetime": "2026-06-18T22:00:00Z",
-    "home": "CAN",
-    "away": "QAT",
-    "score": {
-      "home": 6,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "B",
-    "matchday": 2,
-    "venue": "BC Place",
-    "city": "Vancouver"
-  },
-  {
-    "id": "WC-537330",
-    "apiId": 537330,
-    "stage": "group",
-    "datetime": "2026-06-19T01:00:00Z",
-    "home": "MEX",
-    "away": "KOR",
+    "id": "CL-551958",
+    "apiId": 551958,
+    "stage": "league",
+    "datetime": "2025-09-18T19:00:00Z",
+    "home": 67,
+    "away": 81,
     "score": {
       "home": 1,
-      "away": 0
+      "away": 2
     },
-    "winner": "home",
+    "winner": "away",
     "status": "finished",
-    "group": "A",
-    "matchday": 2,
-    "venue": "Estadio Akron",
-    "city": "Guadalajara"
+    "matchday": 1
   },
   {
-    "id": "WC-537348",
-    "apiId": 537348,
-    "stage": "group",
-    "datetime": "2026-06-19T19:00:00Z",
-    "home": "USA",
-    "away": "AUS",
+    "id": "CL-551965",
+    "apiId": 551965,
+    "stage": "league",
+    "datetime": "2025-09-18T19:00:00Z",
+    "home": 65,
+    "away": 113,
     "score": {
       "home": 2,
       "away": 0
     },
     "winner": "home",
     "status": "finished",
-    "group": "D",
-    "matchday": 2,
-    "venue": "Lumen Field",
-    "city": "Seattle"
+    "matchday": 1
   },
   {
-    "id": "WC-537342",
-    "apiId": 537342,
-    "stage": "group",
-    "datetime": "2026-06-19T22:00:00Z",
-    "home": "SCO",
-    "away": "MAR",
-    "score": {
-      "home": 0,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "C",
-    "matchday": 2,
-    "venue": "Gillette Stadium",
-    "city": "Boston"
-  },
-  {
-    "id": "WC-537341",
-    "apiId": 537341,
-    "stage": "group",
-    "datetime": "2026-06-20T00:30:00Z",
-    "home": "BRA",
-    "away": "HAI",
-    "score": {
-      "home": 3,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "C",
-    "matchday": 2,
-    "venue": "Lincoln Financial Field",
-    "city": "Philadelphia"
-  },
-  {
-    "id": "WC-537347",
-    "apiId": 537347,
-    "stage": "group",
-    "datetime": "2026-06-20T03:00:00Z",
-    "home": "TUR",
-    "away": "PAR",
-    "score": {
-      "home": 0,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "D",
-    "matchday": 2,
-    "venue": "Levi's Stadium",
-    "city": "San Francisco Bay Area"
-  },
-  {
-    "id": "WC-537359",
-    "apiId": 537359,
-    "stage": "group",
-    "datetime": "2026-06-20T17:00:00Z",
-    "home": "NED",
-    "away": "SWE",
+    "id": "CL-552000",
+    "apiId": 552000,
+    "stage": "league",
+    "datetime": "2025-09-18T19:00:00Z",
+    "home": 19,
+    "away": 610,
     "score": {
       "home": 5,
       "away": 1
     },
     "winner": "home",
     "status": "finished",
-    "group": "F",
-    "matchday": 2,
-    "venue": "NRG Stadium",
-    "city": "Houston"
+    "matchday": 1
   },
   {
-    "id": "WC-537353",
-    "apiId": 537353,
-    "stage": "group",
-    "datetime": "2026-06-20T20:00:00Z",
-    "home": "GER",
-    "away": "CIV",
+    "id": "CL-552027",
+    "apiId": 552027,
+    "stage": "league",
+    "datetime": "2025-09-18T19:00:00Z",
+    "home": 498,
+    "away": 10601,
+    "score": {
+      "home": 4,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1
+  },
+  {
+    "id": "CL-551982",
+    "apiId": 551982,
+    "stage": "league",
+    "datetime": "2025-09-30T16:45:00Z",
+    "home": 102,
+    "away": 851,
     "score": {
       "home": 2,
       "away": 1
     },
     "winner": "home",
     "status": "finished",
-    "group": "E",
-    "matchday": 2,
-    "venue": "BMO Field",
-    "city": "Toronto"
+    "matchday": 2
   },
   {
-    "id": "WC-537354",
-    "apiId": 537354,
-    "stage": "group",
-    "datetime": "2026-06-21T00:00:00Z",
-    "home": "ECU",
-    "away": "CUW",
+    "id": "CL-551930",
+    "apiId": 551930,
+    "stage": "league",
+    "datetime": "2025-09-30T16:45:00Z",
+    "home": 10601,
+    "away": 86,
     "score": {
       "home": 0,
-      "away": 0
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "E",
-    "matchday": 2,
-    "venue": "Arrowhead Stadium",
-    "city": "Kansas City"
-  },
-  {
-    "id": "WC-537360",
-    "apiId": 537360,
-    "stage": "group",
-    "datetime": "2026-06-21T04:00:00Z",
-    "home": "TUN",
-    "away": "JPN",
-    "score": {
-      "home": 0,
-      "away": 4
+      "away": 5
     },
     "winner": "away",
     "status": "finished",
-    "group": "F",
-    "matchday": 2,
-    "venue": "Estadio BBVA",
-    "city": "Monterrey"
+    "matchday": 2
   },
   {
-    "id": "WC-537371",
-    "apiId": 537371,
-    "stage": "group",
-    "datetime": "2026-06-21T16:00:00Z",
-    "home": "ESP",
-    "away": "KSA",
+    "id": "CL-551951",
+    "apiId": 551951,
+    "stage": "league",
+    "datetime": "2025-09-30T19:00:00Z",
+    "home": 610,
+    "away": 64,
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-551997",
+    "apiId": 551997,
+    "stage": "league",
+    "datetime": "2025-09-30T19:00:00Z",
+    "home": 78,
+    "away": 19,
+    "score": {
+      "home": 5,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-552015",
+    "apiId": 552015,
+    "stage": "league",
+    "datetime": "2025-09-30T19:00:00Z",
+    "home": 516,
+    "away": 678,
     "score": {
       "home": 4,
       "away": 0
     },
     "winner": "home",
     "status": "finished",
-    "group": "H",
-    "matchday": 2,
-    "venue": "Mercedes-Benz Stadium",
-    "city": "Atlanta"
+    "matchday": 2
   },
   {
-    "id": "WC-537365",
-    "apiId": 537365,
-    "stage": "group",
-    "datetime": "2026-06-21T19:00:00Z",
-    "home": "BEL",
-    "away": "IRN",
-    "score": {
-      "home": 0,
-      "away": 0
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "G",
-    "matchday": 2,
-    "venue": "SoFi Stadium",
-    "city": "Los Angeles"
-  },
-  {
-    "id": "WC-537372",
-    "apiId": 537372,
-    "stage": "group",
-    "datetime": "2026-06-21T22:00:00Z",
-    "home": "URY",
-    "away": "CPV",
+    "id": "CL-552020",
+    "apiId": 552020,
+    "stage": "league",
+    "datetime": "2025-09-30T19:00:00Z",
+    "home": 5721,
+    "away": 73,
     "score": {
       "home": 2,
       "away": 2
     },
     "winner": null,
     "status": "finished",
-    "group": "H",
-    "matchday": 2,
-    "venue": "Hard Rock Stadium",
-    "city": "Miami"
+    "matchday": 2
   },
   {
-    "id": "WC-537366",
-    "apiId": 537366,
-    "stage": "group",
-    "datetime": "2026-06-22T01:00:00Z",
-    "home": "NZL",
-    "away": "EGY",
-    "score": {
-      "home": 1,
-      "away": 3
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "G",
-    "matchday": 2,
-    "venue": "BC Place",
-    "city": "Vancouver"
-  },
-  {
-    "id": "WC-537399",
-    "apiId": 537399,
-    "stage": "group",
-    "datetime": "2026-06-22T17:00:00Z",
-    "home": "ARG",
-    "away": "AUT",
-    "score": {
-      "home": 2,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "J",
-    "matchday": 2,
-    "venue": "AT&T Stadium",
-    "city": "Dallas"
-  },
-  {
-    "id": "WC-537393",
-    "apiId": 537393,
-    "stage": "group",
-    "datetime": "2026-06-22T21:00:00Z",
-    "home": "FRA",
-    "away": "IRQ",
-    "score": {
-      "home": 3,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "I",
-    "matchday": 2,
-    "venue": "Lincoln Financial Field",
-    "city": "Philadelphia"
-  },
-  {
-    "id": "WC-537394",
-    "apiId": 537394,
-    "stage": "group",
-    "datetime": "2026-06-23T00:00:00Z",
-    "home": "NOR",
-    "away": "SEN",
-    "score": {
-      "home": 3,
-      "away": 2
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "I",
-    "matchday": 2,
-    "venue": "MetLife Stadium",
-    "city": "New York/New Jersey"
-  },
-  {
-    "id": "WC-537400",
-    "apiId": 537400,
-    "stage": "group",
-    "datetime": "2026-06-23T03:00:00Z",
-    "home": "JOR",
-    "away": "ALG",
-    "score": {
-      "home": 1,
-      "away": 2
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "J",
-    "matchday": 2,
-    "venue": "Levi's Stadium",
-    "city": "San Francisco Bay Area"
-  },
-  {
-    "id": "WC-537405",
-    "apiId": 537405,
-    "stage": "group",
-    "datetime": "2026-06-23T17:00:00Z",
-    "home": "POR",
-    "away": "UZB",
-    "score": {
-      "home": 5,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "K",
-    "matchday": 2,
-    "venue": "NRG Stadium",
-    "city": "Houston"
-  },
-  {
-    "id": "WC-537411",
-    "apiId": 537411,
-    "stage": "group",
-    "datetime": "2026-06-23T20:00:00Z",
-    "home": "ENG",
-    "away": "GHA",
-    "score": {
-      "home": 0,
-      "away": 0
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "L",
-    "matchday": 2,
-    "venue": "Gillette Stadium",
-    "city": "Boston"
-  },
-  {
-    "id": "WC-537412",
-    "apiId": 537412,
-    "stage": "group",
-    "datetime": "2026-06-23T23:00:00Z",
-    "home": "PAN",
-    "away": "CRO",
-    "score": {
-      "home": 0,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "L",
-    "matchday": 2,
-    "venue": "BMO Field",
-    "city": "Toronto"
-  },
-  {
-    "id": "WC-537406",
-    "apiId": 537406,
-    "stage": "group",
-    "datetime": "2026-06-24T02:00:00Z",
-    "home": "COL",
-    "away": "COD",
-    "score": {
-      "home": 1,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "K",
-    "matchday": 2,
-    "venue": "Estadio Akron",
-    "city": "Guadalajara"
-  },
-  {
-    "id": "WC-537337",
-    "apiId": 537337,
-    "stage": "group",
-    "datetime": "2026-06-24T19:00:00Z",
-    "home": "SUI",
-    "away": "CAN",
-    "score": {
-      "home": 2,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "B",
-    "matchday": 3,
-    "venue": "BC Place",
-    "city": "Vancouver"
-  },
-  {
-    "id": "WC-537338",
-    "apiId": 537338,
-    "stage": "group",
-    "datetime": "2026-06-24T19:00:00Z",
-    "home": "BIH",
-    "away": "QAT",
-    "score": {
-      "home": 3,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "B",
-    "matchday": 3,
-    "venue": "Lumen Field",
-    "city": "Seattle"
-  },
-  {
-    "id": "WC-537344",
-    "apiId": 537344,
-    "stage": "group",
-    "datetime": "2026-06-24T22:00:00Z",
-    "home": "MAR",
-    "away": "HAI",
-    "score": {
-      "home": 4,
-      "away": 2
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "C",
-    "matchday": 3,
-    "venue": "Mercedes-Benz Stadium",
-    "city": "Atlanta"
-  },
-  {
-    "id": "WC-537343",
-    "apiId": 537343,
-    "stage": "group",
-    "datetime": "2026-06-24T22:00:00Z",
-    "home": "SCO",
-    "away": "BRA",
-    "score": {
-      "home": 0,
-      "away": 3
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "C",
-    "matchday": 3,
-    "venue": "Hard Rock Stadium",
-    "city": "Miami"
-  },
-  {
-    "id": "WC-537331",
-    "apiId": 537331,
-    "stage": "group",
-    "datetime": "2026-06-25T01:00:00Z",
-    "home": "CZE",
-    "away": "MEX",
-    "score": {
-      "home": 0,
-      "away": 3
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "A",
-    "matchday": 3,
-    "venue": "Estadio Azteca",
-    "city": "Mexico City"
-  },
-  {
-    "id": "WC-537332",
-    "apiId": 537332,
-    "stage": "group",
-    "datetime": "2026-06-25T01:00:00Z",
-    "home": "RSA",
-    "away": "KOR",
-    "score": {
-      "home": 1,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "A",
-    "matchday": 3,
-    "venue": "Estadio BBVA",
-    "city": "Monterrey"
-  },
-  {
-    "id": "WC-537355",
-    "apiId": 537355,
-    "stage": "group",
-    "datetime": "2026-06-25T20:00:00Z",
-    "home": "ECU",
-    "away": "GER",
-    "score": {
-      "home": 2,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "E",
-    "matchday": 3,
-    "venue": "MetLife Stadium",
-    "city": "New York/New Jersey"
-  },
-  {
-    "id": "WC-537356",
-    "apiId": 537356,
-    "stage": "group",
-    "datetime": "2026-06-25T20:00:00Z",
-    "home": "CUW",
-    "away": "CIV",
-    "score": {
-      "home": 0,
-      "away": 2
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "E",
-    "matchday": 3,
-    "venue": "Lincoln Financial Field",
-    "city": "Philadelphia"
-  },
-  {
-    "id": "WC-537361",
-    "apiId": 537361,
-    "stage": "group",
-    "datetime": "2026-06-25T23:00:00Z",
-    "home": "TUN",
-    "away": "NED",
-    "score": {
-      "home": 1,
-      "away": 3
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "F",
-    "matchday": 3,
-    "venue": "Arrowhead Stadium",
-    "city": "Kansas City"
-  },
-  {
-    "id": "WC-537362",
-    "apiId": 537362,
-    "stage": "group",
-    "datetime": "2026-06-25T23:00:00Z",
-    "home": "JPN",
-    "away": "SWE",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "F",
-    "matchday": 3,
-    "venue": "AT&T Stadium",
-    "city": "Dallas"
-  },
-  {
-    "id": "WC-537349",
-    "apiId": 537349,
-    "stage": "group",
-    "datetime": "2026-06-26T02:00:00Z",
-    "home": "TUR",
-    "away": "USA",
-    "score": {
-      "home": 3,
-      "away": 2
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "D",
-    "matchday": 3,
-    "venue": "SoFi Stadium",
-    "city": "Los Angeles"
-  },
-  {
-    "id": "WC-537350",
-    "apiId": 537350,
-    "stage": "group",
-    "datetime": "2026-06-26T02:00:00Z",
-    "home": "PAR",
-    "away": "AUS",
-    "score": {
-      "home": 0,
-      "away": 0
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "D",
-    "matchday": 3,
-    "venue": "Levi's Stadium",
-    "city": "San Francisco Bay Area"
-  },
-  {
-    "id": "WC-537395",
-    "apiId": 537395,
-    "stage": "group",
-    "datetime": "2026-06-26T19:00:00Z",
-    "home": "NOR",
-    "away": "FRA",
-    "score": {
-      "home": 1,
-      "away": 4
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "I",
-    "matchday": 3,
-    "venue": "Gillette Stadium",
-    "city": "Boston"
-  },
-  {
-    "id": "WC-537396",
-    "apiId": 537396,
-    "stage": "group",
-    "datetime": "2026-06-26T19:00:00Z",
-    "home": "SEN",
-    "away": "IRQ",
-    "score": {
-      "home": 5,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "I",
-    "matchday": 3,
-    "venue": "BMO Field",
-    "city": "Toronto"
-  },
-  {
-    "id": "WC-537373",
-    "apiId": 537373,
-    "stage": "group",
-    "datetime": "2026-06-27T00:00:00Z",
-    "home": "URY",
-    "away": "ESP",
-    "score": {
-      "home": 0,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "H",
-    "matchday": 3,
-    "venue": "Estadio Akron",
-    "city": "Guadalajara"
-  },
-  {
-    "id": "WC-537374",
-    "apiId": 537374,
-    "stage": "group",
-    "datetime": "2026-06-27T00:00:00Z",
-    "home": "CPV",
-    "away": "KSA",
-    "score": {
-      "home": 0,
-      "away": 0
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "H",
-    "matchday": 3,
-    "venue": "NRG Stadium",
-    "city": "Houston"
-  },
-  {
-    "id": "WC-537367",
-    "apiId": 537367,
-    "stage": "group",
-    "datetime": "2026-06-27T03:00:00Z",
-    "home": "NZL",
-    "away": "BEL",
+    "id": "CL-551915",
+    "apiId": 551915,
+    "stage": "league",
+    "datetime": "2025-09-30T19:00:00Z",
+    "home": 11034,
+    "away": 5,
     "score": {
       "home": 1,
       "away": 5
     },
     "winner": "away",
     "status": "finished",
-    "group": "G",
-    "matchday": 3,
-    "venue": "BC Place",
-    "city": "Vancouver"
+    "matchday": 2
   },
   {
-    "id": "WC-537368",
-    "apiId": 537368,
-    "stage": "group",
-    "datetime": "2026-06-27T03:00:00Z",
-    "home": "EGY",
-    "away": "IRN",
+    "id": "CL-551917",
+    "apiId": 551917,
+    "stage": "league",
+    "datetime": "2025-09-30T19:00:00Z",
+    "home": 61,
+    "away": 1903,
     "score": {
       "home": 1,
-      "away": 1
+      "away": 0
     },
-    "winner": null,
+    "winner": "home",
     "status": "finished",
-    "group": "G",
-    "matchday": 3,
-    "venue": "Lumen Field",
-    "city": "Seattle"
+    "matchday": 2
   },
   {
-    "id": "WC-537413",
-    "apiId": 537413,
-    "stage": "group",
-    "datetime": "2026-06-27T21:00:00Z",
-    "home": "PAN",
-    "away": "ENG",
+    "id": "CL-551935",
+    "apiId": 551935,
+    "stage": "league",
+    "datetime": "2025-09-30T19:00:00Z",
+    "home": 108,
+    "away": 930,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-552039",
+    "apiId": 552039,
+    "stage": "league",
+    "datetime": "2025-10-01T16:45:00Z",
+    "home": 611,
+    "away": 1876,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-552044",
+    "apiId": 552044,
+    "stage": "league",
+    "datetime": "2025-10-01T16:45:00Z",
+    "home": 3929,
+    "away": 67,
     "score": {
       "home": 0,
-      "away": 2
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "L",
-    "matchday": 3,
-    "venue": "MetLife Stadium",
-    "city": "New York/New Jersey"
-  },
-  {
-    "id": "WC-537414",
-    "apiId": 537414,
-    "stage": "group",
-    "datetime": "2026-06-27T21:00:00Z",
-    "home": "CRO",
-    "away": "GHA",
-    "score": {
-      "home": 2,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "L",
-    "matchday": 3,
-    "venue": "Lincoln Financial Field",
-    "city": "Philadelphia"
-  },
-  {
-    "id": "WC-537407",
-    "apiId": 537407,
-    "stage": "group",
-    "datetime": "2026-06-27T23:30:00Z",
-    "home": "COL",
-    "away": "POR",
-    "score": {
-      "home": 0,
-      "away": 0
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "K",
-    "matchday": 3,
-    "venue": "Hard Rock Stadium",
-    "city": "Miami"
-  },
-  {
-    "id": "WC-537408",
-    "apiId": 537408,
-    "stage": "group",
-    "datetime": "2026-06-27T23:30:00Z",
-    "home": "COD",
-    "away": "UZB",
-    "score": {
-      "home": 3,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "group": "K",
-    "matchday": 3,
-    "venue": "Mercedes-Benz Stadium",
-    "city": "Atlanta"
-  },
-  {
-    "id": "WC-537401",
-    "apiId": 537401,
-    "stage": "group",
-    "datetime": "2026-06-28T02:00:00Z",
-    "home": "JOR",
-    "away": "ARG",
-    "score": {
-      "home": 1,
-      "away": 3
-    },
-    "winner": "away",
-    "status": "finished",
-    "group": "J",
-    "matchday": 3,
-    "venue": "AT&T Stadium",
-    "city": "Dallas"
-  },
-  {
-    "id": "WC-537402",
-    "apiId": 537402,
-    "stage": "group",
-    "datetime": "2026-06-28T02:00:00Z",
-    "home": "ALG",
-    "away": "AUT",
-    "score": {
-      "home": 3,
-      "away": 3
-    },
-    "winner": null,
-    "status": "finished",
-    "group": "J",
-    "matchday": 3,
-    "venue": "Arrowhead Stadium",
-    "city": "Kansas City"
-  },
-  {
-    "id": "WC-537417",
-    "apiId": 537417,
-    "stage": "r32",
-    "datetime": "2026-06-28T19:00:00Z",
-    "home": "RSA",
-    "away": "CAN",
-    "score": {
-      "home": 0,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "SoFi Stadium",
-    "city": "Los Angeles",
-    "matchNumber": 73,
-    "homeLabel": "2A",
-    "awayLabel": "2B"
-  },
-  {
-    "id": "WC-537423",
-    "apiId": 537423,
-    "stage": "r32",
-    "datetime": "2026-06-29T17:00:00Z",
-    "home": "BRA",
-    "away": "JPN",
-    "score": {
-      "home": 2,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "NRG Stadium",
-    "city": "Houston",
-    "matchNumber": 76,
-    "homeLabel": "1C",
-    "awayLabel": "2F"
-  },
-  {
-    "id": "WC-537415",
-    "apiId": 537415,
-    "stage": "r32",
-    "datetime": "2026-06-29T20:30:00Z",
-    "home": "GER",
-    "away": "PAR",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "penalties": {
-      "home": 3,
-      "away": 4
-    },
-    "venue": "Gillette Stadium",
-    "city": "Boston",
-    "matchNumber": 74,
-    "homeLabel": "1E",
-    "awayLabel": "3:A/B/C/D/F"
-  },
-  {
-    "id": "WC-537418",
-    "apiId": 537418,
-    "stage": "r32",
-    "datetime": "2026-06-30T01:00:00Z",
-    "home": "NED",
-    "away": "MAR",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "penalties": {
-      "home": 2,
-      "away": 3
-    },
-    "venue": "Estadio BBVA",
-    "city": "Monterrey",
-    "matchNumber": 75,
-    "homeLabel": "1F",
-    "awayLabel": "2C"
-  },
-  {
-    "id": "WC-537424",
-    "apiId": 537424,
-    "stage": "r32",
-    "datetime": "2026-06-30T17:00:00Z",
-    "home": "CIV",
-    "away": "NOR",
-    "score": {
-      "home": 1,
-      "away": 2
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "AT&T Stadium",
-    "city": "Dallas",
-    "matchNumber": 78,
-    "homeLabel": "2E",
-    "awayLabel": "2I"
-  },
-  {
-    "id": "WC-537416",
-    "apiId": 537416,
-    "stage": "r32",
-    "datetime": "2026-06-30T21:00:00Z",
-    "home": "FRA",
-    "away": "SWE",
-    "score": {
-      "home": 3,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "MetLife Stadium",
-    "city": "New York/New Jersey",
-    "matchNumber": 77,
-    "homeLabel": "1I",
-    "awayLabel": "3:C/D/F/G/H"
-  },
-  {
-    "id": "WC-537425",
-    "apiId": 537425,
-    "stage": "r32",
-    "datetime": "2026-07-01T02:00:00Z",
-    "home": "MEX",
-    "away": "ECU",
-    "score": {
-      "home": 2,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "Estadio Azteca",
-    "city": "Mexico City",
-    "matchNumber": 79,
-    "homeLabel": "1A",
-    "awayLabel": "3:C/E/F/H/I"
-  },
-  {
-    "id": "WC-537426",
-    "apiId": 537426,
-    "stage": "r32",
-    "datetime": "2026-07-01T16:00:00Z",
-    "home": "ENG",
-    "away": "COD",
-    "score": {
-      "home": 2,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "Mercedes-Benz Stadium",
-    "city": "Atlanta",
-    "matchNumber": 80,
-    "homeLabel": "1L",
-    "awayLabel": "3:E/H/I/J/K"
-  },
-  {
-    "id": "WC-537422",
-    "apiId": 537422,
-    "stage": "r32",
-    "datetime": "2026-07-01T20:00:00Z",
-    "home": "BEL",
-    "away": "SEN",
-    "score": {
-      "home": 3,
-      "away": 2
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "Lumen Field",
-    "city": "Seattle",
-    "matchNumber": 82,
-    "homeLabel": "1G",
-    "awayLabel": "3:A/E/H/I/J"
-  },
-  {
-    "id": "WC-537421",
-    "apiId": 537421,
-    "stage": "r32",
-    "datetime": "2026-07-02T00:00:00Z",
-    "home": "USA",
-    "away": "BIH",
-    "score": {
-      "home": 2,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "Levi's Stadium",
-    "city": "San Francisco Bay Area",
-    "matchNumber": 81,
-    "homeLabel": "1D",
-    "awayLabel": "3:B/E/F/I/J"
-  },
-  {
-    "id": "WC-537420",
-    "apiId": 537420,
-    "stage": "r32",
-    "datetime": "2026-07-02T19:00:00Z",
-    "home": "ESP",
-    "away": "AUT",
-    "score": {
-      "home": 3,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "SoFi Stadium",
-    "city": "Los Angeles",
-    "matchNumber": 84,
-    "homeLabel": "1H",
-    "awayLabel": "2J"
-  },
-  {
-    "id": "WC-537419",
-    "apiId": 537419,
-    "stage": "r32",
-    "datetime": "2026-07-02T23:00:00Z",
-    "home": "POR",
-    "away": "CRO",
-    "score": {
-      "home": 2,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "BMO Field",
-    "city": "Toronto",
-    "matchNumber": 83,
-    "homeLabel": "2K",
-    "awayLabel": "2L"
-  },
-  {
-    "id": "WC-537429",
-    "apiId": 537429,
-    "stage": "r32",
-    "datetime": "2026-07-03T03:00:00Z",
-    "home": "SUI",
-    "away": "ALG",
-    "score": {
-      "home": 2,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "BC Place",
-    "city": "Vancouver",
-    "matchNumber": 85,
-    "homeLabel": "1B",
-    "awayLabel": "3:E/F/G/I/J"
-  },
-  {
-    "id": "WC-537428",
-    "apiId": 537428,
-    "stage": "r32",
-    "datetime": "2026-07-03T18:00:00Z",
-    "home": "AUS",
-    "away": "EGY",
-    "score": {
-      "home": 1,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "penalties": {
-      "home": 2,
-      "away": 4
-    },
-    "venue": "AT&T Stadium",
-    "city": "Dallas",
-    "matchNumber": 88,
-    "homeLabel": "2D",
-    "awayLabel": "2G"
-  },
-  {
-    "id": "WC-537427",
-    "apiId": 537427,
-    "stage": "r32",
-    "datetime": "2026-07-03T22:00:00Z",
-    "home": "ARG",
-    "away": "CPV",
-    "score": {
-      "home": 3,
-      "away": 2
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "Hard Rock Stadium",
-    "city": "Miami",
-    "matchNumber": 86,
-    "homeLabel": "1J",
-    "awayLabel": "2H"
-  },
-  {
-    "id": "WC-537430",
-    "apiId": 537430,
-    "stage": "r32",
-    "datetime": "2026-07-04T01:30:00Z",
-    "home": "COL",
-    "away": "GHA",
-    "score": {
-      "home": 1,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "Arrowhead Stadium",
-    "city": "Kansas City",
-    "matchNumber": 87,
-    "homeLabel": "1K",
-    "awayLabel": "3:D/E/I/J/L"
-  },
-  {
-    "id": "WC-537376",
-    "apiId": 537376,
-    "stage": "r16",
-    "datetime": "2026-07-04T17:00:00Z",
-    "home": "CAN",
-    "away": "MAR",
-    "score": {
-      "home": 0,
-      "away": 3
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "NRG Stadium",
-    "city": "Houston",
-    "matchNumber": 90,
-    "homeLabel": "W73",
-    "awayLabel": "W75"
-  },
-  {
-    "id": "WC-537375",
-    "apiId": 537375,
-    "stage": "r16",
-    "datetime": "2026-07-04T21:00:00Z",
-    "home": "PAR",
-    "away": "FRA",
-    "score": {
-      "home": 0,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "Lincoln Financial Field",
-    "city": "Philadelphia",
-    "matchNumber": 89,
-    "homeLabel": "W74",
-    "awayLabel": "W77"
-  },
-  {
-    "id": "WC-537377",
-    "apiId": 537377,
-    "stage": "r16",
-    "datetime": "2026-07-05T20:00:00Z",
-    "home": "BRA",
-    "away": "NOR",
-    "score": {
-      "home": 1,
-      "away": 2
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "MetLife Stadium",
-    "city": "New York/New Jersey",
-    "matchNumber": 91,
-    "homeLabel": "W76",
-    "awayLabel": "W78"
-  },
-  {
-    "id": "WC-537378",
-    "apiId": 537378,
-    "stage": "r16",
-    "datetime": "2026-07-06T01:00:00Z",
-    "home": "MEX",
-    "away": "ENG",
-    "score": {
-      "home": 2,
-      "away": 3
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "Estadio Azteca",
-    "city": "Mexico City",
-    "matchNumber": 92,
-    "homeLabel": "W79",
-    "awayLabel": "W80"
-  },
-  {
-    "id": "WC-537379",
-    "apiId": 537379,
-    "stage": "r16",
-    "datetime": "2026-07-06T19:00:00Z",
-    "home": "POR",
-    "away": "ESP",
-    "score": {
-      "home": 0,
-      "away": 1
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "AT&T Stadium",
-    "city": "Dallas",
-    "matchNumber": 93,
-    "homeLabel": "W83",
-    "awayLabel": "W84"
-  },
-  {
-    "id": "WC-537380",
-    "apiId": 537380,
-    "stage": "r16",
-    "datetime": "2026-07-07T00:00:00Z",
-    "home": "USA",
-    "away": "BEL",
-    "score": {
-      "home": 1,
       "away": 4
     },
     "winner": "away",
     "status": "finished",
-    "venue": "Lumen Field",
-    "city": "Seattle",
-    "matchNumber": 94,
-    "homeLabel": "W81",
-    "awayLabel": "W82"
+    "matchday": 2
   },
   {
-    "id": "WC-537381",
-    "apiId": 537381,
-    "stage": "r16",
-    "datetime": "2026-07-07T16:00:00Z",
-    "home": "ARG",
-    "away": "EGY",
-    "score": {
-      "home": 3,
-      "away": 2
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "Mercedes-Benz Stadium",
-    "city": "Atlanta",
-    "matchNumber": 95,
-    "homeLabel": "W86",
-    "awayLabel": "W88"
-  },
-  {
-    "id": "WC-537382",
-    "apiId": 537382,
-    "stage": "r16",
-    "datetime": "2026-07-07T20:00:00Z",
-    "home": "SUI",
-    "away": "COL",
-    "score": {
-      "home": 0,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "penalties": {
-      "home": 4,
-      "away": 3
-    },
-    "venue": "BC Place",
-    "city": "Vancouver",
-    "matchNumber": 96,
-    "homeLabel": "W85",
-    "awayLabel": "W87"
-  },
-  {
-    "id": "WC-537383",
-    "apiId": 537383,
-    "stage": "qf",
-    "datetime": "2026-07-09T20:00:00Z",
-    "home": "FRA",
-    "away": "MAR",
-    "score": {
-      "home": 2,
-      "away": 0
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "Gillette Stadium",
-    "city": "Boston",
-    "matchNumber": 97,
-    "homeLabel": "W89",
-    "awayLabel": "W90"
-  },
-  {
-    "id": "WC-537384",
-    "apiId": 537384,
-    "stage": "qf",
-    "datetime": "2026-07-10T19:00:00Z",
-    "home": "ESP",
-    "away": "BEL",
-    "score": {
-      "home": 2,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "SoFi Stadium",
-    "city": "Los Angeles",
-    "matchNumber": 98,
-    "homeLabel": "W93",
-    "awayLabel": "W94"
-  },
-  {
-    "id": "WC-537385",
-    "apiId": 537385,
-    "stage": "qf",
-    "datetime": "2026-07-11T21:00:00Z",
-    "home": "NOR",
-    "away": "ENG",
-    "score": {
-      "home": 1,
-      "away": 2
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "Hard Rock Stadium",
-    "city": "Miami",
-    "matchNumber": 99,
-    "homeLabel": "W91",
-    "awayLabel": "W92"
-  },
-  {
-    "id": "WC-537386",
-    "apiId": 537386,
-    "stage": "qf",
-    "datetime": "2026-07-12T01:00:00Z",
-    "home": "ARG",
-    "away": "SUI",
-    "score": {
-      "home": 3,
-      "away": 1
-    },
-    "winner": "home",
-    "status": "finished",
-    "venue": "Arrowhead Stadium",
-    "city": "Kansas City",
-    "matchNumber": 100,
-    "homeLabel": "W95",
-    "awayLabel": "W96"
-  },
-  {
-    "id": "WC-537387",
-    "apiId": 537387,
-    "stage": "sf",
-    "datetime": "2026-07-14T19:00:00Z",
-    "home": "FRA",
-    "away": "ESP",
-    "score": {
-      "home": 0,
-      "away": 2
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "AT&T Stadium",
-    "city": "Dallas",
-    "matchNumber": 101,
-    "homeLabel": "W97",
-    "awayLabel": "W98"
-  },
-  {
-    "id": "WC-537388",
-    "apiId": 537388,
-    "stage": "sf",
-    "datetime": "2026-07-15T19:00:00Z",
-    "home": "ENG",
-    "away": "ARG",
-    "score": {
-      "home": 1,
-      "away": 2
-    },
-    "winner": "away",
-    "status": "finished",
-    "venue": "Mercedes-Benz Stadium",
-    "city": "Atlanta",
-    "matchNumber": 102,
-    "homeLabel": "W99",
-    "awayLabel": "W100"
-  },
-  {
-    "id": "WC-537389",
-    "apiId": 537389,
-    "stage": "third",
-    "datetime": "2026-07-18T21:00:00Z",
-    "home": "FRA",
-    "away": "ENG",
+    "id": "CL-551944",
+    "apiId": 551944,
+    "stage": "league",
+    "datetime": "2025-10-01T19:00:00Z",
+    "home": 4,
+    "away": 77,
     "score": {
       "home": 4,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-551952",
+    "apiId": 551952,
+    "stage": "league",
+    "datetime": "2025-10-01T19:00:00Z",
+    "home": 81,
+    "away": 524,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-551968",
+    "apiId": 551968,
+    "stage": "league",
+    "datetime": "2025-10-01T19:00:00Z",
+    "home": 548,
+    "away": 65,
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-551972",
+    "apiId": 551972,
+    "stage": "league",
+    "datetime": "2025-10-01T19:00:00Z",
+    "home": 3,
+    "away": 674,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-551978",
+    "apiId": 551978,
+    "stage": "league",
+    "datetime": "2025-10-01T19:00:00Z",
+    "home": 57,
+    "away": 654,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-552002",
+    "apiId": 552002,
+    "stage": "league",
+    "datetime": "2025-10-01T19:00:00Z",
+    "home": 94,
+    "away": 109,
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-552026",
+    "apiId": 552026,
+    "stage": "league",
+    "datetime": "2025-10-01T19:00:00Z",
+    "home": 113,
+    "away": 498,
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2
+  },
+  {
+    "id": "CL-551955",
+    "apiId": 551955,
+    "stage": "league",
+    "datetime": "2025-10-21T16:45:00Z",
+    "home": 81,
+    "away": 654,
+    "score": {
+      "home": 6,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-552045",
+    "apiId": 552045,
+    "stage": "league",
+    "datetime": "2025-10-21T16:45:00Z",
+    "home": 10601,
+    "away": 11034,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551938",
+    "apiId": 551938,
+    "stage": "league",
+    "datetime": "2025-10-21T19:00:00Z",
+    "home": 3929,
+    "away": 108,
+    "score": {
+      "home": 0,
+      "away": 4
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551945",
+    "apiId": 551945,
+    "stage": "league",
+    "datetime": "2025-10-21T19:00:00Z",
+    "home": 1876,
+    "away": 4,
+    "score": {
+      "home": 2,
+      "away": 4
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551960",
+    "apiId": 551960,
+    "stage": "league",
+    "datetime": "2025-10-21T19:00:00Z",
+    "home": 3,
+    "away": 524,
+    "score": {
+      "home": 2,
+      "away": 7
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551964",
+    "apiId": 551964,
+    "stage": "league",
+    "datetime": "2025-10-21T19:00:00Z",
+    "home": 94,
+    "away": 65,
+    "score": {
+      "home": 0,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551976",
+    "apiId": 551976,
+    "stage": "league",
+    "datetime": "2025-10-21T19:00:00Z",
+    "home": 57,
+    "away": 78,
+    "score": {
+      "home": 4,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551992",
+    "apiId": 551992,
+    "stage": "league",
+    "datetime": "2025-10-21T19:00:00Z",
+    "home": 67,
+    "away": 1903,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-552048",
+    "apiId": 552048,
+    "stage": "league",
+    "datetime": "2025-10-21T19:00:00Z",
+    "home": 674,
+    "away": 113,
+    "score": {
+      "home": 6,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-552025",
+    "apiId": 552025,
+    "stage": "league",
+    "datetime": "2025-10-22T16:45:00Z",
+    "home": 610,
+    "away": 5721,
+    "score": {
+      "home": 3,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-552040",
+    "apiId": 552040,
+    "stage": "league",
+    "datetime": "2025-10-22T16:45:00Z",
+    "home": 77,
+    "away": 611,
+    "score": {
+      "home": 3,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551947",
+    "apiId": 551947,
+    "stage": "league",
+    "datetime": "2025-10-22T19:00:00Z",
+    "home": 19,
+    "away": 64,
+    "score": {
+      "home": 1,
+      "away": 5
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551984",
+    "apiId": 551984,
+    "stage": "league",
+    "datetime": "2025-10-22T19:00:00Z",
+    "home": 102,
+    "away": 930,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-552016",
+    "apiId": 552016,
+    "stage": "league",
+    "datetime": "2025-10-22T19:00:00Z",
+    "home": 498,
+    "away": 516,
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-552022",
+    "apiId": 552022,
+    "stage": "league",
+    "datetime": "2025-10-22T19:00:00Z",
+    "home": 548,
+    "away": 73,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551910",
+    "apiId": 551910,
+    "stage": "league",
+    "datetime": "2025-10-22T19:00:00Z",
+    "home": 5,
+    "away": 851,
+    "score": {
+      "home": 4,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551919",
+    "apiId": 551919,
+    "stage": "league",
+    "datetime": "2025-10-22T19:00:00Z",
+    "home": 61,
+    "away": 678,
+    "score": {
+      "home": 5,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551925",
+    "apiId": 551925,
+    "stage": "league",
+    "datetime": "2025-10-22T19:00:00Z",
+    "home": 86,
+    "away": 109,
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 3
+  },
+  {
+    "id": "CL-551979",
+    "apiId": 551979,
+    "stage": "league",
+    "datetime": "2025-11-04T17:45:00Z",
+    "home": 930,
+    "away": 57,
+    "score": {
+      "home": 0,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551999",
+    "apiId": 551999,
+    "stage": "league",
+    "datetime": "2025-11-04T17:45:00Z",
+    "home": 113,
+    "away": 19,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-552003",
+    "apiId": 552003,
+    "stage": "league",
+    "datetime": "2025-11-04T20:00:00Z",
+    "home": 109,
+    "away": 498,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-552009",
+    "apiId": 552009,
+    "stage": "league",
+    "datetime": "2025-11-04T20:00:00Z",
+    "home": 78,
+    "away": 3929,
+    "score": {
+      "home": 3,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-552021",
+    "apiId": 552021,
+    "stage": "league",
+    "datetime": "2025-11-04T20:00:00Z",
+    "home": 73,
+    "away": 1876,
+    "score": {
+      "home": 4,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-552024",
+    "apiId": 552024,
+    "stage": "league",
+    "datetime": "2025-11-04T20:00:00Z",
+    "home": 5721,
+    "away": 548,
+    "score": {
+      "home": 0,
+      "away": 1
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-552029",
+    "apiId": 552029,
+    "stage": "league",
+    "datetime": "2025-11-04T20:00:00Z",
+    "home": 654,
+    "away": 674,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551909",
+    "apiId": 551909,
+    "stage": "league",
+    "datetime": "2025-11-04T20:00:00Z",
+    "home": 524,
+    "away": 5,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551924",
+    "apiId": 551924,
+    "stage": "league",
+    "datetime": "2025-11-04T20:00:00Z",
+    "home": 64,
+    "away": 86,
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-552014",
+    "apiId": 552014,
+    "stage": "league",
+    "datetime": "2025-11-05T17:45:00Z",
+    "home": 11034,
+    "away": 94,
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551922",
+    "apiId": 551922,
+    "stage": "league",
+    "datetime": "2025-11-05T17:45:00Z",
+    "home": 611,
+    "away": 61,
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551937",
+    "apiId": 551937,
+    "stage": "league",
+    "datetime": "2025-11-05T20:00:00Z",
+    "home": 108,
+    "away": 10601,
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551939",
+    "apiId": 551939,
+    "stage": "league",
+    "datetime": "2025-11-05T20:00:00Z",
+    "home": 65,
+    "away": 4,
+    "score": {
+      "home": 4,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551954",
+    "apiId": 551954,
+    "stage": "league",
+    "datetime": "2025-11-05T20:00:00Z",
+    "home": 851,
+    "away": 81,
+    "score": {
+      "home": 3,
+      "away": 3
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551971",
+    "apiId": 551971,
+    "stage": "league",
+    "datetime": "2025-11-05T20:00:00Z",
+    "home": 1903,
+    "away": 3,
+    "score": {
+      "home": 0,
+      "away": 1
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551985",
+    "apiId": 551985,
+    "stage": "league",
+    "datetime": "2025-11-05T20:00:00Z",
+    "home": 516,
+    "away": 102,
+    "score": {
+      "home": 0,
+      "away": 1
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-552033",
+    "apiId": 552033,
+    "stage": "league",
+    "datetime": "2025-11-05T20:00:00Z",
+    "home": 678,
+    "away": 610,
+    "score": {
+      "home": 0,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-552047",
+    "apiId": 552047,
+    "stage": "league",
+    "datetime": "2025-11-05T20:00:00Z",
+    "home": 67,
+    "away": 77,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 4
+  },
+  {
+    "id": "CL-551990",
+    "apiId": 551990,
+    "stage": "league",
+    "datetime": "2025-11-25T17:45:00Z",
+    "home": 678,
+    "away": 1903,
+    "score": {
+      "home": 0,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-552043",
+    "apiId": 552043,
+    "stage": "league",
+    "datetime": "2025-11-25T17:45:00Z",
+    "home": 610,
+    "away": 3929,
+    "score": {
+      "home": 0,
+      "away": 1
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551940",
+    "apiId": 551940,
+    "stage": "league",
+    "datetime": "2025-11-25T20:00:00Z",
+    "home": 4,
+    "away": 94,
+    "score": {
+      "home": 4,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551963",
+    "apiId": 551963,
+    "stage": "league",
+    "datetime": "2025-11-25T20:00:00Z",
+    "home": 65,
+    "away": 3,
+    "score": {
+      "home": 0,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-552004",
+    "apiId": 552004,
+    "stage": "league",
+    "datetime": "2025-11-25T20:00:00Z",
+    "home": 5721,
+    "away": 109,
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-552017",
+    "apiId": 552017,
+    "stage": "league",
+    "datetime": "2025-11-25T20:00:00Z",
+    "home": 516,
+    "away": 67,
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-552035",
+    "apiId": 552035,
+    "stage": "league",
+    "datetime": "2025-11-25T20:00:00Z",
+    "home": 930,
+    "away": 77,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-552037",
+    "apiId": 552037,
+    "stage": "league",
+    "datetime": "2025-11-25T20:00:00Z",
+    "home": 113,
+    "away": 611,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551916",
+    "apiId": 551916,
+    "stage": "league",
+    "datetime": "2025-11-25T20:00:00Z",
+    "home": 61,
+    "away": 81,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-552042",
+    "apiId": 552042,
+    "stage": "league",
+    "datetime": "2025-11-26T17:45:00Z",
+    "home": 11034,
+    "away": 548,
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-552046",
+    "apiId": 552046,
+    "stage": "league",
+    "datetime": "2025-11-26T17:45:00Z",
+    "home": 1876,
+    "away": 10601,
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551948",
+    "apiId": 551948,
+    "stage": "league",
+    "datetime": "2025-11-26T20:00:00Z",
+    "home": 64,
+    "away": 674,
+    "score": {
+      "home": 1,
+      "away": 4
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551961",
+    "apiId": 551961,
+    "stage": "league",
+    "datetime": "2025-11-26T20:00:00Z",
+    "home": 524,
+    "away": 73,
+    "score": {
+      "home": 5,
+      "away": 3
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551983",
+    "apiId": 551983,
+    "stage": "league",
+    "datetime": "2025-11-26T20:00:00Z",
+    "home": 19,
+    "away": 102,
+    "score": {
+      "home": 0,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551994",
+    "apiId": 551994,
+    "stage": "league",
+    "datetime": "2025-11-26T20:00:00Z",
+    "home": 498,
+    "away": 851,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551911",
+    "apiId": 551911,
+    "stage": "league",
+    "datetime": "2025-11-26T20:00:00Z",
+    "home": 57,
+    "away": 5,
+    "score": {
+      "home": 3,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551928",
+    "apiId": 551928,
+    "stage": "league",
+    "datetime": "2025-11-26T20:00:00Z",
+    "home": 654,
+    "away": 86,
+    "score": {
+      "home": 3,
+      "away": 4
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-551934",
+    "apiId": 551934,
+    "stage": "league",
+    "datetime": "2025-11-26T20:00:00Z",
+    "home": 78,
+    "away": 108,
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 5
+  },
+  {
+    "id": "CL-552032",
+    "apiId": 552032,
+    "stage": "league",
+    "datetime": "2025-12-09T15:30:00Z",
+    "home": 10601,
+    "away": 654,
+    "score": {
+      "home": 0,
+      "away": 1
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551912",
+    "apiId": 551912,
+    "stage": "league",
+    "datetime": "2025-12-09T17:45:00Z",
+    "home": 5,
+    "away": 498,
+    "score": {
+      "home": 3,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551953",
+    "apiId": 551953,
+    "stage": "league",
+    "datetime": "2025-12-09T20:00:00Z",
+    "home": 81,
+    "away": 19,
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-552008",
+    "apiId": 552008,
+    "stage": "league",
+    "datetime": "2025-12-09T20:00:00Z",
+    "home": 674,
+    "away": 78,
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-552018",
+    "apiId": 552018,
+    "stage": "league",
+    "datetime": "2025-12-09T20:00:00Z",
+    "home": 3929,
+    "away": 516,
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-552019",
+    "apiId": 552019,
+    "stage": "league",
+    "datetime": "2025-12-09T20:00:00Z",
+    "home": 73,
+    "away": 930,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-552041",
+    "apiId": 552041,
+    "stage": "league",
+    "datetime": "2025-12-09T20:00:00Z",
+    "home": 548,
+    "away": 610,
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551918",
+    "apiId": 551918,
+    "stage": "league",
+    "datetime": "2025-12-09T20:00:00Z",
+    "home": 102,
+    "away": 61,
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551931",
+    "apiId": 551931,
+    "stage": "league",
+    "datetime": "2025-12-09T20:00:00Z",
+    "home": 108,
+    "away": 64,
+    "score": {
+      "home": 0,
+      "away": 1
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-552013",
+    "apiId": 552013,
+    "stage": "league",
+    "datetime": "2025-12-10T17:45:00Z",
+    "home": 94,
+    "away": 1876,
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-552034",
+    "apiId": 552034,
+    "stage": "league",
+    "datetime": "2025-12-10T17:45:00Z",
+    "home": 611,
+    "away": 678,
+    "score": {
+      "home": 2,
+      "away": 4
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551942",
+    "apiId": 551942,
+    "stage": "league",
+    "datetime": "2025-12-10T20:00:00Z",
+    "home": 4,
+    "away": 5721,
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551969",
+    "apiId": 551969,
+    "stage": "league",
+    "datetime": "2025-12-10T20:00:00Z",
+    "home": 77,
+    "away": 524,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551974",
+    "apiId": 551974,
+    "stage": "league",
+    "datetime": "2025-12-10T20:00:00Z",
+    "home": 3,
+    "away": 67,
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551977",
+    "apiId": 551977,
+    "stage": "league",
+    "datetime": "2025-12-10T20:00:00Z",
+    "home": 851,
+    "away": 57,
+    "score": {
+      "home": 0,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551989",
+    "apiId": 551989,
+    "stage": "league",
+    "datetime": "2025-12-10T20:00:00Z",
+    "home": 1903,
+    "away": 113,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-552005",
+    "apiId": 552005,
+    "stage": "league",
+    "datetime": "2025-12-10T20:00:00Z",
+    "home": 109,
+    "away": 11034,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551923",
+    "apiId": 551923,
+    "stage": "league",
+    "datetime": "2025-12-10T20:00:00Z",
+    "home": 86,
+    "away": 65,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 6
+  },
+  {
+    "id": "CL-551996",
+    "apiId": 551996,
+    "stage": "league",
+    "datetime": "2026-01-20T15:30:00Z",
+    "home": 10601,
+    "away": 851,
+    "score": {
+      "home": 1,
+      "away": 4
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551966",
+    "apiId": 551966,
+    "stage": "league",
+    "datetime": "2026-01-20T17:45:00Z",
+    "home": 5721,
+    "away": 65,
+    "score": {
+      "home": 3,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551943",
+    "apiId": 551943,
+    "stage": "league",
+    "datetime": "2026-01-20T20:00:00Z",
+    "home": 73,
+    "away": 4,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551962",
+    "apiId": 551962,
+    "stage": "league",
+    "datetime": "2026-01-20T20:00:00Z",
+    "home": 498,
+    "away": 524,
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551973",
+    "apiId": 551973,
+    "stage": "league",
+    "datetime": "2026-01-20T20:00:00Z",
+    "home": 654,
+    "away": 3,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-552011",
+    "apiId": 552011,
+    "stage": "league",
+    "datetime": "2026-01-20T20:00:00Z",
+    "home": 94,
+    "away": 678,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-552038",
+    "apiId": 552038,
+    "stage": "league",
+    "datetime": "2026-01-20T20:00:00Z",
+    "home": 1876,
+    "away": 113,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551929",
+    "apiId": 551929,
+    "stage": "league",
+    "datetime": "2026-01-20T20:00:00Z",
+    "home": 86,
+    "away": 548,
+    "score": {
+      "home": 6,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551933",
+    "apiId": 551933,
+    "stage": "league",
+    "datetime": "2026-01-20T20:00:00Z",
+    "home": 108,
+    "away": 57,
+    "score": {
+      "home": 1,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-552001",
+    "apiId": 552001,
+    "stage": "league",
+    "datetime": "2026-01-21T17:45:00Z",
+    "home": 611,
+    "away": 19,
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-552010",
+    "apiId": 552010,
+    "stage": "league",
+    "datetime": "2026-01-21T17:45:00Z",
+    "home": 610,
+    "away": 78,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551949",
+    "apiId": 551949,
+    "stage": "league",
+    "datetime": "2026-01-21T20:00:00Z",
+    "home": 516,
+    "away": 64,
+    "score": {
+      "home": 0,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551956",
+    "apiId": 551956,
+    "stage": "league",
+    "datetime": "2026-01-21T20:00:00Z",
+    "home": 930,
+    "away": 81,
+    "score": {
+      "home": 2,
+      "away": 4
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551986",
+    "apiId": 551986,
+    "stage": "league",
+    "datetime": "2026-01-21T20:00:00Z",
+    "home": 102,
+    "away": 77,
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551988",
+    "apiId": 551988,
+    "stage": "league",
+    "datetime": "2026-01-21T20:00:00Z",
+    "home": 109,
+    "away": 1903,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-552036",
+    "apiId": 552036,
+    "stage": "league",
+    "datetime": "2026-01-21T20:00:00Z",
+    "home": 67,
+    "away": 674,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551914",
+    "apiId": 551914,
+    "stage": "league",
+    "datetime": "2026-01-21T20:00:00Z",
+    "home": 5,
+    "away": 3929,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551921",
+    "apiId": 551921,
+    "stage": "league",
+    "datetime": "2026-01-21T20:00:00Z",
+    "home": 61,
+    "away": 11034,
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 7
+  },
+  {
+    "id": "CL-551950",
+    "apiId": 551950,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 64,
+    "away": 611,
+    "score": {
+      "home": 6,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551957",
+    "apiId": 551957,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 81,
+    "away": 1876,
+    "score": {
+      "home": 4,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551967",
+    "apiId": 551967,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 65,
+    "away": 610,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551970",
+    "apiId": 551970,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 3,
+    "away": 94,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551980",
+    "apiId": 551980,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 57,
+    "away": 10601,
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551987",
+    "apiId": 551987,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 3929,
+    "away": 102,
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551993",
+    "apiId": 551993,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 851,
+    "away": 516,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551998",
+    "apiId": 551998,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 19,
+    "away": 73,
+    "score": {
+      "home": 0,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-552006",
+    "apiId": 552006,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 548,
+    "away": 109,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-552007",
+    "apiId": 552007,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 78,
+    "away": 5721,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-552028",
+    "apiId": 552028,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 77,
+    "away": 498,
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-552030",
+    "apiId": 552030,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 678,
+    "away": 654,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-552050",
+    "apiId": 552050,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 524,
+    "away": 67,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-552051",
+    "apiId": 552051,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 11034,
+    "away": 930,
+    "score": {
+      "home": 4,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551913",
+    "apiId": 551913,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 674,
+    "away": 5,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551920",
+    "apiId": 551920,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 113,
+    "away": 61,
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551926",
+    "apiId": 551926,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 1903,
+    "away": 86,
+    "score": {
+      "home": 4,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-551932",
+    "apiId": 551932,
+    "stage": "league",
+    "datetime": "2026-01-28T20:00:00Z",
+    "home": 4,
+    "away": 108,
+    "score": {
+      "home": 0,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 8
+  },
+  {
+    "id": "CL-552055",
+    "apiId": 552055,
+    "stage": "po",
+    "datetime": "2026-02-17T17:45:00Z",
+    "home": 610,
+    "away": 109,
+    "score": {
+      "home": 5,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "po-109-610",
+    "leg": 1
+  },
+  {
+    "id": "CL-552052",
+    "apiId": 552052,
+    "stage": "po",
+    "datetime": "2026-02-17T20:00:00Z",
+    "home": 1903,
+    "away": 86,
+    "score": {
+      "home": 0,
+      "away": 1
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "po-86-1903",
+    "leg": 1
+  },
+  {
+    "id": "CL-552053",
+    "apiId": 552053,
+    "stage": "po",
+    "datetime": "2026-02-17T20:00:00Z",
+    "home": 548,
+    "away": 524,
+    "score": {
+      "home": 2,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "po-524-548",
+    "leg": 1
+  },
+  {
+    "id": "CL-552057",
+    "apiId": 552057,
+    "stage": "po",
+    "datetime": "2026-02-17T20:15:00Z",
+    "home": 4,
+    "away": 102,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "po-4-102",
+    "leg": 1
+  },
+  {
+    "id": "CL-552054",
+    "apiId": 552054,
+    "stage": "po",
+    "datetime": "2026-02-18T17:45:00Z",
+    "home": 611,
+    "away": 67,
+    "score": {
+      "home": 1,
       "away": 6
     },
     "winner": "away",
     "status": "finished",
-    "venue": "Hard Rock Stadium",
-    "city": "Miami",
-    "matchNumber": 103,
-    "homeLabel": "L101",
-    "awayLabel": "L102"
+    "matchday": 1,
+    "tieId": "po-67-611",
+    "leg": 1
   },
   {
-    "id": "WC-537390",
-    "apiId": 537390,
-    "stage": "final",
-    "datetime": "2026-07-19T19:00:00Z",
-    "home": "ESP",
-    "away": "ARG",
+    "id": "CL-552056",
+    "apiId": 552056,
+    "stage": "po",
+    "datetime": "2026-02-18T20:00:00Z",
+    "home": 851,
+    "away": 78,
+    "score": {
+      "home": 3,
+      "away": 3
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "po-78-851",
+    "leg": 1
+  },
+  {
+    "id": "CL-552058",
+    "apiId": 552058,
+    "stage": "po",
+    "datetime": "2026-02-18T20:00:00Z",
+    "home": 654,
+    "away": 3,
+    "score": {
+      "home": 0,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "po-3-654",
+    "leg": 1
+  },
+  {
+    "id": "CL-552059",
+    "apiId": 552059,
+    "stage": "po",
+    "datetime": "2026-02-18T20:00:00Z",
+    "home": 5721,
+    "away": 108,
+    "score": {
+      "home": 3,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "po-108-5721",
+    "leg": 1
+  },
+  {
+    "id": "CL-552064",
+    "apiId": 552064,
+    "stage": "po",
+    "datetime": "2026-02-24T17:45:00Z",
+    "home": 78,
+    "away": 851,
+    "score": {
+      "home": 4,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "po-78-851",
+    "leg": 2
+  },
+  {
+    "id": "CL-552062",
+    "apiId": 552062,
+    "stage": "po",
+    "datetime": "2026-02-24T20:00:00Z",
+    "home": 67,
+    "away": 611,
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "po-67-611",
+    "leg": 2
+  },
+  {
+    "id": "CL-552066",
+    "apiId": 552066,
+    "stage": "po",
+    "datetime": "2026-02-24T20:00:00Z",
+    "home": 3,
+    "away": 654,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "po-3-654",
+    "leg": 2
+  },
+  {
+    "id": "CL-552067",
+    "apiId": 552067,
+    "stage": "po",
+    "datetime": "2026-02-24T20:00:00Z",
+    "home": 108,
+    "away": 5721,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "po-108-5721",
+    "leg": 2
+  },
+  {
+    "id": "CL-552065",
+    "apiId": 552065,
+    "stage": "po",
+    "datetime": "2026-02-25T17:45:00Z",
+    "home": 102,
+    "away": 4,
+    "score": {
+      "home": 4,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "po-4-102",
+    "leg": 2
+  },
+  {
+    "id": "CL-552060",
+    "apiId": 552060,
+    "stage": "po",
+    "datetime": "2026-02-25T20:00:00Z",
+    "home": 86,
+    "away": 1903,
+    "score": {
+      "home": 2,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "po-86-1903",
+    "leg": 2
+  },
+  {
+    "id": "CL-552061",
+    "apiId": 552061,
+    "stage": "po",
+    "datetime": "2026-02-25T20:00:00Z",
+    "home": 524,
+    "away": 548,
+    "score": {
+      "home": 2,
+      "away": 2
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "po-524-548",
+    "leg": 2
+  },
+  {
+    "id": "CL-552063",
+    "apiId": 552063,
+    "stage": "po",
+    "datetime": "2026-02-25T20:00:00Z",
+    "home": 109,
+    "away": 610,
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "regularTime": {
+      "home": 3,
+      "away": 0
+    },
+    "extraTime": {
+      "home": 0,
+      "away": 2
+    },
+    "tieId": "po-109-610",
+    "leg": 2
+  },
+  {
+    "id": "CL-552069",
+    "apiId": 552069,
+    "stage": "r16",
+    "datetime": "2026-03-10T17:45:00Z",
+    "home": 610,
+    "away": 64,
     "score": {
       "home": 1,
       "away": 0
     },
     "winner": "home",
     "status": "finished",
-    "venue": "MetLife Stadium",
-    "city": "New York/New Jersey",
-    "matchNumber": 104,
-    "homeLabel": "W101",
-    "awayLabel": "W102"
+    "matchday": 1,
+    "tieId": "r16-64-610",
+    "leg": 1
+  },
+  {
+    "id": "CL-552071",
+    "apiId": 552071,
+    "stage": "r16",
+    "datetime": "2026-03-10T20:00:00Z",
+    "home": 102,
+    "away": 5,
+    "score": {
+      "home": 1,
+      "away": 6
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "r16-5-102",
+    "leg": 1
+  },
+  {
+    "id": "CL-552072",
+    "apiId": 552072,
+    "stage": "r16",
+    "datetime": "2026-03-10T20:00:00Z",
+    "home": 67,
+    "away": 81,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "r16-67-81",
+    "leg": 1
+  },
+  {
+    "id": "CL-552073",
+    "apiId": 552073,
+    "stage": "r16",
+    "datetime": "2026-03-10T20:00:00Z",
+    "home": 78,
+    "away": 73,
+    "score": {
+      "home": 5,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "r16-73-78",
+    "leg": 1
+  },
+  {
+    "id": "CL-552075",
+    "apiId": 552075,
+    "stage": "r16",
+    "datetime": "2026-03-11T17:45:00Z",
+    "home": 3,
+    "away": 57,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "r16-3-57",
+    "leg": 1
+  },
+  {
+    "id": "CL-552068",
+    "apiId": 552068,
+    "stage": "r16",
+    "datetime": "2026-03-11T20:00:00Z",
+    "home": 524,
+    "away": 61,
+    "score": {
+      "home": 5,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "r16-61-524",
+    "leg": 1
+  },
+  {
+    "id": "CL-552070",
+    "apiId": 552070,
+    "stage": "r16",
+    "datetime": "2026-03-11T20:00:00Z",
+    "home": 86,
+    "away": 65,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "r16-65-86",
+    "leg": 1
+  },
+  {
+    "id": "CL-552074",
+    "apiId": 552074,
+    "stage": "r16",
+    "datetime": "2026-03-11T20:00:00Z",
+    "home": 5721,
+    "away": 498,
+    "score": {
+      "home": 3,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "r16-498-5721",
+    "leg": 1
+  },
+  {
+    "id": "CL-552082",
+    "apiId": 552082,
+    "stage": "r16",
+    "datetime": "2026-03-17T17:45:00Z",
+    "home": 498,
+    "away": 5721,
+    "score": {
+      "home": 5,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "regularTime": {
+      "home": 3,
+      "away": 0
+    },
+    "extraTime": {
+      "home": 2,
+      "away": 0
+    },
+    "tieId": "r16-498-5721",
+    "leg": 2
+  },
+  {
+    "id": "CL-552076",
+    "apiId": 552076,
+    "stage": "r16",
+    "datetime": "2026-03-17T20:00:00Z",
+    "home": 61,
+    "away": 524,
+    "score": {
+      "home": 0,
+      "away": 3
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "r16-61-524",
+    "leg": 2
+  },
+  {
+    "id": "CL-552078",
+    "apiId": 552078,
+    "stage": "r16",
+    "datetime": "2026-03-17T20:00:00Z",
+    "home": 65,
+    "away": 86,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "r16-65-86",
+    "leg": 2
+  },
+  {
+    "id": "CL-552083",
+    "apiId": 552083,
+    "stage": "r16",
+    "datetime": "2026-03-17T20:00:00Z",
+    "home": 57,
+    "away": 3,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "r16-3-57",
+    "leg": 2
+  },
+  {
+    "id": "CL-552080",
+    "apiId": 552080,
+    "stage": "r16",
+    "datetime": "2026-03-18T17:45:00Z",
+    "home": 81,
+    "away": 67,
+    "score": {
+      "home": 7,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "r16-67-81",
+    "leg": 2
+  },
+  {
+    "id": "CL-552077",
+    "apiId": 552077,
+    "stage": "r16",
+    "datetime": "2026-03-18T20:00:00Z",
+    "home": 64,
+    "away": 610,
+    "score": {
+      "home": 4,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "r16-64-610",
+    "leg": 2
+  },
+  {
+    "id": "CL-552079",
+    "apiId": 552079,
+    "stage": "r16",
+    "datetime": "2026-03-18T20:00:00Z",
+    "home": 5,
+    "away": 102,
+    "score": {
+      "home": 4,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "r16-5-102",
+    "leg": 2
+  },
+  {
+    "id": "CL-552081",
+    "apiId": 552081,
+    "stage": "r16",
+    "datetime": "2026-03-18T20:00:00Z",
+    "home": 73,
+    "away": 78,
+    "score": {
+      "home": 3,
+      "away": 2
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "r16-73-78",
+    "leg": 2
+  },
+  {
+    "id": "CL-556719",
+    "apiId": 556719,
+    "stage": "qf",
+    "datetime": "2026-04-07T19:00:00Z",
+    "home": 86,
+    "away": 5,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "qf-5-86",
+    "leg": 1
+  },
+  {
+    "id": "CL-556721",
+    "apiId": 556721,
+    "stage": "qf",
+    "datetime": "2026-04-07T19:00:00Z",
+    "home": 498,
+    "away": 57,
+    "score": {
+      "home": 0,
+      "away": 1
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "qf-57-498",
+    "leg": 1
+  },
+  {
+    "id": "CL-556718",
+    "apiId": 556718,
+    "stage": "qf",
+    "datetime": "2026-04-08T19:00:00Z",
+    "home": 524,
+    "away": 64,
+    "score": {
+      "home": 2,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "qf-64-524",
+    "leg": 1
+  },
+  {
+    "id": "CL-556720",
+    "apiId": 556720,
+    "stage": "qf",
+    "datetime": "2026-04-08T19:00:00Z",
+    "home": 81,
+    "away": 78,
+    "score": {
+      "home": 0,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "qf-78-81",
+    "leg": 1
+  },
+  {
+    "id": "CL-556722",
+    "apiId": 556722,
+    "stage": "qf",
+    "datetime": "2026-04-14T19:00:00Z",
+    "home": 64,
+    "away": 524,
+    "score": {
+      "home": 0,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "qf-64-524",
+    "leg": 2
+  },
+  {
+    "id": "CL-556724",
+    "apiId": 556724,
+    "stage": "qf",
+    "datetime": "2026-04-14T19:00:00Z",
+    "home": 78,
+    "away": 81,
+    "score": {
+      "home": 1,
+      "away": 2
+    },
+    "winner": "away",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "qf-78-81",
+    "leg": 2
+  },
+  {
+    "id": "CL-556723",
+    "apiId": 556723,
+    "stage": "qf",
+    "datetime": "2026-04-15T19:00:00Z",
+    "home": 5,
+    "away": 86,
+    "score": {
+      "home": 4,
+      "away": 3
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "qf-5-86",
+    "leg": 2
+  },
+  {
+    "id": "CL-556725",
+    "apiId": 556725,
+    "stage": "qf",
+    "datetime": "2026-04-15T19:00:00Z",
+    "home": 57,
+    "away": 498,
+    "score": {
+      "home": 0,
+      "away": 0
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "qf-57-498",
+    "leg": 2
+  },
+  {
+    "id": "CL-552092",
+    "apiId": 552092,
+    "stage": "sf",
+    "datetime": "2026-04-28T19:00:00Z",
+    "home": 524,
+    "away": 5,
+    "score": {
+      "home": 5,
+      "away": 4
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "sf-5-524",
+    "leg": 1
+  },
+  {
+    "id": "CL-552093",
+    "apiId": 552093,
+    "stage": "sf",
+    "datetime": "2026-04-29T19:00:00Z",
+    "home": 78,
+    "away": 57,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 1,
+    "tieId": "sf-57-78",
+    "leg": 1
+  },
+  {
+    "id": "CL-552095",
+    "apiId": 552095,
+    "stage": "sf",
+    "datetime": "2026-05-05T19:00:00Z",
+    "home": 57,
+    "away": 78,
+    "score": {
+      "home": 1,
+      "away": 0
+    },
+    "winner": "home",
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "sf-57-78",
+    "leg": 2
+  },
+  {
+    "id": "CL-552094",
+    "apiId": 552094,
+    "stage": "sf",
+    "datetime": "2026-05-06T19:00:00Z",
+    "home": 5,
+    "away": 524,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": null,
+    "status": "finished",
+    "matchday": 2,
+    "tieId": "sf-5-524",
+    "leg": 2
+  },
+  {
+    "id": "CL-552096",
+    "apiId": 552096,
+    "stage": "final",
+    "datetime": "2026-05-30T16:00:00Z",
+    "home": 524,
+    "away": 57,
+    "score": {
+      "home": 1,
+      "away": 1
+    },
+    "winner": "home",
+    "status": "finished",
+    "regularTime": {
+      "home": 1,
+      "away": 1
+    },
+    "extraTime": {
+      "home": 0,
+      "away": 0
+    },
+    "penalties": {
+      "home": 4,
+      "away": 3
+    },
+    "tieId": "final"
   }
 ]

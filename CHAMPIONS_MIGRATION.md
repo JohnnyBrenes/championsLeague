@@ -215,11 +215,15 @@ Claves nuevas: `leg.first` / `leg.second` / `common.aggregate` ("Global") /
 - Ganador de eliminatoria: global → si empate, **prórroga** en el partido de vuelta →
   penales. **No hay gol de visitante** (abolido en 2021).
 
-### 4.3 Escudos
-La API entrega `team.crest` como URL (`crests.football-data.org`). Descargarlos en el
-sync a `public/crests/<teamId>.png` (con `sharp`, que ya es dependencia, a 128 px) y
-guardar la **ruta local** en `teams.json`. Motivos: la PWA funciona offline, el export
-estático no depende de un host externo y evitas hotlinking. Son ~36 archivos de pocos KB.
+### 4.3 Escudos — ✅ implementado
+La API entrega `team.crest` como URL (`crests.football-data.org`). El sync los descarga
+a `public/crests/<teamId>.png` y guarda la **ruta local** en `teams.json`. Motivos: la
+PWA funciona offline, el export estático no depende de un host externo y evitas
+hotlinking. Resultado real: 36 archivos, ~11 KB de media, 400 KB en total.
+
+Se descargan **en crudo, sin `sharp`**: ya vienen a tamaño razonable y así el sync no
+depende de un binario nativo que podría fallar en el runner de Actions. La descarga es
+idempotente — si el archivo ya existe no se vuelve a pedir.
 
 ---
 
@@ -249,8 +253,9 @@ estático no depende de un host externo y evitas hotlinking. Son ~36 archivos de
 5. Derivar `leg` y `tieId`: agrupar los partidos de eliminatoria por par de equipos
    dentro de la misma ronda y ordenar por fecha. Si la API no lo permite, usar
    `bracket.json` como referencia.
-6. Añadir el paso de descarga de escudos (§4.3), idempotente: si el archivo existe y
-   el `crest` no cambió, no se vuelve a bajar.
+6. Añadir el paso de descarga de escudos (§4.3), idempotente.
+7. Los clubes salen de **`/competitions/CL/teams`** (una llamada, datos completos), no
+   de `/teams/{id}` ni del feed de partidos. El feed de partidos queda como plan B.
 7. `withinMatchWindow()` se mantiene tal cual — sigue siendo válido y ahorra llamadas.
 
 ### 5.2 Verificación de la API — ✅ HECHA (2026-08-27)
@@ -286,9 +291,13 @@ modela el formato liga exactamente como necesitábamos.
    nosotros. Además `fullTime` **incluye** la prórroga y los penales, mientras que
    `regularTime` es el marcador de los 90 minutos: la descomposición que ya hace
    `shootout()` en `sync-data.mjs` sigue siendo válida y se reutiliza.
-3. ⚠️ **`venue` viene vacío en los 189 partidos**, pero `/teams/{id}` sí trae `venue`,
-   `address`, `clubColors` y `area` (país + bandera). Son 36 llamadas extra a 10/min
-   (~4 min), que de paso nos dan los **colores de club** para el diseño y el escudo.
+3. ⚠️ **`venue` viene vacío en los 189 partidos.** La solución **no** es `/teams/{id}`:
+   son 36 llamadas a 10/min (~4 min) y el tier gratuito responde **403** para clubes
+   cuya liga doméstica no cubre — Slavia, Qarabağ, Kairat, Paphos, Olympiakos, Union
+   SG, Galatasaray, Brujas, Copenhague y Bodø/Glimt se quedaron sin datos, o sea un
+   tercio del cuadro. **Usar `/competitions/CL/teams`**: una sola llamada, sin 403,
+   y devuelve los 36 con `venue`, `area` (país + código) y `clubColors`. Resultado
+   real: 35/36 sedes (a Kairat le falta en el propio feed), 36/36 países y colores.
 4. ℹ️ El bloque de standings reporta `stage: "GROUP_STAGE"` y `group: "League phase"`
    por compatibilidad, aunque los partidos usan `LEAGUE_STAGE`. No confiar en `stage`
    de standings para detectar el formato.
@@ -449,22 +458,50 @@ Cada fase deja el repo compilando (`npm run build`) y desplegable.
     el riesgo número uno del plan queda descartado
   - ⬜ **Importar el proyecto en Vercel** (`DEPLOY.md`) — lo hace el usuario
 
-- **Fase 1 — Datos y sync**
-  `lib/types.ts` + `scripts/sync-data.mjs` + descarga de escudos. Ejecutar `npm run sync`
-  y comprobar `teams.json` (36) y `schedule.json` (189). Aquí el árbol queda roto
-  temporalmente; por eso las fases 1 y 2 van en la misma rama.
+- **Fase 1 — Datos y sync** — ✅ **HECHA** (rama `fase-1-datos`)
+  - ✅ `lib/types.ts` reescrito: `Stage` liga/po/r16/qf/sf/final, `Team` con id
+    numérico, `Match` con `leg`/`tieId`, `Tie`, `Standing`, `qualificationFor()`
+  - ✅ `scripts/sync-data.mjs` reescrito (593 → ~380 líneas). Fuera todo worldcup26.ir
+  - ✅ Escudos descargados a `public/crests/` (36 archivos, ~400 KB)
+  - ✅ Borrados `third-place-combinations.json`, `venues.json`, `bracket.json`,
+    `scorer-overrides.json` y los tres scripts `build-*.mjs`
+  - ✅ **Datos reales generados**: 36 clubes, 189 partidos, 22 eliminatorias,
+    tabla de 36 filas, 30 goleadores. Los `leg` se asignaron 189/189 sin fallos
+  - ✅ Verificado el caso difícil: la final se guarda como **1-1 con penales 4-3**,
+    no como el `fullTime` 5-4 que devuelve la API
+  - ⚠️ **El árbol no compila** hasta la Fase 2: `lib/standings.ts` todavía importa
+    `@/data/third-place-combinations.json`. Es lo esperado, por eso van en la misma rama
 
   **Se desarrolla contra la temporada 2025/26**, porque 2026/27 aún no existe en la
   API (§5.2). No es un parche: es una temporada completa con prórrogas, penales y
   globales reales, o sea el mejor banco de pruebas posible para la lógica de `Tie`.
-  Cuando football-data publique 2026/27 hay que volver a correr `npm run sync` y
-  revisar dos cosas que hoy no podemos observar: **cómo representa la API las
-  eliminatorias antes del sorteo** (¿partidos con equipos en `null`, o directamente
-  ausentes?) y si el calendario de jornadas cambia de días.
+  Como **no** se fija `CL_SEASON`, el script sigue la temporada que la API marque como
+  vigente: el día que football-data publique 2026/27, el sync diario la toma solo. Para
+  forzarla antes: `CL_SEASON=2026 npm run sync`. Al llegar esa temporada hay que revisar
+  dos cosas que hoy no se pueden observar: **cómo representa la API las eliminatorias
+  antes del sorteo** (¿equipos en `null`, o partidos ausentes?) y si cambian los días de
+  jornada.
 
-- **Fase 2 — Lógica**
-  `lib/standings.ts` (tabla única) y `lib/bracket.ts` (doble partido). Conviene añadir
-  un par de pruebas del cálculo del global y de los desempates.
+- **Fase 2 — Lógica** — ✅ **HECHA** (rama `fase-1-datos`)
+  - ✅ `lib/data.ts`: accesores por id numérico (`teamById`), más `standings` y
+    `scorers` como fuentes de primera clase
+  - ✅ `lib/standings.ts` (321 → 150 líneas): tabla única de 36. El orden lo manda
+    la API; `computedTable()` queda solo como respaldo si falta la tabla
+    commiteada. Nuevos: `CUT_LINES`, `standingsAround()`, `leaguePhaseComplete()`
+  - ✅ `lib/bracket.ts`: `Tie` con global de ida y vuelta. El global se orienta al
+    local de la IDA, porque la vuelta se juega al revés y su `score.home` cuenta
+    para el lado visitante de la eliminatoria
+  - ✅ `treeOrder()` reconstruye el cableado del cuadro **desde los resultados**
+    (una eliminatoria contiene a los ganadores de dos de la ronda anterior), ya
+    que aquí no existen las etiquetas oficiales "W73" del Mundial
+  - ✅ **Verificado ejecutando la lógica real** contra 2025/26 (no reimplementada):
+    23 eliminatorias, 0 sin ganador, 0 inconsistencias entre rondas, y los cortes
+    de la tabla caen exactamente en 8/9 y 24/25
+  - ✅ El caso trampa sale bien: **Galatasaray elimina a la Juventus 7-5 global**
+    perdiendo la vuelta 3-2, con la API marcando `winner: home` en ambos partidos
+  - ✅ La final se resuelve 1-1 con penales 4-3 → campeón PSG
+  - ⚠️ Quedan **57 errores de tipos, todos en `app/` y `components/`**; `lib/` está
+    limpio. Es exactamente el trabajo de la Fase 3
 
 - **Fase 3 — UI funcional**
   `TeamBadge` con escudos · `LeagueTable` · `MatchCard` con ida/vuelta/global ·

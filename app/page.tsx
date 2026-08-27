@@ -51,7 +51,7 @@ export default function HomePage() {
       <div className="flex items-baseline justify-between">
         <h2 className="text-lg font-bold">{t(heading)}</h2>
         <span className="text-xs text-muted">
-          🕒 {t(mode === "mexico" ? "common.tzNote" : "common.tzLocal")}
+          🕒 {t(mode === "stadium" ? "common.tzStadium" : "common.tzLocal")}
         </span>
       </div>
 

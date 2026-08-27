@@ -6,7 +6,6 @@ import { TimezoneProvider } from "@/lib/timezone";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
-import FlagFont from "@/components/FlagFont";
 import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
@@ -15,14 +14,14 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Mundial 2026 — Calendario y Eliminatorias",
+  title: "Champions 2026/27 — Calendario y Eliminatorias",
   description:
-    "Calendario completo, fases de grupos y eliminatorias del Mundial 2026. Schedule, group standings and knockout bracket for the 2026 World Cup.",
+    "Calendario completo, fase liga y eliminatorias de la Champions League 2026/27. Schedule, league phase table and knockout bracket. Sitio no oficial, sin afiliación con la UEFA.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Mundial 2026",
+    title: "Champions 26/27",
   },
   icons: {
     icon: "/icons/icon-192.png",
@@ -52,7 +51,6 @@ export default function RootLayout({
           </TimezoneProvider>
         </I18nProvider>
         <ServiceWorkerRegister />
-        <FlagFont />
         <Analytics />
       </body>
     </html>

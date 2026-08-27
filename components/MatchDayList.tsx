@@ -18,7 +18,9 @@ export default function MatchDayList({ matches }: { matches: Match[] }) {
     );
   }
 
-  // Group matches by their Mexico-City calendar day, preserving order.
+  // Group by calendar day in the ACTIVE timezone, preserving order. A 21:00
+  // CET kickoff is the same day in the Americas but the next one in Asia, so
+  // the grouping has to follow whatever zone the visitor is looking at.
   const days: { key: string; matches: Match[] }[] = [];
   for (const m of matches) {
     const key = dayKey(m.datetime, tz);

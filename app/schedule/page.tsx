@@ -3,18 +3,18 @@
 import { useMemo, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { useTimezone } from "@/lib/timezone";
-import { sortedMatches, teamByCode, teamName, teams } from "@/lib/data";
-import { GROUP_IDS } from "@/lib/standings";
+import { sortedMatches, teamById, teamName, teams } from "@/lib/data";
 import type { Match } from "@/lib/types";
 import MatchDayList from "@/components/MatchDayList";
 
-// A "round" = a group matchday (j1/j2/j3) or a knockout stage.
+// A "round" = a league-phase matchday (j1…j8) or a knockout stage.
 const ROUND_ORDER = [
-  "j1", "j2", "j3", "r32", "r16", "qf", "sf", "third", "final",
+  "j1", "j2", "j3", "j4", "j5", "j6", "j7", "j8",
+  "po", "r16", "qf", "sf", "final",
 ];
 
 function roundKey(m: Match): string {
-  return m.stage === "group" ? `j${m.matchday}` : m.stage;
+  return m.stage === "league" ? `j${m.matchday}` : m.stage;
 }
 
 /** The round currently in play = round of the earliest not-yet-finished match. */
@@ -29,7 +29,6 @@ export default function SchedulePage() {
   const { mode } = useTimezone();
   const all = useMemo(() => sortedMatches(), []);
 
-  const [group, setGroup] = useState("");
   const [team, setTeam] = useState("");
   // Default to the round being played right now.
   const [round, setRound] = useState(() => currentRound(all));
@@ -51,21 +50,14 @@ export default function SchedulePage() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
+    const teamId = team ? Number(team) : null;
     return all.filter((m: Match) => {
-      if (group && m.group !== group) return false;
       if (round && roundKey(m) !== round) return false;
-      if (team && m.home !== team && m.away !== team) return false;
+      if (teamId !== null && m.home !== teamId && m.away !== teamId) return false;
       if (q) {
-        const home = teamByCode(m.home);
-        const away = teamByCode(m.away);
-        const haystack = [
-          home?.en,
-          home?.es,
-          away?.en,
-          away?.es,
-          m.venue,
-          m.city,
-        ]
+        const home = teamById(m.home);
+        const away = teamById(m.away);
+        const haystack = [home?.en, home?.es, away?.en, away?.es, home?.venue]
           .filter(Boolean)
           .join(" ")
           .toLowerCase();
@@ -73,7 +65,7 @@ export default function SchedulePage() {
       }
       return true;
     });
-  }, [all, group, round, team, query]);
+  }, [all, round, team, query]);
 
   const selectClass =
     "rounded-xl border border-line bg-surface px-3 py-2 text-sm";
@@ -84,7 +76,7 @@ export default function SchedulePage() {
         <h1 className="text-xl font-bold">{t("schedule.title")}</h1>
         <p className="text-sm text-muted">
           {t("schedule.subtitle")} · 🕒{" "}
-          {t(mode === "mexico" ? "common.tzNote" : "common.tzLocal")}
+          {t(mode === "stadium" ? "common.tzStadium" : "common.tzLocal")}
         </p>
       </div>
 
@@ -105,28 +97,14 @@ export default function SchedulePage() {
 
         <select
           className={selectClass}
-          value={group}
-          onChange={(e) => setGroup(e.target.value)}
-          aria-label={t("filters.allGroups")}
-        >
-          <option value="">{t("filters.allGroups")}</option>
-          {GROUP_IDS.map((g) => (
-            <option key={g} value={g}>
-              {t("common.group")} {g}
-            </option>
-          ))}
-        </select>
-
-        <select
-          className={selectClass}
           value={team}
           onChange={(e) => setTeam(e.target.value)}
           aria-label={t("filters.allTeams")}
         >
           <option value="">{t("filters.allTeams")}</option>
           {teamOptions.map((tm) => (
-            <option key={tm.code} value={tm.code}>
-              {tm.flag} {teamName(tm, locale)}
+            <option key={tm.id} value={tm.id}>
+              {teamName(tm, locale)}
             </option>
           ))}
         </select>
