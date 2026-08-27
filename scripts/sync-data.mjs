@@ -1,23 +1,32 @@
-// Syncs real World Cup data from football-data.org into:
-//   data/teams.json     (48 teams: code, EN name, ES name, flag, group)
-//   data/schedule.json  (all matches: dates, teams, scores, winners, status)
+// Syncs UEFA Champions League data from football-data.org into:
+//   data/teams.json      (36 clubs: id, names, crest path, country, venue)
+//   data/schedule.json   (189 matches: dates, teams, scores, legs, ties)
+//   data/standings.json  (the 36-row league phase table, in the API's order)
+//   data/scorers.json    (top scorers)
+//   public/crests/*.png  (club crests, downloaded once)
 //
-// Idempotent: run it any time. Used both for the initial real-data load and
-// for the recurring auto-update (commit only happens if files actually change).
+// Idempotent: run it any time. Used both for the initial load and for the
+// recurring auto-update (the workflow commits only if files actually change).
 //
 // Token resolution: env FOOTBALL_DATA_TOKEN, else a FOOTBALL_DATA_TOKEN=...
 // line in a local .env.local file.
+//
+// Season: defaults to whatever football-data considers current. Set CL_SEASON
+// (e.g. CL_SEASON=2026) to pin a specific one — that is the single switch to
+// flip once the 2026/27 season is published; see CHAMPIONS_MIGRATION.md §5.2.
 
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(__dirname, "..", "data");
+const root = join(__dirname, "..");
+const dataDir = join(root, "data");
+const crestDir = join(root, "public", "crests");
 
 function resolveToken() {
   if (process.env.FOOTBALL_DATA_TOKEN) return process.env.FOOTBALL_DATA_TOKEN.trim();
-  const envPath = join(__dirname, "..", ".env.local");
+  const envPath = join(root, ".env.local");
   if (existsSync(envPath)) {
     const line = readFileSync(envPath, "utf8")
       .split(/\r?\n/)
@@ -33,65 +42,87 @@ if (!TOKEN) {
   process.exit(1);
 }
 
-// tla -> { flag emoji, Spanish name } for all 48 participants.
-const REF = {
-  ALG: { flag: "🇩🇿", es: "Argelia" },
-  ARG: { flag: "🇦🇷", es: "Argentina" },
-  AUS: { flag: "🇦🇺", es: "Australia" },
-  AUT: { flag: "🇦🇹", es: "Austria" },
-  BEL: { flag: "🇧🇪", es: "Bélgica" },
-  BIH: { flag: "🇧🇦", es: "Bosnia y Herzegovina" },
-  BRA: { flag: "🇧🇷", es: "Brasil" },
-  CAN: { flag: "🇨🇦", es: "Canadá" },
-  CIV: { flag: "🇨🇮", es: "Costa de Marfil" },
-  COD: { flag: "🇨🇩", es: "RD Congo" },
-  COL: { flag: "🇨🇴", es: "Colombia" },
-  CPV: { flag: "🇨🇻", es: "Cabo Verde" },
-  CRO: { flag: "🇭🇷", es: "Croacia" },
-  CUW: { flag: "🇨🇼", es: "Curazao" },
-  CZE: { flag: "🇨🇿", es: "Chequia" },
-  ECU: { flag: "🇪🇨", es: "Ecuador" },
-  EGY: { flag: "🇪🇬", es: "Egipto" },
-  ENG: { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", es: "Inglaterra" },
-  ESP: { flag: "🇪🇸", es: "España" },
-  FRA: { flag: "🇫🇷", es: "Francia" },
-  GER: { flag: "🇩🇪", es: "Alemania" },
-  GHA: { flag: "🇬🇭", es: "Ghana" },
-  HAI: { flag: "🇭🇹", es: "Haití" },
-  IRN: { flag: "🇮🇷", es: "Irán" },
-  IRQ: { flag: "🇮🇶", es: "Irak" },
-  JOR: { flag: "🇯🇴", es: "Jordania" },
-  JPN: { flag: "🇯🇵", es: "Japón" },
-  KOR: { flag: "🇰🇷", es: "Corea del Sur" },
-  KSA: { flag: "🇸🇦", es: "Arabia Saudita" },
-  MAR: { flag: "🇲🇦", es: "Marruecos" },
-  MEX: { flag: "🇲🇽", es: "México" },
-  NED: { flag: "🇳🇱", es: "Países Bajos" },
-  NOR: { flag: "🇳🇴", es: "Noruega" },
-  NZL: { flag: "🇳🇿", es: "Nueva Zelanda" },
-  PAN: { flag: "🇵🇦", es: "Panamá" },
-  PAR: { flag: "🇵🇾", es: "Paraguay" },
-  POR: { flag: "🇵🇹", es: "Portugal" },
-  QAT: { flag: "🇶🇦", es: "Catar" },
-  RSA: { flag: "🇿🇦", es: "Sudáfrica" },
-  SCO: { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", es: "Escocia" },
-  SEN: { flag: "🇸🇳", es: "Senegal" },
-  SUI: { flag: "🇨🇭", es: "Suiza" },
-  SWE: { flag: "🇸🇪", es: "Suecia" },
-  TUN: { flag: "🇹🇳", es: "Túnez" },
-  TUR: { flag: "🇹🇷", es: "Turquía" },
-  URY: { flag: "🇺🇾", es: "Uruguay" },
-  USA: { flag: "🇺🇸", es: "Estados Unidos" },
-  UZB: { flag: "🇺🇿", es: "Uzbekistán" },
+const API = "https://api.football-data.org/v4";
+
+/** Build a query string, folding in the pinned season when there is one. */
+function qs(extra = {}) {
+  const p = new URLSearchParams(extra);
+  if (process.env.CL_SEASON) p.set("season", process.env.CL_SEASON);
+  const s = p.toString();
+  return s ? `?${s}` : "";
+}
+
+// Spanish names for clubs whose English/official name differs. Everything not
+// listed falls back to the API's shortName, which is already right for most
+// clubs ("Arsenal", "Chelsea", "Ajax"…). Keep this list short and only for
+// names that genuinely change in Spanish.
+const ES_NAMES = {
+  "Bayern Munich": "Bayern Múnich",
+  "FC Bayern München": "Bayern Múnich",
+  "Inter Milan": "Inter de Milán",
+  "FC Internazionale Milano": "Inter de Milán",
+  "AC Milan": "Milan",
+  "SSC Napoli": "Nápoles",
+  "Napoli": "Nápoles",
+  "FC Porto": "Oporto",
+  "Porto": "Oporto",
+  "Sporting CP": "Sporting de Lisboa",
+  "Juventus FC": "Juventus",
+  "AFC Ajax": "Ajax",
+  "Club Atlético de Madrid": "Atlético de Madrid",
+  "Atlético Madrid": "Atlético de Madrid",
+  "Bayer 04 Leverkusen": "Bayer Leverkusen",
+  "Borussia Dortmund": "Borussia Dortmund",
+  "Paris Saint-Germain FC": "Paris Saint-Germain",
+  "Olympique de Marseille": "Olympique de Marsella",
+  "Olympique Marseille": "Olympique de Marsella",
+  "Royal Antwerp FC": "Antwerp",
+  "Feyenoord Rotterdam": "Feyenoord",
+  "PSV": "PSV Eindhoven",
+  "Galatasaray SK": "Galatasaray",
+  "Beşiktaş JK": "Besiktas",
+  "Slavia Praha": "Slavia de Praga",
+  "SK Slavia Praha": "Slavia de Praga",
+  "Sparta Praha": "Sparta de Praga",
+  "Crvena Zvezda": "Estrella Roja",
+  "FK Crvena Zvezda": "Estrella Roja",
+  "Young Boys": "Young Boys",
+  "Athletic Club": "Athletic de Bilbao",
+  "Girona FC": "Girona",
+  "Villarreal CF": "Villarreal",
+  "Real Madrid CF": "Real Madrid",
+  "FC Barcelona": "Barcelona",
+  "Bodø/Glimt": "Bodø/Glimt",
+  "FC København": "Copenhague",
+  "FC Copenhagen": "Copenhague",
+  "Club Brugge KV": "Brujas",
+  "Club Brugge": "Brujas",
+  "Union Saint-Gilloise": "Union Saint-Gilloise",
+  "Shakhtar Donetsk": "Shajtar Donetsk",
+  "Dinamo Zagreb": "Dinamo de Zagreb",
+  "GNK Dinamo Zagreb": "Dinamo de Zagreb",
+  "Red Bull Salzburg": "RB Salzburgo",
+  "RB Leipzig": "RB Leipzig",
+  "VfB Stuttgart": "Stuttgart",
+  "Eintracht Frankfurt": "Eintracht Fráncfort",
+  "Borussia Mönchengladbach": "Borussia Mönchengladbach",
+  "Olympiacos FC": "Olympiacos",
+  "PAOK": "PAOK",
+  "Qarabağ Ağdam FK": "Qarabag",
+  "Malmö FF": "Malmö",
 };
 
 const STAGE_MAP = {
-  GROUP_STAGE: "group",
-  LAST_32: "r32",
+  LEAGUE_STAGE: "league",
+  // football-data still labels the standings block GROUP_STAGE for backwards
+  // compatibility; if it ever does the same on matches, map it to the league
+  // phase rather than dropping the fixture.
+  GROUP_STAGE: "league",
+  PLAYOFFS: "po",
+  PLAYOFF_ROUND: "po",
   LAST_16: "r16",
   QUARTER_FINALS: "qf",
   SEMI_FINALS: "sf",
-  THIRD_PLACE: "third",
   FINAL: "final",
 };
 
@@ -107,59 +138,44 @@ function mapWinner(w) {
   return null;
 }
 
-// Penalty-shootout breakdown from a football-data score object, or null when
-// the tie wasn't decided on penalties. football-data leaves `score.winner` null
-// for shootouts and its standalone `penalties` field is unreliable (it can read
-// e.g. 4-4 for a tie that obviously had a winner). The trustworthy figure is
-// `fullTime`, which is the aggregate INCLUDING the shootout — so we recover the
-// shootout score as fullTime minus the on-pitch (regular + extra time) result,
-// and use `penalties` only as a last-resort fallback.
-function shootout(score) {
-  if (!score || score.duration !== "PENALTY_SHOOTOUT") return null;
-  const n = (x) => (Number.isInteger(x) ? x : 0);
-  const ft = score.fullTime ?? {};
-  const reg = score.regularTime ?? {};
-  const et = score.extraTime ?? {};
-  // On-pitch result that stands going into the shootout (e.g. "1-1").
-  const endHome = n(reg.home) + n(et.home);
-  const endAway = n(reg.away) + n(et.away);
-  let pHome = n(ft.home) - endHome;
-  let pAway = n(ft.away) - endAway;
-  if (pHome <= 0 && pAway <= 0 && score.penalties) {
-    pHome = n(score.penalties.home);
-    pAway = n(score.penalties.away);
-  }
-  if (pHome === pAway) return null; // no derivable winner — leave undecided
-  return {
-    endScore: { home: endHome, away: endAway },
-    penalties: { home: pHome, away: pAway },
-    winner: pHome > pAway ? "home" : "away",
-  };
-}
-
-function groupLetter(g) {
-  return g && g.startsWith("GROUP_") ? g.replace("GROUP_", "") : undefined;
-}
-
+const int = (x) => (Number.isInteger(x) ? x : 0);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// Bounded retry for flaky upstreams: worldcup26.ir has intermittent DNS failures
-// (EAI_AGAIN) and occasionally returns an empty 200; football-data free tier
-// rate-limits. A single transient blip must NOT cost us a whole 30-min poll
-// cycle, so we retry in-process instead of waiting for the next scheduled run
-// (which is what used to make the Action "need two consecutive runs").
-async function fetchJSON(
-  url,
-  { headers, tries = 3, backoffMs = 800, timeoutMs = 10000 } = {},
-) {
+// --- HTTP -------------------------------------------------------------------
+
+// The free tier allows 10 requests/minute. Serialise every call through one
+// chain with a fixed gap so a burst (36 team lookups on the first run) can't
+// trip the limit and poison the whole sync.
+const MIN_GAP_MS = 6500;
+let gate = Promise.resolve();
+let lastCall = 0;
+function throttle() {
+  gate = gate.then(async () => {
+    const wait = lastCall + MIN_GAP_MS - Date.now();
+    if (wait > 0) await sleep(wait);
+    lastCall = Date.now();
+  });
+  return gate;
+}
+
+/**
+ * Bounded retry for a flaky upstream. A single transient blip must NOT cost a
+ * whole poll cycle, so we retry in-process instead of waiting for the next
+ * scheduled run.
+ */
+async function fetchJSON(path, { tries = 3, backoffMs = 1500, timeoutMs = 15000 } = {}) {
   let lastErr;
   for (let attempt = 1; attempt <= tries; attempt++) {
+    await throttle();
     try {
       const ctrl = new AbortController();
       const timer = setTimeout(() => ctrl.abort(), timeoutMs);
       try {
-        const res = await fetch(url, { headers, signal: ctrl.signal });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const res = await fetch(API + path, {
+          headers: { "X-Auth-Token": TOKEN },
+          signal: ctrl.signal,
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status} on ${path}`);
         return await res.json();
       } finally {
         clearTimeout(timer);
@@ -172,9 +188,189 @@ async function fetchJSON(
   throw lastErr;
 }
 
-// Hybrid guard: when MATCH_WINDOW_ONLY=1, only hit the API if a match is
-// currently in progress (kickoff − 15 min … kickoff + 3 h). Lets the workflow
-// poll often but stay a no-op outside actual match times.
+// Crests live on a plain CDN, not the API, so they are not rate limited and
+// don't go through the throttle.
+async function downloadCrest(url, dest) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  if (buf.length === 0) throw new Error(`empty crest for ${url}`);
+  writeFileSync(dest, buf);
+  return buf.length;
+}
+
+// --- Scores -----------------------------------------------------------------
+
+/**
+ * Unpack a football-data score into the on-pitch result plus its parts.
+ *
+ * `fullTime` is an aggregate that INCLUDES the shootout: the 2026 final reads
+ * fullTime 5-4 for a match that actually finished 1-1 with PSG winning 4-3 on
+ * penalties. So for a shootout we rebuild the on-pitch score from
+ * regularTime + extraTime and derive the shootout as the remainder.
+ */
+function unpackScore(s) {
+  const ft = s?.fullTime ?? {};
+  const out = { score: { home: ft.home ?? null, away: ft.away ?? null } };
+  if (!s) return out;
+
+  if (s.regularTime && s.regularTime.home != null) {
+    out.regularTime = { home: s.regularTime.home, away: s.regularTime.away };
+  }
+  if (s.extraTime && s.extraTime.home != null) {
+    out.extraTime = { home: s.extraTime.home, away: s.extraTime.away };
+  }
+
+  if (s.duration === "PENALTY_SHOOTOUT") {
+    const home = int(s.regularTime?.home) + int(s.extraTime?.home);
+    const away = int(s.regularTime?.away) + int(s.extraTime?.away);
+    out.score = { home, away };
+    // Prefer the explicit shootout figures; fall back to fullTime minus the
+    // on-pitch result, which is how the aggregate is built.
+    let pHome = s.penalties?.home ?? int(ft.home) - home;
+    let pAway = s.penalties?.away ?? int(ft.away) - away;
+    if (pHome !== pAway) out.penalties = { home: pHome, away: pAway };
+  }
+  return out;
+}
+
+// --- Ties -------------------------------------------------------------------
+
+/**
+ * Group knockout matches into two-legged ties and stamp `tieId` / `leg`.
+ *
+ * The API exposes no tie or leg field, but `matchday` is 1 for the first leg
+ * and 2 for the second — verified against all 22 ties of 2025/26, where it
+ * agreed with the chronological order every time. We still sort by date and
+ * use matchday only as a tiebreak, so a missing matchday degrades gracefully.
+ *
+ * The tie id is built from the stage plus the sorted team ids, which makes it
+ * deterministic and stable across syncs (an id derived from fixture order
+ * would shift the moment a match is rescheduled).
+ */
+function assignTies(matches) {
+  const groups = new Map();
+  for (const m of matches) {
+    if (m.stage === "league") continue;
+    if (m.stage === "final") {
+      m.tieId = "final";
+      continue;
+    }
+    if (m.home == null || m.away == null) continue; // slot not drawn yet
+    const pair = [m.home, m.away].sort((a, b) => a - b);
+    const key = `${m.stage}-${pair[0]}-${pair[1]}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(m);
+  }
+
+  let odd = 0;
+  for (const [tieId, legs] of groups) {
+    legs.sort(
+      (a, b) =>
+        Date.parse(a.datetime) - Date.parse(b.datetime) ||
+        (a.matchday ?? 0) - (b.matchday ?? 0),
+    );
+    if (legs.length !== 2) odd += 1;
+    legs.forEach((m, i) => {
+      m.tieId = tieId;
+      m.leg = i + 1;
+    });
+  }
+  if (odd) {
+    console.warn(`⚠ ${odd} tie(s) did not have exactly 2 legs — check the feed.`);
+  }
+  return groups.size;
+}
+
+// --- Teams ------------------------------------------------------------------
+
+/**
+ * Build the 36 clubs from /competitions/CL/teams.
+ *
+ * One call returns everything we need — stadium, country and club colours —
+ * for every participant. The obvious-looking alternative, /teams/{id} per club,
+ * is worse twice over: it costs 36 rate-limited calls (~4 min) and the free
+ * tier answers 403 for clubs whose domestic league is not covered, which is a
+ * third of a Champions League field (Slavia, Qarabağ, Kairat, Paphos…).
+ */
+function buildTeams(apiTeams) {
+  return apiTeams
+    .map((t) => {
+      const en = t.name ?? t.shortName ?? String(t.id);
+      const short = t.shortName ?? en;
+      return {
+        id: t.id,
+        tla: t.tla ?? "",
+        en,
+        es: ES_NAMES[en] ?? ES_NAMES[short] ?? short,
+        short,
+        crest: "",
+        country: t.area?.name ?? "",
+        countryCode: t.area?.code ?? "",
+        venue: t.venue ?? undefined,
+        colors: t.clubColors ?? undefined,
+      };
+    })
+    .sort((a, b) => a.en.localeCompare(b.en));
+}
+
+/**
+ * Fallback when /competitions/CL/teams is unavailable: the match feed still
+ * names both sides, so we can keep the app coherent, topped up with whatever
+ * the committed teams.json already knew (venues, colours).
+ */
+function teamsFromMatches(apiMatches, previous) {
+  const prev = new Map(previous.map((t) => [t.id, t]));
+  const byId = new Map();
+  for (const m of apiMatches) {
+    for (const tm of [m.homeTeam, m.awayTeam]) {
+      if (!tm?.id || byId.has(tm.id)) continue;
+      const en = tm.name ?? tm.shortName ?? String(tm.id);
+      const short = tm.shortName ?? en;
+      byId.set(tm.id, {
+        ...(prev.get(tm.id) ?? {}),
+        id: tm.id,
+        tla: tm.tla ?? "",
+        en,
+        es: ES_NAMES[en] ?? ES_NAMES[short] ?? short,
+        short,
+        crest: prev.get(tm.id)?.crest ?? "",
+        country: prev.get(tm.id)?.country ?? "",
+        countryCode: prev.get(tm.id)?.countryCode ?? "",
+      });
+    }
+  }
+  return [...byId.values()].sort((a, b) => a.en.localeCompare(b.en));
+}
+
+async function fetchCrests(teams, crestUrls) {
+  mkdirSync(crestDir, { recursive: true });
+  let downloaded = 0;
+  for (const t of teams) {
+    const url = crestUrls.get(t.id);
+    if (!url) continue;
+    const ext = url.endsWith(".svg") ? "svg" : "png";
+    const file = `${t.id}.${ext}`;
+    t.crest = `/crests/${file}`;
+    const dest = join(crestDir, file);
+    if (existsSync(dest)) continue; // crests are static; never re-download
+    try {
+      const bytes = await downloadCrest(url, dest);
+      downloaded += 1;
+      console.log(`  crest ${file} (${bytes} B)`);
+    } catch (e) {
+      console.warn(`  crest failed for ${t.en} (${e.message})`);
+      t.crest = ""; // the UI falls back to a monogram
+    }
+  }
+  return downloaded;
+}
+
+// --- Match window -----------------------------------------------------------
+
+// When MATCH_WINDOW_ONLY=1, only hit the API if a match is currently in
+// progress (kickoff − 15 min … kickoff + 3 h). Lets the workflow poll often
+// but stay a no-op outside actual match times.
 function withinMatchWindow() {
   const schedulePath = join(dataDir, "schedule.json");
   if (!existsSync(schedulePath)) return true; // nothing to compare against yet
@@ -188,403 +384,146 @@ function withinMatchWindow() {
   });
 }
 
+function readJSON(name, fallback) {
+  const p = join(dataDir, name);
+  if (!existsSync(p)) return fallback;
+  try {
+    return JSON.parse(readFileSync(p, "utf8"));
+  } catch {
+    return fallback;
+  }
+}
+
+function writeJSON(name, value) {
+  writeFileSync(join(dataDir, name), JSON.stringify(value, null, 2) + "\n", "utf8");
+}
+
+// --- Main -------------------------------------------------------------------
+
 async function main() {
   if (process.env.MATCH_WINDOW_ONLY === "1" && !withinMatchWindow()) {
     console.log("Outside match window — skipping API call.");
     return;
   }
 
-  // Static venue + bracket maps (committed; used when (re)building from football-data).
-  const venuesPath = join(dataDir, "venues.json");
-  const venues = existsSync(venuesPath)
-    ? JSON.parse(readFileSync(venuesPath, "utf8"))
-    : {};
-  const bracketPath = join(dataDir, "bracket.json");
-  const bracket = existsSync(bracketPath)
-    ? JSON.parse(readFileSync(bracketPath, "utf8"))
-    : {};
+  const apiMatches = (await fetchJSON(`/competitions/CL/matches${qs()}`)).matches ?? [];
+  if (apiMatches.length === 0) throw new Error("empty match list");
 
-  // football-data only supplies the STRUCTURE (fixtures/teams/dates), which
-  // doesn't change mid-tournament. A hiccup there must NOT fail the run — so on
-  // any error we reuse the committed structure and still apply live scores.
+  // --- clubs ---
+  // Prefer the competition-wide team list (one call, complete data); fall back
+  // to what the match feed names so a hiccup here can't sink the whole sync.
   let teams;
-  let matches;
+  const crestUrls = new Map();
   try {
-    const apiMatches =
-      (
-        await fetchJSON(
-          "https://api.football-data.org/v4/competitions/WC/matches",
-          { headers: { "X-Auth-Token": TOKEN } },
-        )
-      ).matches ?? [];
-    if (apiMatches.length === 0) throw new Error("empty response");
+    const apiTeams = (await fetchJSON(`/competitions/CL/teams${qs()}`)).teams ?? [];
+    if (apiTeams.length === 0) throw new Error("empty team list");
+    teams = buildTeams(apiTeams);
+    for (const t of apiTeams) if (t.crest) crestUrls.set(t.id, t.crest);
+  } catch (e) {
+    console.warn(`/competitions/CL/teams unavailable (${e.message}); deriving clubs from the fixtures.`);
+    teams = teamsFromMatches(apiMatches, readJSON("teams.json", []));
+  }
+  for (const m of apiMatches) {
+    for (const tm of [m.homeTeam, m.awayTeam]) {
+      if (tm?.id && tm.crest && !crestUrls.has(tm.id)) crestUrls.set(tm.id, tm.crest);
+    }
+  }
 
-    const teamMap = new Map();
-    for (const m of apiMatches) {
-      if (m.stage !== "GROUP_STAGE") continue;
-      for (const tm of [m.homeTeam, m.awayTeam]) {
-        // Normalize the TLA (e.g. URU→URY) so codes stay consistent with REF
-        // and with the worldcup26 score overlay regardless of which form the
-        // API serves — otherwise the team gets a blank flag and its scores
-        // never match during overlay.
-        const code = tm?.tla ? normCode(tm.tla) : null;
-        if (!code || teamMap.has(code)) continue;
-        const ref = REF[code] ?? { flag: "🏳️", es: tm.name };
-        teamMap.set(code, {
-          code,
-          en: tm.name,
-          es: ref.es,
-          flag: ref.flag,
-          group: groupLetter(m.group),
-        });
+  const newCrests = await fetchCrests(teams, crestUrls);
+  const noVenue = teams.filter((t) => !t.venue).length;
+  if (noVenue) console.warn(`⚠ ${noVenue} club(s) without a stadium in the feed.`);
+
+  // --- matches ---
+  const matches = apiMatches
+    .map((m) => {
+      const stage = STAGE_MAP[m.stage];
+      if (!stage) {
+        console.warn(`⚠ unknown stage "${m.stage}" on match ${m.id} — treated as league.`);
       }
-    }
-    teams = [...teamMap.values()].sort((a, b) =>
-      a.group === b.group
-        ? a.en.localeCompare(b.en)
-        : (a.group ?? "").localeCompare(b.group ?? ""),
-    );
-
-    matches = apiMatches
-      .map((m) => {
-        // For shootouts, show the on-pitch result and carry the penalty score;
-        // football-data's `fullTime` aggregate would otherwise read e.g. "4-5".
-        const so = shootout(m.score);
-        const match = {
-          id: `WC-${m.id}`,
-          apiId: m.id,
-          stage: STAGE_MAP[m.stage] ?? "group",
-          datetime: m.utcDate,
-          home: m.homeTeam?.tla ? normCode(m.homeTeam.tla) : null,
-          away: m.awayTeam?.tla ? normCode(m.awayTeam.tla) : null,
-          score: so
-            ? { home: so.endScore.home, away: so.endScore.away }
-            : {
-                home: m.score?.fullTime?.home ?? null,
-                away: m.score?.fullTime?.away ?? null,
-              },
-          winner: so ? so.winner : mapWinner(m.score?.winner),
-          status: mapStatus(m.status),
-        };
-        if (so) match.penalties = so.penalties;
-        const g = groupLetter(m.group);
-        if (g) match.group = g;
-        if (m.matchday && m.stage === "GROUP_STAGE") match.matchday = m.matchday;
-
-        const v = venues[m.id];
-        if (v) {
-          match.venue = v.venue;
-          if (v.city) match.city = v.city;
+      const { score, regularTime, extraTime, penalties } = unpackScore(m.score);
+      const match = {
+        id: `CL-${m.id}`,
+        apiId: m.id,
+        stage: stage ?? "league",
+        datetime: m.utcDate,
+        home: m.homeTeam?.id ?? null,
+        away: m.awayTeam?.id ?? null,
+        score,
+        winner: mapWinner(m.score?.winner),
+        status: mapStatus(m.status),
+      };
+      if (m.matchday != null) match.matchday = m.matchday;
+      if (regularTime) match.regularTime = regularTime;
+      if (extraTime) match.extraTime = extraTime;
+      if (penalties) {
+        match.penalties = penalties;
+        // The API sometimes leaves `winner` null on a shootout; the penalties
+        // are unambiguous, so use them rather than showing an undecided tie.
+        if (!match.winner) {
+          match.winner = penalties.home > penalties.away ? "home" : "away";
         }
+      }
+      return match;
+    })
+    .sort((a, b) => Date.parse(a.datetime) - Date.parse(b.datetime));
 
-        const b = bracket[match.id];
-        if (b) {
-          match.matchNumber = b.matchNumber;
-          match.homeLabel = b.homeLabel;
-          match.awayLabel = b.awayLabel;
-        }
-        return match;
-      })
-      .sort((a, b) => Date.parse(a.datetime) - Date.parse(b.datetime));
-  } catch (e) {
-    console.log(
-      `football-data unavailable (${e.message}); reusing committed structure.`,
-    );
-    const schedulePath0 = join(dataDir, "schedule.json");
-    const teamsPath0 = join(dataDir, "teams.json");
-    if (!existsSync(schedulePath0) || !existsSync(teamsPath0)) {
-      console.error("No committed data to fall back to.");
-      process.exit(1);
-    }
-    matches = JSON.parse(readFileSync(schedulePath0, "utf8"));
-    teams = JSON.parse(readFileSync(teamsPath0, "utf8"));
-  }
+  const tieCount = assignTies(matches);
 
-  // Fetch worldcup26 ONCE and reuse it for both scores and top scorers.
-  let liveRefreshed = false;
+  // --- league table ---
+  // Taken straight from the API: the later UEFA tiebreakers (away goals, away
+  // wins, disciplinary points, club coefficient) cannot be computed from the
+  // data we hold, so the API's order is the source of truth.
+  let standings = readJSON("standings.json", []);
   try {
-    const wc = await fetchWorldcup();
-    const overlaid = overlayScores(matches, wc);
-    console.log(`Overlaid scores from worldcup26 on ${overlaid} matches.`);
-    const n = buildTopScorers(wc);
-    console.log(`Top scorers parsed: ${n} players.`);
-    liveRefreshed = true;
+    const raw = await fetchJSON(`/competitions/CL/standings${qs()}`);
+    const table = raw.standings?.find((s) => s.type === "TOTAL")?.table ?? [];
+    if (table.length) {
+      standings = table.map((r) => ({
+        position: r.position,
+        teamId: r.team.id,
+        played: r.playedGames,
+        won: r.won,
+        drawn: r.draw,
+        lost: r.lost,
+        gf: r.goalsFor,
+        ga: r.goalsAgainst,
+        gd: r.goalDifference,
+        points: r.points,
+      }));
+    }
   } catch (e) {
-    console.log(`worldcup26 unavailable (${e.message}); keeping existing scores.`);
+    console.warn(`standings unavailable (${e.message}); keeping committed table.`);
   }
 
-  writeFileSync(
-    join(dataDir, "teams.json"),
-    JSON.stringify(teams, null, 2) + "\n",
-    "utf8",
-  );
-  writeFileSync(
-    join(dataDir, "schedule.json"),
-    JSON.stringify(matches, null, 2) + "\n",
-    "utf8",
-  );
+  // --- scorers ---
+  let scorers = readJSON("scorers.json", []);
+  try {
+    const raw = await fetchJSON(`/competitions/CL/scorers${qs({ limit: 30 })}`);
+    const list = (raw.scorers ?? []).map((s) => ({
+      name: s.player?.name ?? "—",
+      goals: s.goals ?? 0,
+      assists: s.assists ?? null,
+      team: s.team?.id ?? null,
+    }));
+    // Never replace a good list with an empty one.
+    if (list.length) scorers = list;
+  } catch (e) {
+    console.warn(`scorers unavailable (${e.message}); keeping committed list.`);
+  }
+
+  writeJSON("teams.json", teams);
+  writeJSON("schedule.json", matches);
+  writeJSON("standings.json", standings);
+  writeJSON("scorers.json", scorers);
 
   const byStage = matches.reduce((acc, m) => {
     acc[m.stage] = (acc[m.stage] || 0) + 1;
     return acc;
   }, {});
-  const decided = matches.filter((m) => m.status === "finished").length;
-  console.log(`Synced ${teams.length} teams, ${matches.length} matches.`);
+  console.log(`\nSynced ${teams.length} clubs, ${matches.length} matches, ${tieCount} ties.`);
   console.log("By stage:", byStage);
-  console.log(`Finished matches: ${decided}`);
-
-  // If the live source (worldcup26) couldn't be refreshed even after its own
-  // in-process retries, exit non-zero so the workflow retries the whole run
-  // instead of leaving stale data behind a green check — that silent no-op is
-  // exactly what used to force a manual "run it twice". The committed structure
-  // was already written above, so nothing good is lost. (When MATCH_WINDOW_ONLY
-  // skipped the fetch because no match is live, we returned much earlier and
-  // never reach this line.)
-  if (!liveRefreshed) {
-    console.error("Live scores/scorers not refreshed from worldcup26 — failing so the run is retried.");
-    process.exit(1);
-  }
-}
-
-// football-data uses "URY" for Uruguay; worldcup26 uses "URU".
-const normCode = (c) => (c === "URU" ? "URY" : c);
-
-// worldcup26 local_date is Mexico time (UTC−6) → UTC epoch ms.
-function wcEpoch(localDate) {
-  const m = String(localDate).match(/(\d{2})\/(\d{2})\/(\d{4})\s+(\d{1,2}):(\d{2})/);
-  if (!m) return null;
-  const [, MM, DD, YYYY, HH, mm] = m;
-  return Date.UTC(+YYYY, +MM - 1, +DD, +HH + 6, +mm);
-}
-
-// Returns {status, home, away} from a worldcup26 game, or null if not started.
-function wcScore(wc) {
-  const hs = parseInt(wc.home_score, 10);
-  const as = parseInt(wc.away_score, 10);
-  if (!Number.isInteger(hs) || !Number.isInteger(as)) return null;
-  const finished = String(wc.finished).toUpperCase() === "TRUE";
-  const te = String(wc.time_elapsed || "").toLowerCase();
-  if (finished) return { status: "finished", home: hs, away: as };
-  if (te && te !== "notstarted") return { status: "live", home: hs, away: as };
-  return null; // notstarted → don't overlay the placeholder 0-0
-}
-
-// Fetch worldcup26 teams + games ONCE; reused for scores and scorers.
-// An empty (but HTTP 200) payload is a transient worldcup26 quirk that fetchJSON
-// can't catch (the request itself "succeeded") — and it was the main reason a
-// manual run had to be fired twice: the first run swallowed the empty response
-// and left the data stale. So retry the WHOLE fetch here, treating an empty
-// payload as a retryable error, and only give up (throwing, so the caller keeps
-// the committed data) after several attempts.
-async function fetchWorldcup({ tries = 4, backoffMs = 1500 } = {}) {
-  let lastErr;
-  for (let attempt = 1; attempt <= tries; attempt++) {
-    try {
-      const wcTeams = (await fetchJSON("https://worldcup26.ir/get/teams")).teams ?? [];
-      const wcGames = (await fetchJSON("https://worldcup26.ir/get/games")).games ?? [];
-      if (wcTeams.length === 0 || wcGames.length === 0) {
-        throw new Error("empty worldcup26 payload");
-      }
-      const codeByWcId = new Map(wcTeams.map((t) => [t.id, normCode(t.fifa_code)]));
-      return { codeByWcId, wcGames };
-    } catch (e) {
-      lastErr = e;
-      if (attempt < tries) await sleep(backoffMs * attempt);
-    }
-  }
-  throw lastErr;
-}
-
-function overlayScores(matches, { codeByWcId, wcGames }) {
-  const byCode = new Map();
-  const byEpoch = new Map();
-  for (const wc of wcGames) {
-    const h = codeByWcId.get(wc.home_team_id);
-    const a = codeByWcId.get(wc.away_team_id);
-    if (h && a) byCode.set(`${h}-${a}`, wc);
-    const ep = wcEpoch(wc.local_date);
-    if (ep != null) byEpoch.set(ep, wc);
-  }
-
-  let count = 0;
-  for (const match of matches) {
-    let wc =
-      match.home && match.away
-        ? byCode.get(`${match.home}-${match.away}`)
-        : undefined;
-    if (!wc) wc = byEpoch.get(Date.parse(match.datetime)); // knockout fallback
-    if (!wc) continue;
-
-    const ss = wcScore(wc);
-    if (!ss) continue;
-
-    match.score = { home: ss.home, away: ss.away };
-    match.status = ss.status;
-    // worldcup26 reports only the on-pitch score (no shootout), so a tie reads
-    // as no winner. When football-data already gave us a penalty result for
-    // this tie, keep it as the tiebreak instead of clobbering it to null.
-    match.winner =
-      ss.home > ss.away
-        ? "home"
-        : ss.away > ss.home
-          ? "away"
-          : match.penalties
-            ? match.penalties.home > match.penalties.away
-              ? "home"
-              : "away"
-            : null;
-    // Fill knockout teams that football-data hasn't set yet.
-    if (!match.home) match.home = codeByWcId.get(wc.home_team_id) ?? null;
-    if (!match.away) match.away = codeByWcId.get(wc.away_team_id) ?? null;
-    count += 1;
-  }
-  return count;
-}
-
-// --- Top scorers (Golden Boot), parsed from worldcup26.ir scorer strings ---
-// Strings look like {"Felix Nmecha 7'","K. Havertz 45'+5'(p)"} — quotes can be
-// straight or curly; "(OG)" = own goal (excluded); "(p)" = penalty (counts).
-// Dedup key that collapses the two forms worldcup26 emits for one player:
-// it lists e.g. "Kylian Mbappé" in one match and "K. Mbappé" in another.
-// Keying on team + surname + first initial merges them (both → "fra|k|mbappe")
-// while still telling apart different players (different surname/team/initial).
-function scorerKey(name, teamCode) {
-  const parts = name
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .split(/[^a-z0-9]+/)
-    .filter(Boolean);
-  if (parts.length === 0) return "";
-  const surname = parts[parts.length - 1];
-  const initial = parts.length > 1 ? parts[0][0] : "";
-  return `${teamCode ?? ""}|${initial}|${surname}`;
-}
-
-// Canonical fixes for names worldcup26.ir mangles via Persian transliteration,
-// which drops/garbles vowels (e.g. "Harry Kane" → "Hri Kin"). Keyed by
-// scorerKey(rawName, teamCode) → canonical display name. Mapping BOTH the garbled
-// form and any proper-but-abbreviated form to the same canonical name also merges
-// their goal tallies — otherwise they key apart on different surnames (e.g. the
-// garbled "kin" vs the real "kane") and the player is split across two rows.
-const NAME_FIXES = {
-  "ENG|h|kin": "Harry Kane",
-  "ENG|h|kane": "Harry Kane",
-  "ENG|j|blingham": "Jude Bellingham",
-  "ENG|j|bellingham": "Jude Bellingham",
-  "SUI|j|mnzambi": "Johan Manzambi",
-  "NED|k|khakpv": "Cody Gakpo",
-  "GER|d|avndav": "Deniz Undav",
-  "JPN|a|ivida": "Ayase Ueda",
-  "MEX|j|kviinvnz": "Julián Quiñones",
-  "COL|d|mvnvz": "Daniel Muñoz",
-};
-
-function addScorers(raw, teamCode, tally) {
-  if (!raw || String(raw).toLowerCase() === "null") return;
-  const re = /["“”]([^"“”]+)["“”]/g;
-  let m;
-  while ((m = re.exec(raw)) !== null) {
-    const entry = m[1];
-    if (/\(\s*og\s*\)/i.test(entry)) continue; // own goal — doesn't count
-    const d = entry.search(/\d/);
-    const name = (d > 0 ? entry.slice(0, d) : entry)
-      .replace(/['’`]+$/, "")
-      .trim();
-    if (!name) continue;
-    // Canonicalize before keying so both the display name and the dedup key use
-    // the corrected spelling.
-    const fixed = NAME_FIXES[scorerKey(name, teamCode)] ?? name;
-    const key = scorerKey(fixed, teamCode);
-    if (!key) continue;
-    const cur = tally.get(key);
-    if (cur) {
-      cur.goals += 1;
-      if (fixed.length > cur.name.length) cur.name = fixed; // prefer fuller name
-    } else {
-      tally.set(key, { name: fixed, goals: 1, team: teamCode ?? null });
-    }
-  }
-}
-
-// Manual corrections for the worldcup26.ir feed, keyed by game id. worldcup26
-// sometimes reports a match SCORE correctly but lists fewer scorer names than
-// goals (a goal with no named scorer — e.g. game 83 read POR 2-1 with only
-// Gonçalo Ramos listed, dropping Cristiano Ronaldo). We can only tally scorers
-// the feed names, so this file lets us supply the missing/corrected names.
-function loadScorerOverrides() {
-  const p = join(dataDir, "scorer-overrides.json");
-  if (!existsSync(p)) return {};
-  try {
-    return JSON.parse(readFileSync(p, "utf8"));
-  } catch (e) {
-    console.warn(`Could not read scorer-overrides.json (${e.message}); ignoring.`);
-    return {};
-  }
-}
-
-// Turn an override array (["Cristiano Ronaldo", "Gonçalo Ramos 90+4'"]) into the
-// braced, quoted string the feed uses, so addScorers can parse it unchanged.
-const toScorerRaw = (v) =>
-  Array.isArray(v) ? "{" + v.map((s) => `"${String(s)}"`).join(",") + "}" : v;
-
-// Count every quoted scorer entry (own goals included — they still represent a
-// goal for the side they're listed under), for reconciling against the score.
-function countScorerEntries(raw) {
-  if (!raw || String(raw).toLowerCase() === "null") return 0;
-  const re = /["“”]([^"“”]+)["“”]/g;
-  let n = 0;
-  while (re.exec(raw) !== null) n += 1;
-  return n;
-}
-
-// Surface the recurring worldcup26 gap (finished match whose listed-scorer count
-// doesn't match its score) so it shows up in the workflow log instead of silently
-// undercounting a player. Uses the post-override strings so resolved gaps go quiet.
-function warnScorerGaps(wcGames, overrides) {
-  for (const g of wcGames) {
-    if (String(g.finished).toUpperCase() !== "TRUE") continue;
-    const ov = overrides[g.id] ?? {};
-    const homeRaw = ov.home_scorers != null ? toScorerRaw(ov.home_scorers) : g.home_scorers;
-    const awayRaw = ov.away_scorers != null ? toScorerRaw(ov.away_scorers) : g.away_scorers;
-    const hs = Number(g.home_score);
-    const as = Number(g.away_score);
-    const hn = countScorerEntries(homeRaw);
-    const an = countScorerEntries(awayRaw);
-    if ((Number.isInteger(hs) && hn !== hs) || (Number.isInteger(as) && an !== as)) {
-      console.warn(
-        `⚠ scorer gap: game ${g.id} score ${g.home_score}-${g.away_score} but ` +
-          `${hn}/${an} scorers named — add a data/scorer-overrides.json entry.`,
-      );
-    }
-  }
-}
-
-function buildTopScorers({ codeByWcId, wcGames }) {
-  const overrides = loadScorerOverrides();
-  warnScorerGaps(wcGames, overrides);
-  const tally = new Map();
-  for (const g of wcGames) {
-    const ov = overrides[g.id] ?? {};
-    const homeRaw = ov.home_scorers != null ? toScorerRaw(ov.home_scorers) : g.home_scorers;
-    const awayRaw = ov.away_scorers != null ? toScorerRaw(ov.away_scorers) : g.away_scorers;
-    addScorers(homeRaw, codeByWcId.get(g.home_team_id), tally);
-    addScorers(awayRaw, codeByWcId.get(g.away_team_id), tally);
-  }
-  const list = [...tally.values()]
-    .sort((a, b) => b.goals - a.goals || a.name.localeCompare(b.name))
-    .slice(0, 30);
-
-  // Never replace a good scorer list with an empty one (belt-and-suspenders on
-  // top of the empty-payload guard in fetchWorldcup): keep the committed data.
-  const outPath = join(dataDir, "scorers.json");
-  if (list.length === 0 && existsSync(outPath)) {
-    const prev = JSON.parse(readFileSync(outPath, "utf8"));
-    if (Array.isArray(prev) && prev.length > 0) return prev.length;
-  }
-
-  writeFileSync(outPath, JSON.stringify(list, null, 2) + "\n", "utf8");
-  return list.length;
+  console.log(`Standings rows: ${standings.length} · scorers: ${scorers.length} · new crests: ${newCrests}`);
+  console.log(`Finished matches: ${matches.filter((m) => m.status === "finished").length}`);
 }
 
 main().catch((e) => {
