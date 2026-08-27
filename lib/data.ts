@@ -60,3 +60,26 @@ export function matchesBetween(a: number, b: number): Match[] {
       (m.home === a && m.away === b) || (m.home === b && m.away === a),
   );
 }
+
+/**
+ * Fold a string for searching: lowercase and strip diacritics, so typing
+ * "atletico" finds "Atlético" and "munich" finds "München".
+ *
+ * NFD decomposition handles accents (é → e + ´) but not letters that are
+ * distinct characters rather than a base plus a mark — "ø" is its own letter
+ * and survives, so the handful we actually have are mapped by hand.
+ */
+const LETTER_FOLD: Record<string, string> = {
+  "ø": "o", // ø  (Bodø/Glimt, København)
+  "đ": "d", // đ
+  "ł": "l", // ł
+  "ß": "ss", // ß
+};
+
+export function searchKey(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[øđłß]/g, (c) => LETTER_FOLD[c] ?? c)
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "");
+}

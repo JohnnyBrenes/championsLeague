@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { useTimezone } from "@/lib/timezone";
-import { sortedMatches, teamById, teamName, teams } from "@/lib/data";
+import { searchKey, sortedMatches, teamById, teamName, teams } from "@/lib/data";
 import { standingsAround, teamStanding } from "@/lib/standings";
 import type { Team } from "@/lib/types";
 import MatchDayList from "@/components/MatchDayList";
@@ -27,10 +27,13 @@ export default function TeamsPage() {
   );
 
   const visibleTeams = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = searchKey(query.trim());
     if (!q) return sortedTeams;
+    // Club names and code only. The API gives `country` in English only
+    // ("Spain", "Czech Republic"), so offering to search by country in a
+    // Spanish UI just failed silently.
     return sortedTeams.filter((tm) =>
-      `${tm.en} ${tm.es} ${tm.tla} ${tm.country}`.toLowerCase().includes(q),
+      searchKey(`${tm.en} ${tm.es} ${tm.tla}`).includes(q),
     );
   }, [sortedTeams, query]);
 

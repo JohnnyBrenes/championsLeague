@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { useTimezone } from "@/lib/timezone";
-import { sortedMatches, teamById, teamName, teams } from "@/lib/data";
+import { searchKey, sortedMatches, teamById, teamName, teams } from "@/lib/data";
 import type { Match } from "@/lib/types";
 import MatchDayList from "@/components/MatchDayList";
 
@@ -49,7 +49,7 @@ export default function SchedulePage() {
   }
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const q = searchKey(query.trim());
     const teamId = team ? Number(team) : null;
     return all.filter((m: Match) => {
       if (round && roundKey(m) !== round) return false;
@@ -57,10 +57,11 @@ export default function SchedulePage() {
       if (q) {
         const home = teamById(m.home);
         const away = teamById(m.away);
-        const haystack = [home?.en, home?.es, away?.en, away?.es, home?.venue]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase();
+        const haystack = searchKey(
+          [home?.en, home?.es, away?.en, away?.es, home?.venue]
+            .filter(Boolean)
+            .join(" "),
+        );
         if (!haystack.includes(q)) return false;
       }
       return true;
