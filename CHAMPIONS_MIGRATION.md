@@ -482,9 +482,26 @@ Cada fase deja el repo compilando (`npm run build`) y desplegable.
   antes del sorteo** (¿equipos en `null`, o partidos ausentes?) y si cambian los días de
   jornada.
 
-- **Fase 2 — Lógica**
-  `lib/standings.ts` (tabla única) y `lib/bracket.ts` (doble partido). Conviene añadir
-  un par de pruebas del cálculo del global y de los desempates.
+- **Fase 2 — Lógica** — ✅ **HECHA** (rama `fase-1-datos`)
+  - ✅ `lib/data.ts`: accesores por id numérico (`teamById`), más `standings` y
+    `scorers` como fuentes de primera clase
+  - ✅ `lib/standings.ts` (321 → 150 líneas): tabla única de 36. El orden lo manda
+    la API; `computedTable()` queda solo como respaldo si falta la tabla
+    commiteada. Nuevos: `CUT_LINES`, `standingsAround()`, `leaguePhaseComplete()`
+  - ✅ `lib/bracket.ts`: `Tie` con global de ida y vuelta. El global se orienta al
+    local de la IDA, porque la vuelta se juega al revés y su `score.home` cuenta
+    para el lado visitante de la eliminatoria
+  - ✅ `treeOrder()` reconstruye el cableado del cuadro **desde los resultados**
+    (una eliminatoria contiene a los ganadores de dos de la ronda anterior), ya
+    que aquí no existen las etiquetas oficiales "W73" del Mundial
+  - ✅ **Verificado ejecutando la lógica real** contra 2025/26 (no reimplementada):
+    23 eliminatorias, 0 sin ganador, 0 inconsistencias entre rondas, y los cortes
+    de la tabla caen exactamente en 8/9 y 24/25
+  - ✅ El caso trampa sale bien: **Galatasaray elimina a la Juventus 7-5 global**
+    perdiendo la vuelta 3-2, con la API marcando `winner: home` en ambos partidos
+  - ✅ La final se resuelve 1-1 con penales 4-3 → campeón PSG
+  - ⚠️ Quedan **57 errores de tipos, todos en `app/` y `components/`**; `lib/` está
+    limpio. Es exactamente el trabajo de la Fase 3
 
 - **Fase 3 — UI funcional**
   `TeamBadge` con escudos · `LeagueTable` · `MatchCard` con ida/vuelta/global ·

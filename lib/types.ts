@@ -37,7 +37,10 @@ export interface Team {
   country: string;
   /** Three-letter area code from the API, e.g. "ESP". */
   countryCode: string;
-  /** Home stadium. Only available via /teams/{id}, never on a match. */
+  /**
+   * Home stadium. Comes from /competitions/CL/teams — a match never carries a
+   * venue on the free tier. Optional because the feed itself misses a few.
+   */
   venue?: string;
   /** Club colours as free text, e.g. "White / Purple". Used for fallbacks. */
   colors?: string;
@@ -107,8 +110,11 @@ export interface Tie {
   /** Team ids as they line up in the tie (the first leg's home side first). */
   home: number | null;
   away: number | null;
-  /** Combined score over both legs, once at least one leg has been played. */
-  aggregate?: MatchScore;
+  /**
+   * Combined score over both legs, once at least one leg has been played.
+   * Always numeric — unlike `MatchScore`, which is null before kick-off.
+   */
+  aggregate?: { home: number; away: number };
   /** Team id of the side that advanced, or null while undecided. */
   winner: number | null;
   /** True while at least one leg is still to be played. */
