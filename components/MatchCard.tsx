@@ -30,10 +30,12 @@ export default function MatchCard({ match }: { match: Match }) {
   // On a second leg the running aggregate is the number that actually decides
   // the tie, so it deserves a line of its own.
   const aggregate = match.leg === 2 ? aggregateFor(match) : null;
-  // The free tier gives no venue per match, so we show the home club's ground.
-  // That holds for every round EXCEPT the final, which is played at a neutral
-  // stadium — naming a finalist's own ground there would be plainly wrong.
-  const venue = match.stage === "final" ? undefined : teamById(match.home)?.venue;
+  // The free tier gives no venue per match, so we fall back to the home club's
+  // ground — true for every round except the final, which is played at a
+  // neutral stadium and therefore carries an explicit venue from the sync.
+  const venue =
+    match.venue ??
+    (match.stage === "final" ? undefined : teamById(match.home)?.venue);
 
   return (
     <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3 shadow-sm">

@@ -10,7 +10,8 @@
     "teams": "Clubs",
     "table": "Table",
     "scorers": "Scorers",
-    "bracket": "Knockouts"
+    "bracket": "Knockouts",
+    "records": "Records"
   },
   "scorers": {
     "title": "Top scorers",
@@ -141,5 +142,28 @@
     "pick": "Pick a club to compare",
     "headToHead": "Head to head",
     "neverMet": "They haven't met in this edition."
+  },
+  "records": {
+    "title": "Competition records",
+    "subtitle": "Figures computed from the results",
+    "empty": "No matches have been played yet.",
+    "matches": "Matches played",
+    "goals": "Total goals",
+    "average": "Goals per match",
+    "homeWins": "Home wins",
+    "draws": "Draws",
+    "goalless": "Goalless matches",
+    "extraTime": "Went to extra time",
+    "shootouts": "Penalty shootouts",
+    "mostGoals": "Most goals scored",
+    "bestDefence": "Best defence (goals conceded per match)",
+    "cleanSheets": "Most clean sheets",
+    "mostWins": "Most wins",
+    "winStreak": "Longest winning run",
+    "biggestWins": "Biggest wins",
+    "highestScoring": "Highest-scoring matches",
+    "inMatches": "matches",
+    "note": "Totals cover the league phase and the knockouts, so a club that went far has played more matches. That is why defence is measured per match rather than by total — otherwise going out early would look like a record. Penalty shootouts do not count as goals.",
+    "inN": "in"
   }
 }

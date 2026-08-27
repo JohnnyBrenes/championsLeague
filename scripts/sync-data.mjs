@@ -112,6 +112,20 @@ const ES_NAMES = {
   "Malmö FF": "Malmö",
 };
 
+/**
+ * Venue of the final, keyed by the season's END year (2026/27 -> 2027).
+ *
+ * The API has no venue data at all on the free tier: `venue` is null on the
+ * match list AND on the single-match endpoint. The final is the one fixture
+ * where that actually misleads, because it is played at a neutral ground —
+ * falling back to the home club's stadium would credit it to a finalist.
+ * These are UEFA's announced hosts; add the next one when it is confirmed.
+ */
+const FINAL_VENUES = {
+  2026: "Puskás Aréna, Budapest",
+  2027: "Estadio Metropolitano, Madrid",
+};
+
 const STAGE_MAP = {
   LEAGUE_STAGE: "league",
   // football-data still labels the standings block GROUP_STAGE for backwards
@@ -468,6 +482,20 @@ async function main() {
     .sort((a, b) => Date.parse(a.datetime) - Date.parse(b.datetime));
 
   const tieCount = assignTies(matches);
+
+  // Stamp the final with its neutral venue (see FINAL_VENUES).
+  const seasonEnd = Number(
+    (apiMatches[0]?.season?.endDate ?? "").slice(0, 4),
+  );
+  const finalVenue = FINAL_VENUES[seasonEnd];
+  if (finalVenue) {
+    for (const m of matches) if (m.stage === "final") m.venue = finalVenue;
+    console.log(`Final venue (season ${seasonEnd}): ${finalVenue}`);
+  } else if (seasonEnd) {
+    console.warn(
+      `⚠ No venue recorded for the ${seasonEnd} final — add it to FINAL_VENUES.`,
+    );
+  }
 
   // --- league table ---
   // Taken straight from the API: the later UEFA tiebreakers (away goals, away

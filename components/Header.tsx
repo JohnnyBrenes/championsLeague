@@ -14,6 +14,7 @@ const NAV = [
   { href: "/table", key: "nav.table" },
   { href: "/goleadores", key: "nav.scorers" },
   { href: "/bracket", key: "nav.bracket" },
+  { href: "/records", key: "nav.records" },
 ] as const;
 
 export default function Header() {

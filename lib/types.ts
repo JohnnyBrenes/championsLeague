@@ -73,6 +73,13 @@ export interface Match {
   tieId?: string;
   /** ISO 8601 timestamp (UTC). Formatted for display in lib/time.ts. */
   datetime: string;
+  /**
+   * Explicit venue. football-data returns null for every match on the free
+   * tier — even on the single-match endpoint — so this is only set where we
+   * supply it ourselves: the final, which is played at a neutral ground and
+   * would otherwise be attributed to a finalist's own stadium.
+   */
+  venue?: string;
   /** Team ids, or null while a knockout slot is undecided. */
   home: number | null;
   away: number | null;
