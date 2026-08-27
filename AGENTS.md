@@ -63,5 +63,6 @@ npm run sync     # pull fresh data from the API into data/*.json
 
 ## Deploy
 
-Cloudflare Pages (free tier), building the static export from `main`. See
-`DEPLOY.md`. Vercel-only APIs (e.g. `@vercel/analytics`) must not be reintroduced.
+Vercel (Hobby plan), building the static export from `main`. See `DEPLOY.md`. The
+export is kept deliberately host-agnostic: `@vercel/analytics` is the only
+Vercel-specific dependency, so the same `out/` folder can move to another host.

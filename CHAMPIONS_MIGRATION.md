@@ -8,7 +8,7 @@ componentes de partido) y reescribir el 30 % que modela un Mundial.
 
 | Tema | Decisión |
 |---|---|
-| Hosting | **Cloudflare Pages** (Vercel está lleno) → §7 |
+| Hosting | **Vercel (Hobby)** → §8. *Corregido 2026-08-27: el plan Hobby permite **200 proyectos**, no 2 — la premisa inicial de que estaba lleno era falsa. Se mantiene el export estático para no quedar atados a Vercel* |
 | Datos | **football-data.org**, competición `CL`, mismo token → §5 |
 | Escudos | **Crests de la API**, descargados a `/public/crests` → §4.3 |
 | Horario | **Hora local del navegador por defecto**, toggle a hora de estadio (CET) |
@@ -155,9 +155,11 @@ Se eliminan: `GroupId`, `Stage.group`, `Stage.r32`, `Stage.third`, `Match.group`
 
 ### Cambios pequeños / de higiene
 
-- `package.json` → `"name": "champions-league-2627"`; **quitar `@vercel/analytics`**;
-  borrar el script `gen:thirds` y `scripts/build-third-combinations.mjs`.
-- `app/layout.tsx` → metadata, `appleWebApp.title`, quitar `<Analytics />`, `themeColor` nuevo.
+- ✅ **Hecho**: `package.json` renombrado a `champions-league-2627`. Pendiente: borrar
+  el script `gen:thirds` y `scripts/build-third-combinations.mjs` (va con la Fase 1,
+  cuando desaparezca el JSON que genera).
+- `app/layout.tsx` → metadata, `appleWebApp.title`, `themeColor` nuevo. `<Analytics />`
+  se queda: seguimos en Vercel (§8).
 - `app/manifest.ts` → nombre, descripción, colores.
 - `public/sw.js` → `CACHE = "ucl2627-v1"` (fuerza limpiar el caché viejo en móviles que ya tengan la PWA instalada).
 - `scripts/gen-icons.mjs` → regenerar iconos con la paleta nueva (§6).
@@ -251,33 +253,61 @@ estático no depende de un host externo y evitas hotlinking. Son ~36 archivos de
    el `crest` no cambió, no se vuelve a bajar.
 7. `withinMatchWindow()` se mantiene tal cual — sigue siendo válido y ahorra llamadas.
 
-### 5.2 Verificación previa (hazlo ANTES de escribir código)
+### 5.2 Verificación de la API — ✅ HECHA (2026-08-27)
+
+Se sondearon `/competitions/CL`, `/matches`, `/standings`, `/scorers` y `/teams/{id}`
+con el token del proyecto. **El riesgo número uno del plan queda descartado**: la API
+modela el formato liga exactamente como necesitábamos.
+
+**Confirmado:**
+
+| Hallazgo | Resultado |
+|---|---|
+| CL en el tier gratuito | ✅ 189 partidos, temporada completa |
+| Fases | `LEAGUE_STAGE` 144 · `PLAYOFFS` 16 · `LAST_16` 16 · `QUARTER_FINALS` 8 · `SEMI_FINALS` 4 · `FINAL` 1 |
+| Equipos | 36, con `id`, `name`, `shortName`, `tla` y `crest` |
+| Tabla | **Un solo bloque de 36 filas**, `type: TOTAL`, ya ordenada por posición |
+| Goleadores | ✅ `/scorers` responde, y además trae asistencias |
+| Ida/vuelta | **`matchday: 1` = ida, `2` = vuelta**. Verificado en los 22 cruces: 22/22 concuerda con el orden cronológico |
+| Cruces | Agrupar por ronda + par de equipos da exactamente 2 partidos por cruce (1 en la final) |
+| Sembrado | El local de la vuelta es el mejor clasificado en 8/8 playoffs y 8/8 octavos |
+
+**Sorpresas que cambian el plan:**
+
+1. 🔴 **La temporada 2026/27 todavía no existe en football-data.** `?season=2026`
+   devuelve **404**; las disponibles son 2025, 2024, 2023 y 2022, y la "vigente" sigue
+   siendo 2025/26 (terminó el 2026-05-30). **Consecuencia: se desarrolla contra
+   2025/26**, que tiene estructura idéntica y datos reales de prórrogas, penales y
+   globales — es un banco de pruebas mejor que una temporada vacía. El cambio a
+   2026/27 será solo el parámetro de temporada.
+2. ⚠️ **El `winner` de la API es por partido, no por eliminatoria.** Caso real:
+   Galatasaray 5-2 Juventus (ida) y Juventus 3-2 Galatasaray (vuelta, con prórroga);
+   la API marca `HOME_TEAM` en ambos. El global (7-5 para Galatasaray) lo calculamos
+   nosotros. Además `fullTime` **incluye** la prórroga y los penales, mientras que
+   `regularTime` es el marcador de los 90 minutos: la descomposición que ya hace
+   `shootout()` en `sync-data.mjs` sigue siendo válida y se reutiliza.
+3. ⚠️ **`venue` viene vacío en los 189 partidos**, pero `/teams/{id}` sí trae `venue`,
+   `address`, `clubColors` y `area` (país + bandera). Son 36 llamadas extra a 10/min
+   (~4 min), que de paso nos dan los **colores de club** para el diseño y el escudo.
+4. ℹ️ El bloque de standings reporta `stage: "GROUP_STAGE"` y `group: "League phase"`
+   por compatibilidad, aunque los partidos usan `LEAGUE_STAGE`. No confiar en `stage`
+   de standings para detectar el formato.
+5. ℹ️ La final no tiene `matchday` (viene `null`), coherente con ser partido único.
+
+**Consecuencia para `lib/standings.ts`**: la fila de la tabla trae `position`,
+`playedGames`, `won/draw/lost`, `points`, `goalsFor/Against/Difference`, pero **no**
+goles como visitante ni coeficiente de club. Los desempates finos son incalculables
+localmente → **usamos el `position` que devuelve la API como orden de verdad** y
+calculamos en cliente solo lo incremental.
+
+**Comandos usados** (por si hay que repetirlos cuando salga 2026/27):
 
 ```bash
-# ¿el token da acceso a CL y cómo se llaman las fases?
-curl -s -H "X-Auth-Token: $FOOTBALL_DATA_TOKEN" \
-  "https://api.football-data.org/v4/competitions/CL/matches?season=2026" \
-  | jq '{stages: ([.matches[].stage] | unique), n: (.matches | length)}'
-
-# ¿la tabla viene como una sola de 36 o como grupos?
-curl -s -H "X-Auth-Token: $FOOTBALL_DATA_TOKEN" \
-  "https://api.football-data.org/v4/competitions/CL/standings" \
-  | jq '.standings[] | {stage, type, n: (.table|length)}'
-
-# ¿goleadores disponibles en el plan gratuito?
-curl -s -H "X-Auth-Token: $FOOTBALL_DATA_TOKEN" \
-  "https://api.football-data.org/v4/competitions/CL/scorers?limit=30" \
-  | jq '.scorers | length'
+curl -s -H "X-Auth-Token: $FOOTBALL_DATA_TOKEN"   "https://api.football-data.org/v4/competitions/CL/matches?season=2026" | head -c 400
+curl -s -H "X-Auth-Token: $FOOTBALL_DATA_TOKEN"   "https://api.football-data.org/v4/competitions/CL/standings" | head -c 400
+curl -s -H "X-Auth-Token: $FOOTBALL_DATA_TOKEN"   "https://api.football-data.org/v4/competitions/CL/scorers?limit=5" | head -c 400
 ```
 
-Puntos a confirmar con esos tres comandos, porque cambian el plan:
-- **CL está en el tier gratuito**, pero confirma que devuelve los 189 partidos y no
-  solo la fase liga.
-- Si `/standings` ya devuelve la tabla ordenada con los desempates aplicados,
-  `lib/standings.ts` puede **usarla como fuente de verdad**. Es la opción recomendada:
-  el desempate por coeficiente de club es imposible de calcular con nuestros datos.
-- Si `/scorers` responde 403, la tabla de goleadores sale del alcance o hay que buscar
-  otra fuente.
 
 ### 5.3 Goleadores
 Si `/competitions/CL/scorers` está disponible, sustituye por completo el parseo de
@@ -415,13 +445,22 @@ Cada fase deja el repo compilando (`npm run build`) y desplegable.
     marcado como `force-static`. **Build y lint verdes**: 8 rutas prerenderizadas,
     `out/` con 95 archivos y 1.6 MB
   - ✅ `next` 16.2.7 → 16.3.3 y `sharp` → 0.35.4 → `npm audit` en 0 vulnerabilidades
-  - ⬜ **Verificaciones de §5.2** — bloqueado: falta `FOOTBALL_DATA_TOKEN` en `.env.local`
-  - ⬜ **Crear el proyecto en Cloudflare Pages** (`DEPLOY.md`) — requiere cuenta
+  - ✅ **Verificaciones de §5.2** — la API modela el formato liga como necesitábamos;
+    el riesgo número uno del plan queda descartado
+  - ⬜ **Importar el proyecto en Vercel** (`DEPLOY.md`) — lo hace el usuario
 
 - **Fase 1 — Datos y sync**
   `lib/types.ts` + `scripts/sync-data.mjs` + descarga de escudos. Ejecutar `npm run sync`
   y comprobar `teams.json` (36) y `schedule.json` (189). Aquí el árbol queda roto
   temporalmente; por eso las fases 1 y 2 van en la misma rama.
+
+  **Se desarrolla contra la temporada 2025/26**, porque 2026/27 aún no existe en la
+  API (§5.2). No es un parche: es una temporada completa con prórrogas, penales y
+  globales reales, o sea el mejor banco de pruebas posible para la lógica de `Tie`.
+  Cuando football-data publique 2026/27 hay que volver a correr `npm run sync` y
+  revisar dos cosas que hoy no podemos observar: **cómo representa la API las
+  eliminatorias antes del sorteo** (¿partidos con equipos en `null`, o directamente
+  ausentes?) y si el calendario de jornadas cambia de días.
 
 - **Fase 2 — Lógica**
   `lib/standings.ts` (tabla única) y `lib/bracket.ts` (doble partido). Conviene añadir
@@ -444,93 +483,73 @@ Cada fase deja el repo compilando (`npm run build`) y desplegable.
 
 ---
 
-## 8. Deploy gratuito: Cloudflare Pages
+## 8. Deploy: Vercel (Hobby)
 
-Vercel Hobby permite proyectos ilimitados, pero como tus 2 espacios están ocupados,
-**Cloudflare Pages** es el mejor reemplazo para este sitio: el proyecto es estático
-puro (todo son JSON importados en tiempo de build), así que no se pierde ninguna
-función.
+> **Corrección (2026-08-27).** Este plan nació asumiendo que el plan Hobby de Vercel
+> estaba lleno con 2 proyectos. Es falso: la tabla oficial de límites de Vercel
+> (<https://vercel.com/docs/limits>) da **200 proyectos** en Hobby. Se descarta la
+> mudanza a Cloudflare Pages y el sitio se queda en Vercel. El trabajo hecho no se
+> pierde: el **export estático se mantiene**, así que mudarse sigue siendo trivial.
 
-### 8.1 Cambios de código necesarios
+### 8.1 Límites reales del plan Hobby
+
+| Límite | Hobby | ¿Nos afecta? |
+|---|---|---|
+| Proyectos | **200** | No |
+| Deployments por día | 100 | No: ~2 noches de partido por semana |
+| Build time por deployment | 45 min | No (el build tarda ~15 s) |
+| Deployments concurrentes | 1 | No |
+| Subida de archivos estáticos | 100 MB | No (`out/` pesa 1.6 MB) |
+
+Dos restricciones reales de Hobby que sí conviene tener presentes:
+- **Uso no comercial únicamente.**
+- **No se pueden conectar repos que pertenezcan a una organización de GitHub**, solo
+  repos personales. `JohnnyBrenes/championsLeague` es personal, así que no aplica.
+
+### 8.2 Por qué seguimos con `output: "export"`
+
+Vercel podría servir SSR, pero no hay nada que renderizar por petición: todas las
+páginas salen de los `data/*.json` commiteados. Mantener el export:
+
+- deja el sitio **portátil** — el mismo `out/` sirve en Cloudflare Pages, Netlify o
+  GitHub Pages sin tocar código (§8.4);
+- **rompe el build a propósito** si alguien mete una función de servidor por error.
+
+Configuración vigente en `next.config.ts`:
 
 ```ts
-// next.config.ts
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: "export",              // genera ./out en `npm run build`
-  images: { unoptimized: true }, // no hay optimizador de imágenes fuera de Vercel
-  trailingSlash: true,           // /schedule/ → /schedule/index.html
-};
-
-export default nextConfig;
+output: "export",              // genera ./out en `npm run build`
+images: { unoptimized: true }, // los escudos son PNG locales pequeños
+trailingSlash: true,           // /schedule/ → /schedule/index.html
 ```
 
-Además:
-- `npm remove @vercel/analytics` y borrar `<Analytics />` de `app/layout.tsx` (no
-  funciona fuera de Vercel). Sustituto gratis: **Cloudflare Web Analytics**, un
-  `<script>` sin cookies que se activa desde el panel.
-- Servir los escudos como `<img>` normal (o `next/image` con `unoptimized`).
-- No introducir route handlers, server actions ni `revalidate`: romperían el export.
-- ⚠️ **Trampa ya encontrada y resuelta**: Next trata `app/manifest.ts` como route
-  handler y el exportador **falla el build** con
-  `export const dynamic = "force-static" not configured on route "/manifest.webmanifest"`.
-  Se arregla con `export const dynamic = "force-static";` en ese archivo. No lo quites.
+⚠️ **Trampa ya encontrada y resuelta**: Next trata `app/manifest.ts` como route
+handler y el exportador **falla el build** con
+`export const dynamic = "force-static" not configured on route "/manifest.webmanifest"`.
+Se arregla con `export const dynamic = "force-static";` en ese archivo. No lo quites.
 
-### 8.2 Configuración en Cloudflare (una sola vez)
+Lo demás que rompería el export: route handlers sin `force-static`, server actions,
+`cookies()`, `headers()`, `revalidate`/ISR y la optimización de `next/image`.
 
-1. Cuenta gratis en <https://dash.cloudflare.com> → **Workers & Pages** → **Create** →
-   **Pages** → **Connect to Git** → autorizar GitHub y elegir
-   `JohnnyBrenes/championsLeague`.
-2. Build:
-   - Framework preset: **Next.js (Static HTML Export)**
-   - Build command: `npm run build`
-   - Build output directory: **`out`**
-   - Variable de entorno: `NODE_VERSION = 22`
-   - **No** hace falta `FOOTBALL_DATA_TOKEN` en Cloudflare: los datos van commiteados
-     y el token solo lo usa GitHub Actions.
-3. Deploy. Queda en `https://<proyecto>.pages.dev`. Cada push a `main` redespliega y
-   cada rama genera una preview.
-4. PWA: iPhone → Safari → Compartir → *Añadir a pantalla de inicio*.
-   Android → Chrome → menú → *Instalar app*.
+### 8.3 Configuración en Vercel
 
-### 8.3 Alternativa: desplegar desde el propio workflow
+Los pasos concretos están en `DEPLOY.md`. Lo esencial: importar el repo, **no** poner
+variables de entorno (el token es solo de la GitHub Action) y desplegar. Cada push a
+`main` redespliega; cada rama genera preview.
 
-Evita depender de la integración Git y despliega justo después del commit de datos.
-Al final de `update-results.yml`:
+`@vercel/analytics` sigue en el proyecto (funciona con el export estático) y es la
+**única** dependencia atada a Vercel; quitarla son dos líneas.
 
-```yaml
-      - run: npm ci && npm run build
-      - uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy out --project-name=champions-league
-```
-
-Requiere un API token con permiso *Cloudflare Pages: Edit*.
-
-### 8.4 Límites del plan gratuito
-
-| Límite | Plan Free | ¿Nos afecta? |
-|---|---|---|
-| Sitios | Ilimitados | No — es justo lo que necesitas |
-| Peticiones / ancho de banda | Ilimitado | No |
-| Builds | 500 al mes, 1 concurrente | No: la Champions juega ~2 días por semana y el sync solo commitea si cambian los datos |
-| Archivos por deploy | 20 000 | No (~250 con los escudos) |
-| Tamaño por archivo | 25 MB | No |
-| Dominio propio | Incluido y gratis | Opcional |
-
-### 8.5 Otras opciones gratuitas, por si acaso
+### 8.4 Si algún día hay que mudarse
 
 | Opción | A favor | En contra |
 |---|---|---|
-| **GitHub Pages** | Cero cuentas nuevas, ya usas Actions | Necesita `basePath: "/championsLeague"` salvo dominio propio; solo estático |
+| **Cloudflare Pages** | Ancho de banda y sitios ilimitados, 500 builds/mes | Hay que quitar `@vercel/analytics`; build output `out` |
+| **GitHub Pages** | Cero cuentas nuevas, ya usas Actions | Necesita `basePath: "/championsLeague"` salvo dominio propio |
 | **Netlify** | Soporta SSR con su plugin de Next | 300 min de build/mes y 100 GB de ancho de banda |
-| **Render Static Sites** | Simple | Menos CDN, builds más lentos |
-| **Cloudflare Workers (OpenNext)** | Permitiría SSR más adelante | Complejidad innecesaria hoy |
 
----
+Con el export estático, mudarse es: apuntar el host al repo, build command
+`npm run build`, output directory `out`.
 
 ## 9. Riesgos y decisiones abiertas
 
