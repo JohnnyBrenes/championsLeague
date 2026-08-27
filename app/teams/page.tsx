@@ -3,15 +3,17 @@
 import { useMemo, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 import { useTimezone } from "@/lib/timezone";
-import { sortedMatches, teamByCode, teamName, teams } from "@/lib/data";
+import { sortedMatches, teamById, teamName, teams } from "@/lib/data";
+import { standingsAround, teamStanding } from "@/lib/standings";
 import type { Team } from "@/lib/types";
 import MatchDayList from "@/components/MatchDayList";
-import GroupTable from "@/components/GroupTable";
+import LeagueTable from "@/components/LeagueTable";
+import { Crest } from "@/components/TeamBadge";
 
 export default function TeamsPage() {
   const { locale, t } = useI18n();
   const { mode } = useTimezone();
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<number | null>(null);
   const [query, setQuery] = useState("");
 
   const sortedTeams = useMemo(
@@ -26,18 +28,20 @@ export default function TeamsPage() {
     const q = query.trim().toLowerCase();
     if (!q) return sortedTeams;
     return sortedTeams.filter((tm) =>
-      `${tm.en} ${tm.es} ${tm.code}`.toLowerCase().includes(q),
+      `${tm.en} ${tm.es} ${tm.tla} ${tm.country}`.toLowerCase().includes(q),
     );
   }, [sortedTeams, query]);
 
-  const team: Team | undefined = teamByCode(selected);
+  const team: Team | undefined = teamById(selected);
 
   const teamMatches = useMemo(() => {
     if (!team) return [];
     return sortedMatches().filter(
-      (m) => m.home === team.code || m.away === team.code,
+      (m) => m.home === team.id || m.away === team.id,
     );
   }, [team]);
+
+  const standing = team ? teamStanding(team.id) : undefined;
 
   return (
     <div className="space-y-5">
@@ -59,12 +63,12 @@ export default function TeamsPage() {
       ) : (
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
           {visibleTeams.map((tm) => {
-            const active = tm.code === selected;
+            const active = tm.id === selected;
             return (
               <button
-                key={tm.code}
+                key={tm.id}
                 type="button"
-                onClick={() => setSelected(tm.code)}
+                onClick={() => setSelected(tm.id)}
                 aria-pressed={active}
                 className={`flex items-center gap-2 rounded-xl border px-3 py-2 text-left text-sm font-semibold transition ${
                   active
@@ -72,9 +76,7 @@ export default function TeamsPage() {
                     : "border-line bg-surface hover:border-pitch/50"
                 }`}
               >
-                <span className="text-xl leading-none" aria-hidden>
-                  {tm.flag}
-                </span>
+                <Crest team={tm} size={24} />
                 <span className="truncate">{teamName(tm, locale)}</span>
               </button>
             );
@@ -85,15 +87,13 @@ export default function TeamsPage() {
       {team && (
         <div className="space-y-4 border-t border-line pt-5">
           <div className="flex items-center gap-3">
-            <span className="text-4xl leading-none" aria-hidden>
-              {team.flag}
-            </span>
+            <Crest team={team} size={48} />
             <div>
               <h2 className="text-2xl font-extrabold leading-tight">
                 {teamName(team, locale)}
               </h2>
               <p className="text-sm text-muted">
-                {t("common.group")} {team.group}
+                {[team.country, team.venue].filter(Boolean).join(" · ")}
               </p>
             </div>
           </div>
@@ -101,17 +101,22 @@ export default function TeamsPage() {
           <div>
             <h3 className="mb-2 text-sm font-bold">
               {t("teams.matches")} · 🕒{" "}
-              {t(mode === "mexico" ? "common.tzNote" : "common.tzLocal")}
+              {t(mode === "stadium" ? "common.tzStadium" : "common.tzLocal")}
             </h3>
             <MatchDayList matches={teamMatches} />
           </div>
 
-          <div>
-            <h3 className="mb-2 text-sm font-bold">{t("teams.groupTable")}</h3>
-            <div className="max-w-md">
-              <GroupTable group={team.group} />
+          {standing && (
+            <div>
+              <h3 className="mb-2 text-sm font-bold">
+                {t("teams.tableAround")}
+              </h3>
+              <LeagueTable
+                rows={standingsAround(team.id)}
+                highlight={team.id}
+              />
             </div>
-          </div>
+          )}
         </div>
       )}
     </div>

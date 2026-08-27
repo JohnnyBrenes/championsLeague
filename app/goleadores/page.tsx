@@ -1,11 +1,8 @@
 "use client";
 
 import { useI18n } from "@/lib/i18n";
-import { teamByCode, teamName } from "@/lib/data";
-import scorersData from "@/data/scorers.json";
-import type { Scorer } from "@/lib/types";
-
-const scorers = scorersData as Scorer[];
+import { scorers, teamById, teamName } from "@/lib/data";
+import { Crest } from "@/components/TeamBadge";
 
 // Medal color for the top 3 ranks.
 function rankBadge(i: number): string {
@@ -46,7 +43,7 @@ export default function ScorersPage() {
             </thead>
             <tbody>
               {top.map((s, i) => {
-                const team = teamByCode(s.team);
+                const team = teamById(s.team);
                 return (
                   <tr key={`${s.name}-${i}`} className="border-t border-line">
                     <td className="px-3 py-2">
@@ -57,15 +54,15 @@ export default function ScorersPage() {
                       </span>
                     </td>
                     <td className="px-2 py-2">
-                      <span className="mr-1.5" aria-hidden>
-                        {team ? team.flag : "🏳️"}
+                      <span className="flex items-center gap-1.5">
+                        <Crest team={team} size={18} />
+                        <span className="font-semibold">{s.name}</span>
+                        {team && (
+                          <span className="text-xs text-muted">
+                            {teamName(team, locale)}
+                          </span>
+                        )}
                       </span>
-                      <span className="font-semibold">{s.name}</span>
-                      {team && (
-                        <span className="ml-1.5 text-xs text-muted">
-                          {teamName(team, locale)}
-                        </span>
-                      )}
                     </td>
                     <td className="px-3 py-2 text-right text-lg font-extrabold tabular-nums">
                       {s.goals}

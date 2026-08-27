@@ -4,8 +4,8 @@ import { useI18n } from "@/lib/i18n";
 import { useTimezone, type TzMode } from "@/lib/timezone";
 
 const OPTIONS: { value: TzMode; key: string }[] = [
-  { value: "mexico", key: "tz.mexico" },
   { value: "local", key: "tz.local" },
+  { value: "stadium", key: "tz.stadium" },
 ];
 
 export default function TimezoneToggle() {

@@ -1,71 +1,71 @@
 {
   "app": {
-    "title": "World Cup 2026",
-    "subtitle": "Schedule & Bracket",
-    "hosts": "USA · Canada · Mexico",
-    "tagline": "48 teams · 104 matches · Jun 11 – Jul 19, 2026"
+    "title": "Champions 2026/27",
+    "subtitle": "Schedule & Knockouts",
+    "tagline": "36 clubs · 189 matches · Sep 2026 – May 2027"
   },
   "nav": {
     "today": "Today",
     "schedule": "Schedule",
-    "teams": "Teams",
-    "groups": "Groups",
+    "teams": "Clubs",
+    "table": "Table",
     "scorers": "Scorers",
-    "bracket": "Bracket"
+    "bracket": "Knockouts"
   },
   "scorers": {
     "title": "Top scorers",
-    "subtitle": "Tournament goalscoring leaders",
+    "subtitle": "Leading scorers of the competition",
     "player": "Player",
     "goals": "Goals",
     "empty": "No goals recorded yet.",
-    "note": "Best-effort data · worldcup26.ir"
+    "note": "Data from football-data.org"
   },
   "teams": {
-    "title": "Teams",
-    "subtitle": "Pick a team to see all their matches: results and upcoming games",
-    "pick": "Pick a team",
-    "search": "🔎 Search team",
+    "title": "Clubs",
+    "subtitle": "Pick a club to see all its matches and where it sits in the table",
+    "pick": "Pick a club",
+    "search": "🔎 Search club or country",
     "matches": "Matches",
-    "noneFound": "No teams found",
-    "groupTable": "Group standings"
+    "noneFound": "No clubs found",
+    "tableAround": "Its part of the table"
   },
   "home": {
-    "heroTitle": "The 2026 World Cup, all in one place",
-    "heroText": "Follow all 104 matches, the group stage, and the road to the final.",
+    "heroTitle": "The Champions League, all in one place",
+    "heroText": "Follow all 189 matches, the league phase and the road to the final.",
     "comingSoon": "Full schedule coming soon",
-    "comingSoonText": "We're putting together every match and team. Check back soon!"
+    "comingSoonText": "We're preparing every match and club. Check back soon!"
   },
   "today": {
     "title": "Today's matches",
     "none": "No matches today",
-    "nextTitle": "Upcoming matches"
+    "nextTitle": "Next matches"
   },
   "schedule": {
     "title": "Full schedule",
-    "subtitle": "All 104 matches, grouped by date",
-    "empty": "No matches match the current filters."
+    "subtitle": "All 189 matches, grouped by date",
+    "empty": "No matches match the filters."
   },
-  "groups": {
-    "title": "Group stage",
-    "subtitle": "Standings computed from results · top 2 (+ best thirds) advance",
-    "qualifies": "Qualify (1st & 2nd)",
-    "bestThird": "Possible best 3rd"
+  "table": {
+    "title": "League phase",
+    "subtitle": "One 36-club table · 8 matches each",
+    "note": "Official order from football-data.org, which applies UEFA's tiebreakers.",
+    "direct16": "Through to the round of 16 (1st–8th)",
+    "playoff": "Play-off (9th–24th)",
+    "out": "Eliminated (25th–36th)"
   },
   "bracket": {
-    "title": "Knockout bracket",
-    "subtitle": "Round of 32 to the final · winners advance automatically",
+    "title": "Knockouts",
+    "subtitle": "From the play-off to the final · two legs except the final",
     "champion": "Champion",
-    "scrollHint": "Scroll sideways to see all rounds",
-    "clinched": "Already qualified (mathematically)",
-    "groupOrigin": "Group position"
+    "scrollHint": "Scroll horizontally to see every round",
+    "inProgress": "In progress",
+    "notDrawn": "The knockout ties haven't been drawn yet."
   },
   "filters": {
-    "allGroups": "All groups",
-    "allTeams": "All teams",
+    "allTeams": "All clubs",
     "allStages": "All stages",
     "allRounds": "All rounds",
-    "search": "🔎 Search team or venue"
+    "search": "🔎 Search club or stadium"
   },
   "status": {
     "live": "LIVE",
@@ -74,16 +74,21 @@
     "ft": "FT"
   },
   "stage": {
-    "group": "Group stage",
-    "r32": "Round of 32",
+    "league": "League phase",
+    "po": "Play-off",
     "r16": "Round of 16",
-    "qf": "Quarter-finals",
-    "sf": "Semi-finals",
-    "third": "Third place",
+    "qf": "Quarter-final",
+    "sf": "Semi-final",
     "final": "Final"
   },
+  "leg": {
+    "first": "First leg",
+    "second": "Second leg",
+    "firstShort": "1st",
+    "secondShort": "2nd"
+  },
   "standings": {
-    "team": "Team",
+    "team": "Club",
     "p": "P",
     "w": "W",
     "d": "D",
@@ -96,30 +101,26 @@
   "label": {
     "winner": "Winner",
     "loser": "Loser",
-    "rank1": "1st",
-    "rank2": "2nd",
-    "rank3": "3rd",
-    "matchAbbr": "M",
     "pens": "pens"
   },
   "common": {
     "tbd": "TBD",
     "vs": "vs",
-    "venue": "Venue",
-    "group": "Group",
+    "venue": "Stadium",
     "matchday": "Matchday",
-    "tzNote": "Mexico City time",
+    "aggregate": "Agg.",
+    "tzStadium": "Stadium time",
     "tzLocal": "Your local time"
   },
   "tz": {
     "label": "Timezone",
-    "mexico": "Mexico",
-    "local": "Local"
+    "local": "Local",
+    "stadium": "Stadium"
   },
   "footer": {
-    "dataSource": "Data: football-data.org · Scores: worldcup26.ir · Venues: fixturedownload.com",
-    "disclaimer": "Not affiliated with or endorsed by FIFA.",
-    "madeWith": "World Cup 2026 Schedule",
+    "dataSource": "Data: football-data.org",
+    "disclaimer": "Unofficial site. Not affiliated with or endorsed by UEFA.",
+    "madeWith": "Champions League 2026/27 schedule",
     "madeBy": "By: Johnny Brenes"
   },
   "lang": {

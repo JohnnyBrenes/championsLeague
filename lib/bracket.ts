@@ -92,6 +92,7 @@ function buildTie(id: string, stage: KnockoutStage, legs: Match[]): Tie {
  * round simply has nothing to show.
  */
 let roundsMemo: BracketRound[] | null = null;
+let feedersMemo: Map<string, string[]> = new Map();
 export function bracketRounds(): BracketRound[] {
   if (roundsMemo) return roundsMemo;
 
@@ -112,6 +113,7 @@ export function bracketRounds(): BracketRound[] {
     else ties.set(stage, [tie]);
   }
 
+  feedersMemo = computeFeeders(ties);
   const order = treeOrder(ties);
   roundsMemo = KNOCKOUT_ORDER.map((stage) => ({
     stage,
@@ -136,7 +138,7 @@ export function bracketRounds(): BracketRound[] {
  * only works for rounds already played — for anything still undrawn we fall
  * back to kickoff order, which is what `bracketRounds` does.
  */
-function treeOrder(ties: Map<KnockoutStage, Tie[]>): Map<string, number> {
+function computeFeeders(ties: Map<KnockoutStage, Tie[]>): Map<string, string[]> {
   const feeders = new Map<string, string[]>();
   for (let i = 1; i < KNOCKOUT_ORDER.length; i++) {
     const prev = ties.get(KNOCKOUT_ORDER[i - 1]) ?? [];
@@ -148,6 +150,11 @@ function treeOrder(ties: Map<KnockoutStage, Tie[]>): Map<string, number> {
       if (found.length) feeders.set(tie.id, found);
     }
   }
+  return feeders;
+}
+
+function treeOrder(ties: Map<KnockoutStage, Tie[]>): Map<string, number> {
+  const feeders = computeFeeders(ties);
 
   const byId = new Map<string, Tie>();
   for (const list of ties.values()) for (const t of list) byId.set(t.id, t);
@@ -178,4 +185,39 @@ export function tiesForTeam(teamId: number): Tie[] {
   return bracketRounds()
     .flatMap((r) => r.ties)
     .filter((t) => t.home === teamId || t.away === teamId);
+}
+
+/**
+ * Which ties feed each tie, keyed by tie id. Only known for rounds already
+ * played — see `treeOrder`. Used to draw the bracket's connector lines.
+ */
+export function tieFeeders(): Map<string, string[]> {
+  bracketRounds(); // ensure the memo is populated
+  return feedersMemo;
+}
+
+/** Look up a tie by id. */
+export function tieById(id: string | undefined): Tie | undefined {
+  if (!id) return undefined;
+  return bracketRounds()
+    .flatMap((r) => r.ties)
+    .find((t) => t.id === id);
+}
+
+/**
+ * Running aggregate of a match's tie, oriented to THAT match's home and away
+ * sides rather than the tie's.
+ *
+ * The second leg is played the other way round, so a tie aggregate of 3-1 in
+ * favour of the first-leg host must be shown as 1-3 on the second leg's card.
+ * Getting this backwards is the easiest mistake in the whole app, so the flip
+ * lives here and nowhere else.
+ */
+export function aggregateFor(m: Match): { home: number; away: number } | null {
+  const tie = tieById(m.tieId);
+  if (!tie?.aggregate || tie.legs.length < 2) return null;
+  const reversed = m.home !== tie.home;
+  return reversed
+    ? { home: tie.aggregate.away, away: tie.aggregate.home }
+    : tie.aggregate;
 }

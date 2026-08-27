@@ -1,15 +1,14 @@
 {
   "app": {
-    "title": "Mundial 2026",
+    "title": "Champions 2026/27",
     "subtitle": "Calendario y Eliminatorias",
-    "hosts": "EE. UU. · Canadá · México",
-    "tagline": "48 selecciones · 104 partidos · 11 jun – 19 jul, 2026"
+    "tagline": "36 clubes · 189 partidos · sep 2026 – may 2027"
   },
   "nav": {
     "today": "Hoy",
     "schedule": "Calendario",
-    "teams": "Selecciones",
-    "groups": "Grupos",
+    "teams": "Equipos",
+    "table": "Tabla",
     "scorers": "Goleadores",
     "bracket": "Eliminatorias"
   },
@@ -19,22 +18,22 @@
     "player": "Jugador",
     "goals": "Goles",
     "empty": "Aún no hay goles registrados.",
-    "note": "Datos de mejor esfuerzo · worldcup26.ir"
+    "note": "Datos de football-data.org"
   },
   "teams": {
-    "title": "Selecciones",
-    "subtitle": "Elige una selección para ver todos sus partidos: resultados y próximos encuentros",
-    "pick": "Elige una selección",
-    "search": "🔎 Buscar selección",
+    "title": "Equipos",
+    "subtitle": "Elige un club para ver todos sus partidos y su posición en la tabla",
+    "pick": "Elige un club",
+    "search": "🔎 Buscar club o país",
     "matches": "Partidos",
-    "noneFound": "No se encontraron selecciones",
-    "groupTable": "Posiciones del grupo"
+    "noneFound": "No se encontraron clubes",
+    "tableAround": "Su zona de la tabla"
   },
   "home": {
-    "heroTitle": "El Mundial 2026, en un solo lugar",
-    "heroText": "Sigue los 104 partidos, las fases de grupos y el camino a la final.",
+    "heroTitle": "La Champions, en un solo lugar",
+    "heroText": "Sigue los 189 partidos, la fase liga y el camino a la final.",
     "comingSoon": "Calendario completo próximamente",
-    "comingSoonText": "Estamos preparando todos los partidos y selecciones. ¡Vuelve pronto!"
+    "comingSoonText": "Estamos preparando todos los partidos y clubes. ¡Vuelve pronto!"
   },
   "today": {
     "title": "Partidos de hoy",
@@ -43,29 +42,30 @@
   },
   "schedule": {
     "title": "Calendario completo",
-    "subtitle": "Los 104 partidos, agrupados por fecha",
+    "subtitle": "Los 189 partidos, agrupados por fecha",
     "empty": "No hay partidos que coincidan con los filtros."
   },
-  "groups": {
-    "title": "Fase de grupos",
-    "subtitle": "Posiciones calculadas según los resultados · clasifican los 2 primeros (+ mejores terceros)",
-    "qualifies": "Clasifican (1.º y 2.º)",
-    "bestThird": "Posible mejor 3.º"
+  "table": {
+    "title": "Fase liga",
+    "subtitle": "Una sola tabla de 36 clubes · 8 partidos cada uno",
+    "note": "Orden oficial según football-data.org, que aplica los desempates de la UEFA.",
+    "direct16": "Clasifica a octavos (1.º–8.º)",
+    "playoff": "Playoff (9.º–24.º)",
+    "out": "Eliminado (25.º–36.º)"
   },
   "bracket": {
     "title": "Eliminatorias",
-    "subtitle": "De dieciseisavos a la final · los ganadores avanzan automáticamente",
+    "subtitle": "Del playoff a la final · ida y vuelta salvo la final",
     "champion": "Campeón",
     "scrollHint": "Desliza horizontalmente para ver todas las rondas",
-    "clinched": "Ya clasificado (matemáticamente)",
-    "groupOrigin": "Posición de grupo"
+    "inProgress": "En juego",
+    "notDrawn": "Las eliminatorias aún no se han sorteado."
   },
   "filters": {
-    "allGroups": "Todos los grupos",
-    "allTeams": "Todas las selecciones",
+    "allTeams": "Todos los clubes",
     "allStages": "Todas las fases",
     "allRounds": "Todas las rondas",
-    "search": "🔎 Buscar selección o sede"
+    "search": "🔎 Buscar club o estadio"
   },
   "status": {
     "live": "EN VIVO",
@@ -74,16 +74,21 @@
     "ft": "FIN"
   },
   "stage": {
-    "group": "Fase de grupos",
-    "r32": "Dieciseisavos",
+    "league": "Fase liga",
+    "po": "Playoff",
     "r16": "Octavos",
     "qf": "Cuartos de final",
     "sf": "Semifinal",
-    "third": "Tercer lugar",
     "final": "Final"
   },
+  "leg": {
+    "first": "Ida",
+    "second": "Vuelta",
+    "firstShort": "Ida",
+    "secondShort": "Vta"
+  },
   "standings": {
-    "team": "Selección",
+    "team": "Club",
     "p": "PJ",
     "w": "G",
     "d": "E",
@@ -96,30 +101,26 @@
   "label": {
     "winner": "Ganador",
     "loser": "Perdedor",
-    "rank1": "1.º",
-    "rank2": "2.º",
-    "rank3": "3.º",
-    "matchAbbr": "P",
     "pens": "pen."
   },
   "common": {
     "tbd": "Por definir",
     "vs": "vs",
-    "venue": "Sede",
-    "group": "Grupo",
+    "venue": "Estadio",
     "matchday": "Jornada",
-    "tzNote": "Horario del centro de México",
+    "aggregate": "Global",
+    "tzStadium": "Hora del estadio",
     "tzLocal": "Tu horario local"
   },
   "tz": {
     "label": "Zona horaria",
-    "mexico": "México",
-    "local": "Local"
+    "local": "Local",
+    "stadium": "Estadio"
   },
   "footer": {
-    "dataSource": "Datos: football-data.org · Resultados: worldcup26.ir · Sedes: fixturedownload.com",
-    "disclaimer": "No afiliado ni respaldado por la FIFA.",
-    "madeWith": "Calendario del Mundial 2026",
+    "dataSource": "Datos: football-data.org",
+    "disclaimer": "Sitio no oficial. No afiliado ni respaldado por la UEFA.",
+    "madeWith": "Calendario de la Champions League 2026/27",
     "madeBy": "Por: Johnny Brenes"
   },
   "lang": {

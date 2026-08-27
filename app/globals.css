@@ -22,9 +22,7 @@ html {
 body {
   background: var(--color-canvas);
   color: var(--color-ink);
-  /* "Twemoji Country Flags" (injected at runtime) only contains flag glyphs,
-     so it renders flags cross-platform while all other text falls back. */
-  font-family: "Twemoji Country Flags", var(--font-sans);
+  font-family: var(--font-sans);
 }
 
 /* Subtle pulse for LIVE indicators */

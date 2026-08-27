@@ -6,11 +6,17 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from "react";
-import { MEXICO_TZ } from "./time";
+import { browserTz, STADIUM_TZ } from "./time";
 
-export type TzMode = "mexico" | "local";
+/**
+ * "local" — the visitor's own zone, the default. Champions League matches are
+ * European evenings, which in the Americas land in the morning and early
+ * afternoon, so showing "21:00" to someone watching at 13:00 is confusing.
+ * "stadium" — central European time, i.e. the clock in the ground.
+ */
+export type TzMode = "local" | "stadium";
 
-const STORAGE_KEY = "wc2026-tz";
+const STORAGE_KEY = "ucl2627-tz";
 const listeners = new Set<() => void>();
 
 function subscribe(cb: () => void) {
@@ -19,30 +25,37 @@ function subscribe(cb: () => void) {
 }
 
 function getSnapshot(): TzMode {
-  return window.localStorage.getItem(STORAGE_KEY) === "local"
-    ? "local"
-    : "mexico";
+  try {
+    return window.localStorage.getItem(STORAGE_KEY) === "stadium"
+      ? "stadium"
+      : "local";
+  } catch {
+    return "local";
+  }
 }
 
+/**
+ * Prerendering has no visitor and no browser zone, so it must not resolve
+ * "local" — the build machine's clock (UTC on the CI runner) would be baked
+ * into the HTML. The stadium zone is the one deterministic answer; the client
+ * swaps to the real preference on hydration.
+ */
 function getServerSnapshot(): TzMode {
-  return "mexico";
+  return "stadium";
 }
 
 function persist(mode: TzMode) {
-  window.localStorage.setItem(STORAGE_KEY, mode);
+  try {
+    window.localStorage.setItem(STORAGE_KEY, mode);
+  } catch {
+    // Private mode / storage disabled — the choice just won't be remembered.
+  }
   listeners.forEach((cb) => cb());
 }
 
 /** Resolve a mode to an IANA timezone string for Intl formatting. */
 export function resolveTz(mode: TzMode): string {
-  if (mode === "local") {
-    try {
-      return Intl.DateTimeFormat().resolvedOptions().timeZone || MEXICO_TZ;
-    } catch {
-      return MEXICO_TZ;
-    }
-  }
-  return MEXICO_TZ;
+  return mode === "stadium" ? STADIUM_TZ : browserTz();
 }
 
 type TimezoneContextValue = {
@@ -54,11 +67,7 @@ type TimezoneContextValue = {
 const TimezoneContext = createContext<TimezoneContextValue | null>(null);
 
 export function TimezoneProvider({ children }: { children: ReactNode }) {
-  const mode = useSyncExternalStore(
-    subscribe,
-    getSnapshot,
-    getServerSnapshot,
-  );
+  const mode = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const tz = resolveTz(mode);
   const setMode = (m: TzMode) => persist(m);
 

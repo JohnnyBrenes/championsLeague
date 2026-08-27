@@ -10,7 +10,7 @@ const NAV = [
   { href: "/", key: "nav.today" },
   { href: "/schedule", key: "nav.schedule" },
   { href: "/teams", key: "nav.teams" },
-  { href: "/groups", key: "nav.groups" },
+  { href: "/table", key: "nav.table" },
   { href: "/goleadores", key: "nav.scorers" },
   { href: "/bracket", key: "nav.bracket" },
 ] as const;
@@ -32,7 +32,7 @@ export default function Header() {
                 {t("app.title")}
               </span>
               <span className="block text-xs font-medium opacity-85">
-                {t("app.subtitle")} · {t("app.hosts")}
+                {t("app.subtitle")}
               </span>
             </span>
           </Link>
