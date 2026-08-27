@@ -166,7 +166,7 @@
     "assists": "Asist.",
     "topScorers": "Máximos goleadores",
     "topAssists": "Más asistencias",
-    "assistsScope": "Solo entre los máximos goleadores: la fuente ordena por goles, así que un jugador sin goles no aparece aunque reparta asistencias.",
+    "assistsScope": "Alcance limitado por la fuente: ordena por goles, así que un jugador sin goles no aparece aunque reparta asistencias; y no reporta el dato de asistencias de 32 de los 100 jugadores, que quedan fuera de esta tabla.",
     "showMore": "Mostrar más",
     "showLess": "Mostrar menos",
     "empty": "Aún no hay datos registrados.",

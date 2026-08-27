@@ -166,7 +166,7 @@
     "assists": "Assists",
     "topScorers": "Top scorers",
     "topAssists": "Most assists",
-    "assistsScope": "Among the top scorers only: the source ranks by goals, so a player without goals never appears no matter how many assists they provide.",
+    "assistsScope": "Scope limited by the source: it ranks by goals, so a player without goals never appears no matter how many assists they provide; and it reports no assist figure at all for 32 of the 100 players, who are left out of this table.",
     "showMore": "Show more",
     "showLess": "Show less",
     "empty": "No data recorded yet.",
