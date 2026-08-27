@@ -1,0 +1,33 @@
+{
+  "name": "worldcup-2026",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "sync": "node scripts/sync-data.mjs",
+    "gen:venues": "node scripts/build-venues.mjs",
+    "gen:bracket": "node scripts/build-bracket.mjs",
+    "gen:thirds": "node scripts/build-third-combinations.mjs"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "country-flag-emoji-polyfill": "^0.1.8",
+    "next": "16.2.7",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.7",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

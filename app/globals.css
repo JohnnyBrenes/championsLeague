@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pitch: #0a7d52;
+  --color-pitch-dark: #055f3d;
+  --color-gold: #f4c430;
+  --color-gold-dark: #e0a800;
+  --color-ink: #0f2417;
+  --color-muted: #5b6b62;
+  --color-surface: #ffffff;
+  --color-canvas: #f4f7f4;
+  --color-line: #e3ebe5;
+  --color-live: #e23b3b;
+
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  /* "Twemoji Country Flags" (injected at runtime) only contains flag glyphs,
+     so it renders flags cross-platform while all other text falls back. */
+  font-family: "Twemoji Country Flags", var(--font-sans);
+}
+
+/* Subtle pulse for LIVE indicators */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.2s infinite;
+}

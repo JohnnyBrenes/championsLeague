@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Kylian Mbappé",
+    "goals": 10,
+    "team": "FRA"
+  },
+  {
+    "name": "Lionel Messi",
+    "goals": 8,
+    "team": "ARG"
+  },
+  {
+    "name": "Erling Haaland",
+    "goals": 7,
+    "team": "NOR"
+  },
+  {
+    "name": "Jude Bellingham",
+    "goals": 7,
+    "team": "ENG"
+  },
+  {
+    "name": "Harry Kane",
+    "goals": 6,
+    "team": "ENG"
+  },
+  {
+    "name": "Ousmane Dembélé",
+    "goals": 6,
+    "team": "FRA"
+  },
+  {
+    "name": "Ismaïla Sarr",
+    "goals": 4,
+    "team": "SEN"
+  },
+  {
+    "name": "Julián Quiñones",
+    "goals": 4,
+    "team": "MEX"
+  },
+  {
+    "name": "Lisandro Martínez",
+    "goals": 4,
+    "team": "ARG"
+  },
+  {
+    "name": "Mikel Oyarzabal",
+    "goals": 4,
+    "team": "ESP"
+  },
+  {
+    "name": "Vinícius Júnior",
+    "goals": 4,
+    "team": "BRA"
+  },
+  {
+    "name": "Bradley Barcola",
+    "goals": 3,
+    "team": "FRA"
+  },
+  {
+    "name": "Brian Brobbey",
+    "goals": 3,
+    "team": "NED"
+  },
+  {
+    "name": "Cody Gakpo",
+    "goals": 3,
+    "team": "NED"
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "goals": 3,
+    "team": "POR"
+  },
+  {
+    "name": "Deniz Undav",
+    "goals": 3,
+    "team": "GER"
+  },
+  {
+    "name": "Johan Manzambi",
+    "goals": 3,
+    "team": "SUI"
+  },
+  {
+    "name": "Jonathan David",
+    "goals": 3,
+    "team": "CAN"
+  },
+  {
+    "name": "Kai Havertz",
+    "goals": 3,
+    "team": "GER"
+  },
+  {
+    "name": "Matheus Cunha",
+    "goals": 3,
+    "team": "BRA"
+  },
+  {
+    "name": "Raúl Jiménez",
+    "goals": 3,
+    "team": "MEX"
+  },
+  {
+    "name": "Romelu Lukaku",
+    "goals": 3,
+    "team": "BEL"
+  },
+  {
+    "name": "Sharl D Ktlar",
+    "goals": 3,
+    "team": "BEL"
+  },
+  {
+    "name": "Amad Diallo",
+    "goals": 2,
+    "team": "CIV"
+  },
+  {
+    "name": "Anthony Elanga",
+    "goals": 2,
+    "team": "SWE"
+  },
+  {
+    "name": "Armin Mhmich",
+    "goals": 2,
+    "team": "BIH"
+  },
+  {
+    "name": "Asmaail Saibari",
+    "goals": 2,
+    "team": "MAR"
+  },
+  {
+    "name": "Ayase Ueda",
+    "goals": 2,
+    "team": "JPN"
+  },
+  {
+    "name": "Azdin Avnahi",
+    "goals": 2,
+    "team": "MAR"
+  },
+  {
+    "name": "Breel Embolo",
+    "goals": 2,
+    "team": "SUI"
+  }
+]
