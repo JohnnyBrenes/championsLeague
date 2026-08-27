@@ -221,3 +221,40 @@ export function aggregateFor(m: Match): { home: number; away: number } | null {
     ? { home: tie.aggregate.away, away: tie.aggregate.home }
     : tie.aggregate;
 }
+
+export interface TeamTie {
+  tie: Tie;
+  /** The other club in the tie. */
+  opponent: number | null;
+  /** Aggregate from THIS club's point of view. */
+  aggregate: { for: number; against: number } | null;
+  outcome: "won" | "lost" | "pending";
+}
+
+/**
+ * A club's route through the knockout stage, oldest round first.
+ *
+ * Re-orients the aggregate to the club being asked about, so a caller never
+ * has to know whether it was the tie's home or away side — the same flip that
+ * `aggregateFor` does for a single match.
+ */
+export function roadForTeam(teamId: number): TeamTie[] {
+  return tiesForTeam(teamId).map((tie) => {
+    const isHome = tie.home === teamId;
+    const opponent = isHome ? tie.away : tie.home;
+    const aggregate = tie.aggregate
+      ? isHome
+        ? { for: tie.aggregate.home, against: tie.aggregate.away }
+        : { for: tie.aggregate.away, against: tie.aggregate.home }
+      : null;
+    // An unresolved tie counts as pending rather than a defeat: showing
+    // "eliminado" for a tie we simply could not decide would be a lie.
+    const outcome: TeamTie["outcome"] =
+      tie.winner === teamId
+        ? "won"
+        : tie.pending || tie.winner == null
+          ? "pending"
+          : "lost";
+    return { tie, opponent, aggregate, outcome };
+  });
+}

@@ -127,5 +127,19 @@
     "label": "Idioma",
     "es": "Español",
     "en": "English"
+  },
+  "road": {
+    "title": "Camino a la final",
+    "advanced": "Avanza",
+    "eliminated": "Eliminado",
+    "pending": "Por jugar",
+    "outInLeague": "Eliminado en la fase liga: no alcanzó el puesto 24.º.",
+    "notDrawn": "Aún no tiene eliminatorias sorteadas."
+  },
+  "compare": {
+    "title": "Comparar con otro club",
+    "pick": "Elige un club para comparar",
+    "headToHead": "Cara a cara",
+    "neverMet": "No se han enfrentado en esta edición."
   }
 }

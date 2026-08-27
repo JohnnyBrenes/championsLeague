@@ -529,9 +529,21 @@ Cada fase deja el repo compilando (`npm run build`) y desplegable.
   Crons del workflow, secreto `FOOTBALL_DATA_TOKEN` en el repo, y el deploy hook de
   Cloudflare si se usa despliegue directo (§8.3).
 
-- **Fase 6 — Extras opcionales**
-  Vista "camino a la final" por club · notificaciones push · comparador de dos clubes
-  en la tabla. *(La quiniela queda descartada por decisión de producto.)*
+- **Fase 6 — Extras** — ✅ **HECHA**
+  - ✅ **Camino a la final** (`TeamRoad`): la ruta de un club por las
+    eliminatorias, con el global reorientado a ese club vía `roadForTeam()`.
+    Distingue "aún no sorteado" de "eliminado en la fase liga" en vez de
+    mostrar un recuadro vacío
+  - ✅ **Comparador de dos clubes** (`TeamCompare`): filas enfrentadas con el
+    mejor valor de cada estadística en dorado (ojo: en goles en contra y
+    derrotas el mejor es el MENOR), más el cara a cara de esta edición
+  - ❌ **Notificaciones push: descartadas.** Web Push necesita un servidor que
+    envíe la notificación y guarde las suscripciones; este sitio es un export
+    estático sin backend (§8.2), así que no se puede hacer sin montar
+    infraestructura nueva. La alternativa realista, si algún día interesa, es
+    exportar los partidos de un club como archivo `.ics` para suscribirse desde
+    el calendario del teléfono: cubre la misma necesidad —no perderse un
+    partido— sin servidor
 
 ---
 

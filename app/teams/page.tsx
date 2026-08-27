@@ -9,6 +9,8 @@ import type { Team } from "@/lib/types";
 import MatchDayList from "@/components/MatchDayList";
 import LeagueTable from "@/components/LeagueTable";
 import { Crest } from "@/components/TeamBadge";
+import TeamRoad from "@/components/TeamRoad";
+import TeamCompare from "@/components/TeamCompare";
 
 export default function TeamsPage() {
   const { locale, t } = useI18n();
@@ -106,6 +108,11 @@ export default function TeamsPage() {
             <MatchDayList matches={teamMatches} />
           </div>
 
+          <div>
+            <h3 className="mb-2 text-sm font-bold">{t("road.title")}</h3>
+            <TeamRoad teamId={team.id} />
+          </div>
+
           {standing && (
             <div>
               <h3 className="mb-2 text-sm font-bold">
@@ -117,6 +124,11 @@ export default function TeamsPage() {
               />
             </div>
           )}
+
+          <div>
+            <h3 className="mb-2 text-sm font-bold">{t("compare.title")}</h3>
+            <TeamCompare teamId={team.id} />
+          </div>
         </div>
       )}
     </div>

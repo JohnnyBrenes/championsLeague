@@ -52,3 +52,11 @@ export function slotLabelText(
   if (winner) return `${t("label.winner")} ${winner[1]}`;
   return label;
 }
+
+/** Every match these two clubs have played against each other, oldest first. */
+export function matchesBetween(a: number, b: number): Match[] {
+  return sortedMatches().filter(
+    (m) =>
+      (m.home === a && m.away === b) || (m.home === b && m.away === a),
+  );
+}

@@ -127,5 +127,19 @@
     "label": "Language",
     "es": "Español",
     "en": "English"
+  },
+  "road": {
+    "title": "Road to the final",
+    "advanced": "Through",
+    "eliminated": "Out",
+    "pending": "To play",
+    "outInLeague": "Eliminated in the league phase: finished below 24th.",
+    "notDrawn": "No knockout ties drawn yet."
+  },
+  "compare": {
+    "title": "Compare with another club",
+    "pick": "Pick a club to compare",
+    "headToHead": "Head to head",
+    "neverMet": "They haven't met in this edition."
   }
 }
