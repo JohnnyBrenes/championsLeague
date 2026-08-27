@@ -1,5 +1,5 @@
 {
-  "name": "worldcup-2026",
+  "name": "champions-league-2627",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,9 +13,8 @@
     "gen:thirds": "node scripts/build-third-combinations.mjs"
   },
   "dependencies": {
-    "@vercel/analytics": "^2.0.1",
     "country-flag-emoji-polyfill": "^0.1.8",
-    "next": "16.2.7",
+    "next": "^16.3.3",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -25,8 +24,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.7",
-    "sharp": "^0.34.5",
+    "eslint-config-next": "^16.3.3",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

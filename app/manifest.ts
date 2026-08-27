@@ -1,5 +1,10 @@
 import type { MetadataRoute } from "next";
 
+// Next treats manifest.ts as a route handler, which `output: "export"` refuses
+// to build unless it is explicitly declared static. The manifest is a constant,
+// so this just tells the exporter to write it out at build time.
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Mundial 2026 — Calendario y Eliminatorias",

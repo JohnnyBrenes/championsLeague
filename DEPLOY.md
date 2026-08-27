@@ -1,39 +1,90 @@
-# Deploying to Vercel
+# Deploy: Cloudflare Pages
 
-This app is a static Next.js site. Deployment is free and zero-config on Vercel's Hobby plan.
+This app is a **fully static** Next.js site: every page is prerendered from the
+committed `data/*.json`, so there is no server, no database and nothing to render at
+request time. `npm run build` produces `./out`, which any static host can serve.
 
-## One-time setup (dashboard method — recommended)
+We host on **Cloudflare Pages** (free tier: unlimited sites and bandwidth).
 
-1. **Create a Vercel account** at https://vercel.com → **Sign Up** → **Continue with GitHub** → **Authorize Vercel**. Pick the **Hobby** (free) plan.
-2. **Import the repo**: click **Add New… → Project** (or go to https://vercel.com/new). Find **`worldcup-2026`** and click **Import**.
-   - If it's not listed, click **Adjust GitHub App Permissions** and grant access to the repo.
-3. **Configure** — nothing to change:
-   - Framework Preset: **Next.js** (auto-detected)
-   - Environment Variables: **leave empty** (the data is committed; the API token is only used by the GitHub Action, not the Vercel build).
-4. Click **Deploy**. Wait ~1–2 minutes.
-5. Your site is live at `https://worldcup-2026.vercel.app` (or similar).
+## One-time setup
+
+1. **Create a Cloudflare account** at <https://dash.cloudflare.com> (free, no card).
+2. **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → authorize
+   GitHub and pick `JohnnyBrenes/championsLeague`.
+3. **Build settings**:
+
+   | Field | Value |
+   |---|---|
+   | Framework preset | Next.js (Static HTML Export) |
+   | Build command | `npm run build` |
+   | Build output directory | `out` |
+   | Environment variable | `NODE_VERSION` = `22` |
+
+   **No API token is needed here.** The data is committed to the repo; the
+   `FOOTBALL_DATA_TOKEN` is only used by the GitHub Action, never by the build.
+4. **Save and Deploy** (~1–2 min). The site goes live at
+   `https://<project>.pages.dev`.
+
+## How updates flow
+
+```
+GitHub Action (cron)  →  sync-data.mjs  →  data/*.json changed?
+                                              │ yes
+                                              ▼
+                                     commit & push to main
+                                              │
+                                              ▼
+                              Cloudflare Pages rebuilds & deploys
+```
+
+- Any push to `main` triggers a rebuild; every branch gets a preview URL.
+- On match nights the Action polls hourly and commits only when a score actually
+  changed, so results appear within ~1 h of the final whistle.
+- Free tier allows **500 builds/month**. Champions League plays ~2 days a week, so
+  we are far from that ceiling.
 
 ## Install on a phone (PWA)
 
 - iPhone: open the URL in **Safari** → **Share** → **Add to Home Screen**.
 - Android: open in **Chrome** → menu → **Install app**.
 
-## How updates flow
+## Constraints to respect
 
-- **Any push to `main`** → Vercel auto-redeploys.
-- **During match days** → the GitHub Action (`.github/workflows/update-results.yml`) fetches scores from football-data.org every ~10 min, commits changed data, which triggers a Vercel redeploy. Results appear within ~10 min of a goal/final whistle.
+The static export is what makes free hosting possible. It breaks if anyone adds:
 
-## Notes
+- route handlers (`app/**/route.ts`) that are not `export const dynamic = "force-static"`
+- server actions, `cookies()`, `headers()`, `revalidate` / ISR
+- `next/image` optimization (we set `images: { unoptimized: true }`)
+- `@vercel/*` packages — they only work on Vercel
 
-- Hobby plan is **non-commercial use only**.
-- GitHub Actions is free/unlimited on this **public** repo.
-- The `FOOTBALL_DATA_TOKEN` is stored as a GitHub Actions secret — never in the repo or the Vercel build.
+`app/manifest.ts` is a route handler and therefore carries an explicit
+`export const dynamic = "force-static"`. Keep it.
 
-## Alternative: Vercel CLI
+## Local check before pushing
 
 ```bash
-npm i -g vercel
-vercel login
-vercel          # preview deploy
-vercel --prod   # production deploy
+npm run build     # must pass; writes ./out
+npx serve out     # optional: preview the exported site
 ```
+
+## Alternative: deploy from the workflow
+
+Avoids depending on the Git integration and deploys right after a data commit. Add to
+the end of `.github/workflows/update-results.yml`:
+
+```yaml
+      - run: npm ci && npm run build
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy out --project-name=<project>
+```
+
+Requires an API token with the *Cloudflare Pages: Edit* permission.
+
+## Other free options
+
+See `CHAMPIONS_MIGRATION.md` §8.5 for the comparison with GitHub Pages, Netlify and
+Render. Note that GitHub Pages would additionally need
+`basePath: "/championsLeague"` unless a custom domain is used.
