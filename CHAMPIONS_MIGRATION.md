@@ -284,7 +284,8 @@ modela el formato liga exactamente como necesitábamos.
    siendo 2025/26 (terminó el 2026-05-30). **Consecuencia: se desarrolla contra
    2025/26**, que tiene estructura idéntica y datos reales de prórrogas, penales y
    globales — es un banco de pruebas mejor que una temporada vacía. El cambio a
-   2026/27 será solo el parámetro de temporada.
+   2026/27 será solo el parámetro de temporada. *(Actualizado el 2026-08-29: ver
+   §5.5 — la temporada ya existe y es la vigente, pero llega por partes.)*
 2. ⚠️ **El `winner` de la API es por partido, no por eliminatoria.** Caso real:
    Galatasaray 5-2 Juventus (ida) y Juventus 3-2 Galatasaray (vuelta, con prórroga);
    la API marca `HOME_TEAM` en ambos. El global (7-5 para Galatasaray) lo calculamos
@@ -363,6 +364,30 @@ pasando de código de país a `Team.id`.
   verano se apagará solo y hay que reactivarlo antes del arranque de la siguiente.
 
 ---
+
+### 5.5 Cambio de temporada — ✅ implementado (2026-08-29)
+
+Una temporada nueva **no aparece de golpe** en football-data. Al día siguiente del
+sorteo, `season=2026` ya devuelve los **36 clubes** y una **tabla de 36 filas en
+cero**, pero `/competitions/CL/matches` responde `count: 0` — sin fixtures. Probado
+también con `matchday=1`, `stage=LEAGUE_STAGE` y el feed global por rango de fechas.
+
+Lo que hace `sync-data.mjs` con eso:
+
+| Situación | Comportamiento |
+|---|---|
+| Feed vacío de una temporada que **no** tenemos | Log explicativo y **salida 0** — no es un fallo, upstream no ha publicado |
+| Feed vacío de la temporada que **sí** tenemos | `throw` (sigue siendo ruidoso: vaciaría un sitio en vivo) |
+| Feed con partidos de una temporada nueva | Sincroniza y **no arrastra** tabla ni goleadores de la anterior |
+
+La temporada se identifica por su **año de inicio** (2026/27 → 2026), que es lo que
+la API acepta en `?season=`. Se lee de `filters.season`, el único campo de temporada
+que el feed trae **aunque venga sin partidos**. Lo commiteado se registra en
+**`data/meta.json`** (si faltara, se deduce del primer partido de `schedule.json`).
+
+El detalle que motivó esto: las guardas de "nunca reemplazar datos buenos por una
+respuesta vacía" son correctas *dentro* de una temporada, pero en el cambio de
+temporada habrían dejado los goleadores de 2025/26 presentándose como los actuales.
 
 ## 6. Rediseño visual: "noche europea"
 

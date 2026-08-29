@@ -3,6 +3,7 @@
 //   data/schedule.json   (189 matches: dates, teams, scores, legs, ties)
 //   data/standings.json  (the 36-row league phase table, in the API's order)
 //   data/scorers.json    (top scorers)
+//   data/meta.json       (which season the four files above belong to)
 //   public/crests/*.png  (club crests, downloaded once)
 //
 // Idempotent: run it any time. Used both for the initial load and for the
@@ -11,9 +12,9 @@
 // Token resolution: env FOOTBALL_DATA_TOKEN, else a FOOTBALL_DATA_TOKEN=...
 // line in a local .env.local file.
 //
-// Season: defaults to whatever football-data considers current. Set CL_SEASON
-// (e.g. CL_SEASON=2026) to pin a specific one — that is the single switch to
-// flip once the 2026/27 season is published; see CHAMPIONS_MIGRATION.md §5.2.
+// Season: defaults to whatever football-data considers current, and handles the
+// rollover on its own (see readSeason/committedSeasonYear). Set CL_SEASON (e.g.
+// CL_SEASON=2025) to pin an older one; see CHAMPIONS_MIGRATION.md §5.2.
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -412,6 +413,44 @@ function writeJSON(name, value) {
   writeFileSync(join(dataDir, name), JSON.stringify(value, null, 2) + "\n", "utf8");
 }
 
+// --- Season -----------------------------------------------------------------
+
+/** "2026/27" from the season's start year, for log lines. */
+const seasonLabel = (y) => (y == null ? "unknown" : `${y}/${String(y + 1).slice(2)}`);
+
+/**
+ * The season a match feed belongs to, keyed by its START year (2026/27 -> 2026,
+ * the same value football-data takes in `?season=`).
+ *
+ * `filters.season` is read first because it is the only season field the feed
+ * carries when it has no matches at all — precisely the case main() has to tell
+ * apart. The richer `season` object rides along on each match.
+ */
+function readSeason(feed) {
+  const s = feed.matches?.[0]?.season;
+  const year = Number(feed.filters?.season ?? (s?.startDate ?? "").slice(0, 4));
+  return {
+    id: s?.id,
+    startYear: Number.isInteger(year) ? year : null,
+    startDate: s?.startDate,
+    endDate: s?.endDate,
+  };
+}
+
+/**
+ * Season of the data already committed. meta.json is authoritative; when it is
+ * missing it is derived from the first fixture on record, since a Champions
+ * League season always starts in the second half of its first year.
+ */
+function committedSeasonYear() {
+  const meta = readJSON("meta.json", null);
+  if (meta?.season?.startYear != null) return meta.season.startYear;
+  const [first] = readJSON("schedule.json", []);
+  if (!first?.datetime) return null;
+  const d = new Date(first.datetime);
+  return d.getUTCMonth() >= 6 ? d.getUTCFullYear() : d.getUTCFullYear() - 1;
+}
+
 // --- Main -------------------------------------------------------------------
 
 async function main() {
@@ -420,8 +459,31 @@ async function main() {
     return;
   }
 
-  const apiMatches = (await fetchJSON(`/competitions/CL/matches${qs()}`)).matches ?? [];
-  if (apiMatches.length === 0) throw new Error("empty match list");
+  const feed = await fetchJSON(`/competitions/CL/matches${qs()}`);
+  const apiMatches = feed.matches ?? [];
+  const season = readSeason(feed);
+  const previousYear = committedSeasonYear();
+  const isNewSeason =
+    season.startYear != null && previousYear != null && season.startYear !== previousYear;
+
+  // A season is published in pieces: the 36 clubs and an all-zero table show up
+  // within hours of the draw, the 144 fixtures days later. An empty feed for a
+  // season we do not hold yet therefore means "not published upstream", which is
+  // a no-op rather than a failure. An empty feed for the season we ALREADY hold
+  // is an upstream regression and has to stay loud — it would blank a live site.
+  if (apiMatches.length === 0) {
+    if (isNewSeason) {
+      console.log(
+        `Season ${seasonLabel(season.startYear)} has no fixtures published yet — ` +
+          `keeping the committed ${seasonLabel(previousYear)} data.`,
+      );
+      return;
+    }
+    throw new Error(`empty match list for season ${seasonLabel(season.startYear)}`);
+  }
+  if (isNewSeason) {
+    console.log(`New season: ${seasonLabel(previousYear)} -> ${seasonLabel(season.startYear)}.`);
+  }
 
   // --- clubs ---
   // Prefer the competition-wide team list (one call, complete data); fall back
@@ -501,7 +563,10 @@ async function main() {
   // Taken straight from the API: the later UEFA tiebreakers (away goals, away
   // wins, disciplinary points, club coefficient) cannot be computed from the
   // data we hold, so the API's order is the source of truth.
-  let standings = readJSON("standings.json", []);
+  // On a rollover the "never replace good data with an empty response" guards
+  // below would keep LAST season's table and scorers and serve them as the
+  // current ones, so a new season starts from nothing instead.
+  let standings = isNewSeason ? [] : readJSON("standings.json", []);
   try {
     const raw = await fetchJSON(`/competitions/CL/standings${qs()}`);
     const table = raw.standings?.find((s) => s.type === "TOTAL")?.table ?? [];
@@ -524,7 +589,7 @@ async function main() {
   }
 
   // --- scorers ---
-  let scorers = readJSON("scorers.json", []);
+  let scorers = isNewSeason ? [] : readJSON("scorers.json", []);
   try {
     // 100 rather than a top-30: the endpoint ranks by GOALS, so the assists
     // table has to be drawn from this same pool. A short list would leave the
@@ -547,12 +612,15 @@ async function main() {
   writeJSON("schedule.json", matches);
   writeJSON("standings.json", standings);
   writeJSON("scorers.json", scorers);
+  writeJSON("meta.json", { season });
 
   const byStage = matches.reduce((acc, m) => {
     acc[m.stage] = (acc[m.stage] || 0) + 1;
     return acc;
   }, {});
-  console.log(`\nSynced ${teams.length} clubs, ${matches.length} matches, ${tieCount} ties.`);
+  console.log(
+    `\nSynced ${seasonLabel(season.startYear)}: ${teams.length} clubs, ${matches.length} matches, ${tieCount} ties.`,
+  );
   console.log("By stage:", byStage);
   console.log(`Standings rows: ${standings.length} · scorers: ${scorers.length} · new crests: ${newCrests}`);
   console.log(`Finished matches: ${matches.filter((m) => m.status === "finished").length}`);
