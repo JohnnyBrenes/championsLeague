@@ -376,9 +376,24 @@ Lo que hace `sync-data.mjs` con eso:
 
 | Situación | Comportamiento |
 |---|---|
-| Feed vacío de una temporada que **no** tenemos | Log explicativo y **salida 0** — no es un fallo, upstream no ha publicado |
-| Feed vacío de la temporada que **sí** tenemos | `throw` (sigue siendo ruidoso: vaciaría un sitio en vivo) |
-| Feed con partidos de una temporada nueva | Sincroniza y **no arrastra** tabla ni goleadores de la anterior |
+| Feed vacío y **no** tenemos fixtures de esa temporada | Sincroniza clubes y tabla en cero; el calendario queda vacío |
+| Feed vacío y **sí** tenemos fixtures de esa temporada | `throw` (regresión de la fuente: vaciaría un sitio en vivo) |
+| Feed con partidos | Sync completo; si la temporada cambió, **no arrastra** tabla ni goleadores |
+
+Sembrar la temporada aunque no haya calendario es deliberado: entre el sorteo y la
+publicación de los fixtures, el sitio mostraba la temporada 2025/26 **completa** bajo
+el título "Champions 2026/27". Es preferible enseñar los 36 clubes reales y un
+calendario vacío que resultados del año pasado como si fueran de este.
+
+⚠️ **La temporada va explícita en las cuatro llamadas.** Omitirla no equivale a pedir
+la vigente: mientras la temporada no ha empezado, `/competitions/CL/standings` responde
+**404 sin `?season=`** y 200 con él. Además evita una carrera si upstream cambia de
+temporada a mitad del sync.
+
+En la UI esto se apoya en un estado propio ("el calendario todavía no se ha publicado")
+en portada y calendario — decir "no hay partidos hoy" sería cierto e inútil — y en que
+los textos ya no prometen un número fijo de partidos: durante la fase liga son 144, y
+solo con las eliminatorias sorteadas llegan a 189.
 
 La temporada se identifica por su **año de inicio** (2026/27 → 2026), que es lo que
 la API acepta en `?season=`. Se lee de `filters.season`, el único campo de temporada
