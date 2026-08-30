@@ -81,45 +81,55 @@ export default function SchedulePage() {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        <select
-          className={selectClass}
-          value={round}
-          onChange={(e) => setRound(e.target.value)}
-          aria-label={t("filters.allRounds")}
-        >
-          <option value="">{t("filters.allRounds")}</option>
-          {ROUND_ORDER.map((r) => (
-            <option key={r} value={r}>
-              {roundLabel(r)}
-            </option>
-          ))}
-        </select>
+      {all.length === 0 ? (
+        // Filters over an empty calendar would only offer ways to find nothing.
+        <div className="rounded-2xl border border-line bg-surface p-6 text-center">
+          <p className="font-semibold">{t("home.comingSoon")}</p>
+          <p className="mt-1 text-sm text-muted">{t("home.comingSoonText")}</p>
+        </div>
+      ) : (
+        <>
+          <div className="flex flex-wrap gap-2">
+            <select
+              className={selectClass}
+              value={round}
+              onChange={(e) => setRound(e.target.value)}
+              aria-label={t("filters.allRounds")}
+            >
+              <option value="">{t("filters.allRounds")}</option>
+              {ROUND_ORDER.map((r) => (
+                <option key={r} value={r}>
+                  {roundLabel(r)}
+                </option>
+              ))}
+            </select>
 
-        <select
-          className={selectClass}
-          value={team}
-          onChange={(e) => setTeam(e.target.value)}
-          aria-label={t("filters.allTeams")}
-        >
-          <option value="">{t("filters.allTeams")}</option>
-          {teamOptions.map((tm) => (
-            <option key={tm.id} value={tm.id}>
-              {teamName(tm, locale)}
-            </option>
-          ))}
-        </select>
+            <select
+              className={selectClass}
+              value={team}
+              onChange={(e) => setTeam(e.target.value)}
+              aria-label={t("filters.allTeams")}
+            >
+              <option value="">{t("filters.allTeams")}</option>
+              {teamOptions.map((tm) => (
+                <option key={tm.id} value={tm.id}>
+                  {teamName(tm, locale)}
+                </option>
+              ))}
+            </select>
 
-        <input
-          className={`${selectClass} flex-1 min-w-[160px]`}
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder={t("filters.search")}
-        />
-      </div>
+            <input
+              className={`${selectClass} flex-1 min-w-[160px]`}
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={t("filters.search")}
+            />
+          </div>
 
-      <MatchDayList matches={filtered} />
+          <MatchDayList matches={filtered} />
+        </>
+      )}
     </div>
   );
 }

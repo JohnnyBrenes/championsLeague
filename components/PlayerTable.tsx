@@ -39,7 +39,11 @@ export default function PlayerTable({
     <section className="space-y-2">
       <div>
         <h2 className="text-sm font-bold">{title}</h2>
-        {note && <p className="text-[0.7rem] text-muted">{note}</p>}
+        {/* A caveat about the source's coverage only means something next to
+            actual rows; over an empty table it is noise. */}
+        {note && rows.length > 0 && (
+          <p className="text-[0.7rem] text-muted">{note}</p>
+        )}
       </div>
 
       {rows.length === 0 ? (

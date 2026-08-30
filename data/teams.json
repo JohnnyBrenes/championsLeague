@@ -1,17 +1,5 @@
 [
   {
-    "id": 678,
-    "tla": "AJA",
-    "en": "AFC Ajax",
-    "es": "Ajax",
-    "short": "Ajax",
-    "crest": "/crests/678.png",
-    "country": "Netherlands",
-    "countryCode": "NLD",
-    "venue": "Johan Cruyff ArenA",
-    "colors": "Red / White"
-  },
-  {
     "id": 57,
     "tla": "ARS",
     "en": "Arsenal FC",
@@ -24,52 +12,28 @@
     "colors": "Red / White"
   },
   {
-    "id": 548,
-    "tla": "ASM",
-    "en": "AS Monaco FC",
-    "es": "Monaco",
-    "short": "Monaco",
-    "crest": "/crests/548.png",
-    "country": "Monaco",
-    "countryCode": "MCO",
-    "venue": "Stade Louis II.",
-    "colors": "Red / White"
-  },
-  {
-    "id": 102,
-    "tla": "ATA",
-    "en": "Atalanta BC",
-    "es": "Atalanta",
-    "short": "Atalanta",
-    "crest": "/crests/102.png",
+    "id": 100,
+    "tla": "ROM",
+    "en": "AS Roma",
+    "es": "Roma",
+    "short": "Roma",
+    "crest": "/crests/100.png",
     "country": "Italy",
     "countryCode": "ITA",
-    "venue": "Stadio Atleti Azzurri d'Italia",
-    "colors": "Black / Blue"
+    "venue": "Stadio Olimpico",
+    "colors": "Maroon / Orange / White"
   },
   {
-    "id": 77,
-    "tla": "ATH",
-    "en": "Athletic Club",
-    "es": "Athletic de Bilbao",
-    "short": "Athletic",
-    "crest": "/crests/77.png",
-    "country": "Spain",
-    "countryCode": "ESP",
-    "venue": "San Mamés",
-    "colors": "Red / White / Black"
-  },
-  {
-    "id": 3,
-    "tla": "B04",
-    "en": "Bayer 04 Leverkusen",
-    "es": "Bayer Leverkusen",
-    "short": "Leverkusen",
-    "crest": "/crests/3.png",
-    "country": "Germany",
-    "countryCode": "DEU",
-    "venue": "BayArena",
-    "colors": "Red / White / Black"
+    "id": 58,
+    "tla": "AVL",
+    "en": "Aston Villa FC",
+    "es": "Aston Villa",
+    "short": "Aston Villa",
+    "crest": "/crests/58.png",
+    "country": "England",
+    "countryCode": "ENG",
+    "venue": "Villa Park",
+    "colors": "Claret / Sky Blue"
   },
   {
     "id": 4,
@@ -82,18 +46,6 @@
     "countryCode": "DEU",
     "venue": "Signal Iduna Park",
     "colors": "Black / Yellow"
-  },
-  {
-    "id": 61,
-    "tla": "CHE",
-    "en": "Chelsea FC",
-    "es": "Chelsea",
-    "short": "Chelsea",
-    "crest": "/crests/61.png",
-    "country": "England",
-    "countryCode": "ENG",
-    "venue": "Stamford Bridge",
-    "colors": "Royal Blue / White"
   },
   {
     "id": 78,
@@ -120,16 +72,16 @@
     "colors": "Blue / Black"
   },
   {
-    "id": 19,
-    "tla": "SGE",
-    "en": "Eintracht Frankfurt",
-    "es": "Eintracht Fráncfort",
-    "short": "Frankfurt",
-    "crest": "/crests/19.png",
-    "country": "Germany",
-    "countryCode": "DEU",
-    "venue": "Deutsche Bank Park",
-    "colors": "Red / Black"
+    "id": 7397,
+    "tla": "COM",
+    "en": "Como 1907",
+    "es": "Como",
+    "short": "Como 1907",
+    "crest": "/crests/7397.png",
+    "country": "Italy",
+    "countryCode": "ITA",
+    "venue": "Stadio Giuseppe Sinigaglia",
+    "colors": "Sky Blue / White"
   },
   {
     "id": 81,
@@ -168,16 +120,40 @@
     "colors": "Blue / Black"
   },
   {
-    "id": 1876,
-    "tla": "KOB",
-    "en": "FC København",
-    "es": "Copenhague",
-    "short": "København",
-    "crest": "/crests/1876.png",
-    "country": "Denmark",
-    "countryCode": "DNK",
-    "venue": "Telia Parken",
-    "colors": "White / Blue"
+    "id": 503,
+    "tla": "FCP",
+    "en": "FC Porto",
+    "es": "Oporto",
+    "short": "Porto",
+    "crest": "/crests/503.png",
+    "country": "Portugal",
+    "countryCode": "POR",
+    "venue": "Estádio Do Dragão",
+    "colors": "Blue / White"
+  },
+  {
+    "id": 613,
+    "tla": "FEN",
+    "en": "Fenerbahçe SK",
+    "es": "Fenerbahçe",
+    "short": "Fenerbahçe",
+    "crest": "/crests/613.png",
+    "country": "Turkey",
+    "countryCode": "TUR",
+    "venue": "Ülker Stadyumu Fenerbahçe Şükrü Saracoğlu Spor Kompleksi",
+    "colors": "Yellow / Blue"
+  },
+  {
+    "id": 675,
+    "tla": "FEY",
+    "en": "Feyenoord Rotterdam",
+    "es": "Feyenoord",
+    "short": "Feyenoord",
+    "crest": "/crests/675.png",
+    "country": "Netherlands",
+    "countryCode": "NLD",
+    "venue": "Stadion Feijenoord",
+    "colors": "Red / White / Black"
   },
   {
     "id": 5721,
@@ -192,14 +168,16 @@
     "colors": "Yellow / Black"
   },
   {
-    "id": 10601,
-    "tla": "KAI",
-    "en": "FK Kairat",
-    "es": "FK Kairat",
-    "short": "FK Kairat",
-    "crest": "/crests/10601.png",
-    "country": "Kazakhstan",
-    "countryCode": "KAZ"
+    "id": 1887,
+    "tla": "SHD",
+    "en": "FK Shakhtar Donetsk",
+    "es": "Shajtar Donetsk",
+    "short": "Shaktar",
+    "crest": "/crests/1887.png",
+    "country": "Ukraine",
+    "countryCode": "UKR",
+    "venue": "Oblasny SportKomplex Metalist",
+    "colors": "Orange / Black"
   },
   {
     "id": 610,
@@ -214,16 +192,28 @@
     "colors": "Red / Yellow"
   },
   {
-    "id": 109,
-    "tla": "JUV",
-    "en": "Juventus FC",
-    "es": "Juventus",
-    "short": "Juventus",
-    "crest": "/crests/109.png",
-    "country": "Italy",
-    "countryCode": "ITA",
-    "venue": "Allianz Stadium",
-    "colors": "White / Black"
+    "id": 2016,
+    "tla": "LIN",
+    "en": "LASK Linz",
+    "es": "LASK",
+    "short": "LASK",
+    "crest": "/crests/2016.png",
+    "country": "Austria",
+    "countryCode": "AUT",
+    "venue": "Raiffeisen Arena",
+    "colors": "Black / White"
+  },
+  {
+    "id": 521,
+    "tla": "LIL",
+    "en": "Lille OSC",
+    "es": "Lille",
+    "short": "Lille",
+    "crest": "/crests/521.png",
+    "country": "France",
+    "countryCode": "FRA",
+    "venue": "Stade Pierre-Mauroy",
+    "colors": "White / Red"
   },
   {
     "id": 64,
@@ -250,51 +240,28 @@
     "colors": "Sky Blue / White"
   },
   {
-    "id": 67,
-    "tla": "NEW",
-    "en": "Newcastle United FC",
-    "es": "Newcastle",
-    "short": "Newcastle",
-    "crest": "/crests/67.png",
+    "id": 66,
+    "tla": "MUN",
+    "en": "Manchester United FC",
+    "es": "Man United",
+    "short": "Man United",
+    "crest": "/crests/66.png",
     "country": "England",
     "countryCode": "ENG",
-    "venue": "St. James' Park",
-    "colors": "Black / White"
-  },
-  {
-    "id": 516,
-    "tla": "MAR",
-    "en": "Olympique de Marseille",
-    "es": "Olympique de Marsella",
-    "short": "Marseille",
-    "crest": "/crests/516.png",
-    "country": "France",
-    "countryCode": "FRA",
-    "venue": "Orange Vélodrome",
-    "colors": "White / Blue"
-  },
-  {
-    "id": 654,
-    "tla": "OLY",
-    "en": "PAE Olympiakos SFP",
-    "es": "Olympiakos",
-    "short": "Olympiakos",
-    "crest": "/crests/654.png",
-    "country": "Greece",
-    "countryCode": "GRC",
-    "venue": "Stadio Georgios Karaiskáki",
+    "venue": "Old Trafford",
     "colors": "Red / White"
   },
   {
-    "id": 11034,
-    "tla": "AEP",
-    "en": "Paphos FC",
-    "es": "Paphos FC",
-    "short": "Paphos FC",
-    "crest": "/crests/11034.png",
-    "country": "Cyprus",
-    "countryCode": "CYP",
-    "venue": "Alphamega Stadium"
+    "id": 1899,
+    "tla": "AEK",
+    "en": "PAE AEK",
+    "es": "AEK Atenas",
+    "short": "PAE AEK",
+    "crest": "/crests/1899.png",
+    "country": "Greece",
+    "countryCode": "GRC",
+    "venue": "Olympiako Stadio Spyros Louis",
+    "colors": "Yellow / Black"
   },
   {
     "id": 524,
@@ -321,16 +288,40 @@
     "colors": "Red / White"
   },
   {
-    "id": 611,
-    "tla": "QAR",
-    "en": "Qarabağ Ağdam FK",
-    "es": "Qarabag",
-    "short": "Qarabağ Ağdam",
-    "crest": "/crests/611.png",
-    "country": "Azerbaijan",
-    "countryCode": "AZE",
-    "venue": "Tofiq Bəhramov adına Respublika stadionu",
-    "colors": "Black / White"
+    "id": 546,
+    "tla": "RCL",
+    "en": "Racing Club de Lens",
+    "es": "RC Lens",
+    "short": "RC Lens",
+    "crest": "/crests/546.png",
+    "country": "France",
+    "countryCode": "FRA",
+    "venue": "Stade Bollaert-Delelis",
+    "colors": "Red / Yellow"
+  },
+  {
+    "id": 721,
+    "tla": "RBL",
+    "en": "RB Leipzig",
+    "es": "RB Leipzig",
+    "short": "RB Leipzig",
+    "crest": "/crests/721.png",
+    "country": "Germany",
+    "countryCode": "DEU",
+    "venue": "Red Bull Arena",
+    "colors": "White / Red"
+  },
+  {
+    "id": 90,
+    "tla": "BET",
+    "en": "Real Betis Balompié",
+    "es": "Real Betis",
+    "short": "Real Betis",
+    "crest": "/crests/90.png",
+    "country": "Spain",
+    "countryCode": "ESP",
+    "venue": "Estadio Benito Villamarín",
+    "colors": "Green / White"
   },
   {
     "id": 86,
@@ -345,16 +336,14 @@
     "colors": "White / Purple"
   },
   {
-    "id": 3929,
-    "tla": "USG",
-    "en": "Royale Union Saint-Gilloise",
-    "es": "Union SG",
-    "short": "Union SG",
-    "crest": "/crests/3929.png",
-    "country": "Belgium",
-    "countryCode": "BEL",
-    "venue": "Stade Joseph Mariën",
-    "colors": "Blue / Yellow"
+    "id": 10233,
+    "tla": "SAB",
+    "en": "Sabah FK",
+    "es": "Sabah FK",
+    "short": "Sabah FK",
+    "crest": "/crests/10233.png",
+    "country": "Azerbaijan",
+    "countryCode": "AZE"
   },
   {
     "id": 930,
@@ -369,15 +358,16 @@
     "colors": "Red / White"
   },
   {
-    "id": 1903,
-    "tla": "BEN",
-    "en": "Sport Lisboa e Benfica",
-    "es": "SL Benfica",
-    "short": "SL Benfica",
-    "crest": "/crests/1903.png",
-    "country": "Portugal",
-    "countryCode": "POR",
-    "venue": "Estádio do Sport Lisboa e Benfica"
+    "id": 7509,
+    "tla": "SBA",
+    "en": "ŠK Slovan Bratislava",
+    "es": "Slovan Bratislava",
+    "short": "Sl. Bratislava",
+    "crest": "/crests/7509.png",
+    "country": "Slovakia",
+    "countryCode": "SVK",
+    "venue": "Štadión Tehelné pole",
+    "colors": "Light Blue / White"
   },
   {
     "id": 498,
@@ -404,16 +394,28 @@
     "colors": "Sky Blue / White"
   },
   {
-    "id": 73,
-    "tla": "TOT",
-    "en": "Tottenham Hotspur FC",
-    "es": "Tottenham",
-    "short": "Tottenham",
-    "crest": "/crests/73.png",
-    "country": "England",
-    "countryCode": "ENG",
-    "venue": "Tottenham Hotspur Stadium",
-    "colors": "Navy Blue / White"
+    "id": 10,
+    "tla": "VFB",
+    "en": "VfB Stuttgart",
+    "es": "Stuttgart",
+    "short": "Stuttgart",
+    "crest": "/crests/10.png",
+    "country": "Germany",
+    "countryCode": "DEU",
+    "venue": "Mercedes-Benz Arena",
+    "colors": "White / Red"
+  },
+  {
+    "id": 5720,
+    "tla": "VIK",
+    "en": "Viking FK",
+    "es": "Viking",
+    "short": "Viking",
+    "crest": "/crests/5720.png",
+    "country": "Norway",
+    "countryCode": "NOR",
+    "venue": "SR-Bank Arena",
+    "colors": "Dark Blue / White"
   },
   {
     "id": 94,

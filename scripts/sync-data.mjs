@@ -45,10 +45,21 @@ if (!TOKEN) {
 
 const API = "https://api.football-data.org/v4";
 
+/**
+ * Season sent on every call: CL_SEASON when pinned, otherwise the one the match
+ * feed reports, which main() fills in after its first request.
+ *
+ * Leaving it out is not equivalent to sending the current season: while a season
+ * has no matchday yet, /standings answers 404 without an explicit `season` and
+ * 200 with it. Pinning also guarantees the four files describe the SAME season
+ * even if upstream flips over mid-sync.
+ */
+let SEASON = process.env.CL_SEASON ?? null;
+
 /** Build a query string, folding in the pinned season when there is one. */
 function qs(extra = {}) {
   const p = new URLSearchParams(extra);
-  if (process.env.CL_SEASON) p.set("season", process.env.CL_SEASON);
+  if (SEASON) p.set("season", SEASON);
   const s = p.toString();
   return s ? `?${s}` : "";
 }
@@ -100,6 +111,12 @@ const ES_NAMES = {
   "Club Brugge": "Brujas",
   "Union Saint-Gilloise": "Union Saint-Gilloise",
   "Shakhtar Donetsk": "Shajtar Donetsk",
+  "FK Shakhtar Donetsk": "Shajtar Donetsk",
+  // The feed's shortName is "Sl. Bratislava" / "PAE AEK", which reads as an
+  // abbreviation nobody uses; these are the names the clubs go by in Spanish.
+  "ŠK Slovan Bratislava": "Slovan Bratislava",
+  "PAE AEK": "AEK Atenas",
+  "Como 1907": "Como",
   "Dinamo Zagreb": "Dinamo de Zagreb",
   "GNK Dinamo Zagreb": "Dinamo de Zagreb",
   "Red Bull Salzburg": "RB Salzburgo",
@@ -462,27 +479,32 @@ async function main() {
   const feed = await fetchJSON(`/competitions/CL/matches${qs()}`);
   const apiMatches = feed.matches ?? [];
   const season = readSeason(feed);
+  if (!SEASON && season.startYear != null) SEASON = String(season.startYear);
   const previousYear = committedSeasonYear();
   const isNewSeason =
     season.startYear != null && previousYear != null && season.startYear !== previousYear;
 
   // A season is published in pieces: the 36 clubs and an all-zero table show up
-  // within hours of the draw, the 144 fixtures days later. An empty feed for a
-  // season we do not hold yet therefore means "not published upstream", which is
-  // a no-op rather than a failure. An empty feed for the season we ALREADY hold
-  // is an upstream regression and has to stay loud — it would blank a live site.
-  if (apiMatches.length === 0) {
-    if (isNewSeason) {
-      console.log(
-        `Season ${seasonLabel(season.startYear)} has no fixtures published yet — ` +
-          `keeping the committed ${seasonLabel(previousYear)} data.`,
-      );
-      return;
-    }
+  // within hours of the draw, the 144 fixtures days later. An empty feed is
+  // therefore normal between those two moments — the clubs and the empty table
+  // still sync, so the site shows the season that is actually being played
+  // instead of last season's results, and the fixtures land on a later run.
+  //
+  // The one case that must stay loud is an empty feed for a season we already
+  // hold fixtures for: that is an upstream regression, and it would blank a
+  // live site.
+  const fixturesPending = apiMatches.length === 0;
+  if (fixturesPending && !isNewSeason && readJSON("schedule.json", []).length > 0) {
     throw new Error(`empty match list for season ${seasonLabel(season.startYear)}`);
   }
   if (isNewSeason) {
     console.log(`New season: ${seasonLabel(previousYear)} -> ${seasonLabel(season.startYear)}.`);
+  }
+  if (fixturesPending) {
+    console.log(
+      `Season ${seasonLabel(season.startYear)} has no fixtures published yet — ` +
+        `syncing the clubs and the empty table only.`,
+    );
   }
 
   // --- clubs ---

@@ -2,7 +2,7 @@
   "app": {
     "title": "Champions 2026/27",
     "subtitle": "Calendario y Eliminatorias",
-    "tagline": "36 clubes · 189 partidos · sep 2026 – may 2027"
+    "tagline": "36 clubes · 8 jornadas · sep 2026 – may 2027"
   },
   "nav": {
     "today": "Hoy",
@@ -24,9 +24,9 @@
   },
   "home": {
     "heroTitle": "La Champions, en un solo lugar",
-    "heroText": "Sigue los 189 partidos, la fase liga y el camino a la final.",
-    "comingSoon": "Calendario completo próximamente",
-    "comingSoonText": "Estamos preparando todos los partidos y clubes. ¡Vuelve pronto!"
+    "heroText": "Sigue la fase liga, las eliminatorias y el camino a la final.",
+    "comingSoon": "El calendario todavía no se ha publicado",
+    "comingSoonText": "Los 36 clubes ya están sorteados. Los partidos aparecerán aquí en cuanto la fuente los publique."
   },
   "today": {
     "title": "Partidos de hoy",
@@ -35,7 +35,7 @@
   },
   "schedule": {
     "title": "Calendario completo",
-    "subtitle": "Los 189 partidos, agrupados por fecha",
+    "subtitle": "Todos los partidos, agrupados por fecha",
     "empty": "No hay partidos que coincidan con los filtros."
   },
   "table": {

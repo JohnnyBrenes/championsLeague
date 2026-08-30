@@ -53,21 +53,33 @@ export default function HomePage() {
         </p>
       </section>
 
-      <div className="flex items-baseline justify-between">
-        <h2 className="text-lg font-bold">{t(heading)}</h2>
-        <span className="text-xs text-muted">
-          🕒 {t(mode === "stadium" ? "common.tzStadium" : "common.tzLocal")}
-        </span>
-      </div>
-
-      {today === null ? (
-        <p className="text-sm text-muted">…</p>
-      ) : list.length === 0 ? (
-        <p className="rounded-2xl border border-line bg-surface p-6 text-center text-sm text-muted">
-          {t("today.none")}
-        </p>
+      {all.length === 0 ? (
+        // The draw reaches our source weeks before the fixtures do. Saying
+        // "no matches today" then would be true and useless — there is no
+        // calendar at all yet, and that is what the visitor needs to know.
+        <div className="rounded-2xl border border-line bg-surface p-6 text-center">
+          <p className="font-semibold">{t("home.comingSoon")}</p>
+          <p className="mt-1 text-sm text-muted">{t("home.comingSoonText")}</p>
+        </div>
       ) : (
-        <MatchDayList matches={list} />
+        <>
+          <div className="flex items-baseline justify-between">
+            <h2 className="text-lg font-bold">{t(heading)}</h2>
+            <span className="text-xs text-muted">
+              🕒 {t(mode === "stadium" ? "common.tzStadium" : "common.tzLocal")}
+            </span>
+          </div>
+
+          {today === null ? (
+            <p className="text-sm text-muted">…</p>
+          ) : list.length === 0 ? (
+            <p className="rounded-2xl border border-line bg-surface p-6 text-center text-sm text-muted">
+              {t("today.none")}
+            </p>
+          ) : (
+            <MatchDayList matches={list} />
+          )}
+        </>
       )}
     </div>
   );

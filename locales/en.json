@@ -2,7 +2,7 @@
   "app": {
     "title": "Champions 2026/27",
     "subtitle": "Schedule & Knockouts",
-    "tagline": "36 clubs · 189 matches · Sep 2026 – May 2027"
+    "tagline": "36 clubs · 8 matchdays · Sep 2026 – May 2027"
   },
   "nav": {
     "today": "Today",
@@ -24,9 +24,9 @@
   },
   "home": {
     "heroTitle": "The Champions League, all in one place",
-    "heroText": "Follow all 189 matches, the league phase and the road to the final.",
-    "comingSoon": "Full schedule coming soon",
-    "comingSoonText": "We're preparing every match and club. Check back soon!"
+    "heroText": "Follow the league phase, the knockouts and the road to the final.",
+    "comingSoon": "The schedule is not out yet",
+    "comingSoonText": "The 36 clubs are drawn. Fixtures will show up here as soon as the source publishes them."
   },
   "today": {
     "title": "Today's matches",
@@ -35,7 +35,7 @@
   },
   "schedule": {
     "title": "Full schedule",
-    "subtitle": "All 189 matches, grouped by date",
+    "subtitle": "Every match, grouped by date",
     "empty": "No matches match the filters."
   },
   "table": {
