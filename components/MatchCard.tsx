@@ -5,6 +5,7 @@ import { useTimezone } from "@/lib/timezone";
 import { formatTime } from "@/lib/time";
 import { aggregateFor } from "@/lib/bracket";
 import { teamById } from "@/lib/data";
+import { isMarquee } from "@/lib/marquee";
 import type { Match } from "@/lib/types";
 import TeamBadge from "./TeamBadge";
 
@@ -36,9 +37,14 @@ export default function MatchCard({ match }: { match: Match }) {
   const venue =
     match.venue ??
     (match.stage === "final" ? undefined : teamById(match.home)?.venue);
+  const marquee = isMarquee(match);
 
   return (
-    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-2xl border border-line bg-surface px-4 py-3 shadow-sm">
+    <div
+      className={`grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-2xl border bg-surface px-4 py-3 shadow-sm ${
+        marquee ? "border-gold/45" : "border-line"
+      }`}
+    >
       <TeamBadge id={match.home} label={match.homeLabel} align="right" />
 
       <div className="min-w-[96px] text-center">
@@ -83,9 +89,16 @@ export default function MatchCard({ match }: { match: Match }) {
 
       <TeamBadge id={match.away} label={match.awayLabel} align="left" />
 
-      {venue && (
-        <div className="col-span-3 mt-1 text-center text-[0.72rem] text-muted">
-          {venue}
+      {(marquee || venue) && (
+        <div className="col-span-3 mt-1 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[0.72rem] text-muted">
+          {/* The gold border alone would be decoration; the badge is what
+              actually says why this card looks different. */}
+          {marquee && (
+            <span className="rounded-full bg-gold/15 px-2 py-0.5 font-bold uppercase tracking-wide text-gold">
+              {t("common.marquee")}
+            </span>
+          )}
+          {venue && <span>{venue}</span>}
         </div>
       )}
     </div>
