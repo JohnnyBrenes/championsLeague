@@ -7,6 +7,7 @@ import { sortedMatches } from "@/lib/data";
 import { dayKey, todayKey } from "@/lib/time";
 import MatchDayList from "@/components/MatchDayList";
 import StarMark from "@/components/StarMark";
+import FavoriteMatch from "@/components/FavoriteMatch";
 
 // "Today" depends on the visitor's clock — read it client-side without hydration
 // drift: the server renders null, the client fills in the real date.
@@ -63,6 +64,8 @@ export default function HomePage() {
         </div>
       ) : (
         <>
+          <FavoriteMatch />
+
           <div className="flex items-baseline justify-between">
             <h2 className="text-lg font-bold">{t(heading)}</h2>
             <span className="text-xs text-muted">

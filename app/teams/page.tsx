@@ -5,25 +5,33 @@ import { useI18n } from "@/lib/i18n";
 import { useTimezone } from "@/lib/timezone";
 import { searchKey, sortedMatches, teamById, teamName, teams } from "@/lib/data";
 import { standingsAround, teamStanding } from "@/lib/standings";
+import { useFavorite } from "@/lib/favorite";
 import type { Team } from "@/lib/types";
 import MatchDayList from "@/components/MatchDayList";
 import LeagueTable from "@/components/LeagueTable";
 import { Crest } from "@/components/TeamBadge";
 import TeamRoad from "@/components/TeamRoad";
 import TeamCompare from "@/components/TeamCompare";
+import FavoriteStar from "@/components/FavoriteStar";
+import { STAR_PATH } from "@/components/StarMark";
 
 export default function TeamsPage() {
   const { locale, t } = useI18n();
   const { mode } = useTimezone();
+  const { favorite } = useFavorite();
   const [selected, setSelected] = useState<number | null>(null);
   const [query, setQuery] = useState("");
 
   const sortedTeams = useMemo(
     () =>
-      [...teams].sort((a, b) =>
-        teamName(a, locale).localeCompare(teamName(b, locale)),
-      ),
-    [locale],
+      [...teams].sort((a, b) => {
+        // The visitor's club first, then alphabetically. Thirty-six tiles is
+        // enough that scrolling to your own every time is the main friction.
+        if (a.id === favorite) return -1;
+        if (b.id === favorite) return 1;
+        return teamName(a, locale).localeCompare(teamName(b, locale));
+      }),
+    [locale, favorite],
   );
 
   const visibleTeams = useMemo(() => {
@@ -37,7 +45,10 @@ export default function TeamsPage() {
     );
   }, [sortedTeams, query]);
 
-  const team: Team | undefined = teamById(selected);
+  // Nothing picked yet opens on the visitor's own club rather than on an empty
+  // page, while any explicit choice still wins.
+  const shownId = selected ?? favorite;
+  const team: Team | undefined = teamById(shownId);
 
   const teamMatches = useMemo(() => {
     if (!team) return [];
@@ -68,7 +79,7 @@ export default function TeamsPage() {
       ) : (
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
           {visibleTeams.map((tm) => {
-            const active = tm.id === selected;
+            const active = tm.id === shownId;
             return (
               <button
                 key={tm.id}
@@ -83,6 +94,20 @@ export default function TeamsPage() {
               >
                 <Crest team={tm} size={24} />
                 <span className="truncate">{teamName(tm, locale)}</span>
+                {tm.id === favorite && (
+                  <span className="ml-auto shrink-0 text-gold">
+                    <svg
+                      width={12}
+                      height={12}
+                      viewBox="-12 -12 24 24"
+                      aria-hidden
+                      focusable="false"
+                    >
+                      <path d={STAR_PATH} fill="currentColor" />
+                    </svg>
+                    <span className="sr-only">{t("favorite.badge")}</span>
+                  </span>
+                )}
               </button>
             );
           })}
@@ -91,7 +116,7 @@ export default function TeamsPage() {
 
       {team && (
         <div className="space-y-4 border-t border-line pt-5">
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <Crest team={team} size={48} />
             <div>
               <h2 className="text-2xl font-extrabold leading-tight">
@@ -100,6 +125,12 @@ export default function TeamsPage() {
               <p className="text-sm text-muted">
                 {[team.country, team.venue].filter(Boolean).join(" · ")}
               </p>
+            </div>
+            <div className="ml-auto flex flex-col items-end gap-1">
+              <FavoriteStar teamId={team.id} />
+              <span className="text-[0.68rem] text-muted">
+                {t("favorite.local")}
+              </span>
             </div>
           </div>
 
@@ -124,6 +155,7 @@ export default function TeamsPage() {
               <LeagueTable
                 rows={standingsAround(team.id)}
                 highlight={team.id}
+                favorite={favorite ?? undefined}
               />
             </div>
           )}

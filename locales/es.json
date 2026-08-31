@@ -22,6 +22,14 @@
     "noneFound": "No se encontraron clubes",
     "tableAround": "Su zona de la tabla"
   },
+  "favorite": {
+    "add": "Elegir como mi club",
+    "remove": "Quitar mi club",
+    "badge": "Tu club",
+    "next": "El próximo partido de tu club",
+    "last": "El último partido de tu club",
+    "local": "Se guarda solo en este navegador"
+  },
   "home": {
     "heroTitle": "La Champions, en un solo lugar",
     "heroText": "Sigue la fase liga, las eliminatorias y el camino a la final.",

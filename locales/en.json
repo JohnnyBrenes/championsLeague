@@ -22,6 +22,14 @@
     "noneFound": "No clubs found",
     "tableAround": "Its part of the table"
   },
+  "favorite": {
+    "add": "Make this my club",
+    "remove": "Remove my club",
+    "badge": "Your club",
+    "next": "Your club's next match",
+    "last": "Your club's last match",
+    "local": "Saved in this browser only"
+  },
   "home": {
     "heroTitle": "The Champions League, all in one place",
     "heroText": "Follow the league phase, the knockouts and the road to the final.",

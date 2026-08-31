@@ -5,6 +5,7 @@ import { teamName } from "@/lib/data";
 import { CUT_LINES, type LeagueRow } from "@/lib/standings";
 import type { Qualification } from "@/lib/types";
 import { Crest } from "./TeamBadge";
+import { STAR_PATH } from "./StarMark";
 
 /**
  * Qualification zones. Colour alone never carries the meaning — every zone is
@@ -33,10 +34,17 @@ export function TableLegend() {
 export default function LeagueTable({
   rows,
   highlight,
+  favorite,
 }: {
   rows: LeagueRow[];
   /** Team id to emphasise, when the table is shown inside a club's page. */
   highlight?: number;
+  /**
+   * The visitor's own club. Emphasised like `highlight`, and additionally
+   * starred — on a club's page the emphasised row is simply the club being
+   * read, which is not the same thing and must not claim to be.
+   */
+  favorite?: number;
 }) {
   const { locale, t } = useI18n();
 
@@ -77,7 +85,9 @@ export default function LeagueTable({
                 className={`border-t ${
                   cut ? "border-b-2 border-b-muted/40" : ""
                 } border-line ${
-                  r.teamId === highlight ? "bg-highlight font-semibold" : ""
+                  r.teamId === highlight || r.teamId === favorite
+                    ? "bg-highlight font-semibold"
+                    : ""
                 }`}
               >
                 <td className="py-2 pr-1 text-right">
@@ -98,6 +108,23 @@ export default function LeagueTable({
                   <span className="flex items-center gap-2">
                     <Crest team={r.team} size={20} />
                     <span className="truncate">{teamName(r.team, locale)}</span>
+                    {r.teamId === favorite && (
+                      <span
+                        className="shrink-0 text-gold"
+                        title={t("favorite.badge")}
+                      >
+                        <svg
+                          width={12}
+                          height={12}
+                          viewBox="-12 -12 24 24"
+                          aria-hidden
+                          focusable="false"
+                        >
+                          <path d={STAR_PATH} fill="currentColor" />
+                        </svg>
+                        <span className="sr-only">{t("favorite.badge")}</span>
+                      </span>
+                    )}
                   </span>
                 </td>
                 <td className="px-2 py-2 text-center text-muted">{r.played}</td>

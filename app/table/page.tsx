@@ -2,10 +2,12 @@
 
 import { useI18n } from "@/lib/i18n";
 import { leagueTable } from "@/lib/standings";
+import { useFavorite } from "@/lib/favorite";
 import LeagueTable, { TableLegend } from "@/components/LeagueTable";
 
 export default function TablePage() {
   const { t } = useI18n();
+  const { favorite } = useFavorite();
   const rows = leagueTable();
 
   return (
@@ -18,7 +20,7 @@ export default function TablePage() {
         </div>
       </div>
 
-      <LeagueTable rows={rows} />
+      <LeagueTable rows={rows} favorite={favorite ?? undefined} />
 
       <p className="text-center text-[0.7rem] text-muted">{t("table.note")}</p>
     </div>

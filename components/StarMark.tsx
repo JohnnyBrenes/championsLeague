@@ -1,4 +1,11 @@
 /**
+ * The star outline, exported so the favourite toggle can draw the same shape
+ * hollow or filled instead of carrying a second, slightly different star.
+ */
+export const STAR_PATH =
+  "M0,-11 L2.82,-3.88 L11.41,-3.71 L4.57,1.48 L7.05,9.71 L0,4.8 L-7.05,9.71 L-4.57,1.48 L-11.41,-3.71 L-2.82,-3.88 Z";
+
+/**
  * The site's mark: a single five-pointed star.
  *
  * Deliberately our own and deliberately simple. The competition's real emblem
@@ -23,10 +30,7 @@ export default function StarMark({
       aria-hidden
       focusable="false"
     >
-      <path
-        d="M0,-11 L2.82,-3.88 L11.41,-3.71 L4.57,1.48 L7.05,9.71 L0,4.8 L-7.05,9.71 L-4.57,1.48 L-11.41,-3.71 L-2.82,-3.88 Z"
-        fill="currentColor"
-      />
+      <path d={STAR_PATH} fill="currentColor" />
     </svg>
   );
 }
