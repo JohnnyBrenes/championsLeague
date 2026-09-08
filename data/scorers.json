@@ -1,5 +1,11 @@
 [
   {
+    "name": "Bartra",
+    "goals": 2,
+    "assists": null,
+    "team": 90
+  },
+  {
     "name": "John McGinn",
     "goals": 1,
     "assists": null,
@@ -48,21 +54,33 @@
     "team": 86
   },
   {
+    "name": "Erling Haaland",
+    "goals": 1,
+    "assists": null,
+    "team": 65
+  },
+  {
+    "name": "Santiago Mouriño",
+    "goals": 1,
+    "assists": null,
+    "team": 94
+  },
+  {
     "name": "Ayase Ueda",
     "goals": 1,
     "assists": null,
     "team": 521
   },
   {
-    "name": "Bartra",
-    "goals": 1,
-    "assists": null,
-    "team": 90
-  },
-  {
     "name": "Alexsandro Ribeiro",
     "goals": 1,
     "assists": null,
     "team": 521
+  },
+  {
+    "name": "Troy Parrott",
+    "goals": 1,
+    "assists": null,
+    "team": 90
   }
 ]

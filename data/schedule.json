@@ -22,7 +22,7 @@
     "home": 1899,
     "away": 2016,
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 0
     },
     "winner": "home",
@@ -53,9 +53,9 @@
     "away": 65,
     "score": {
       "home": 0,
-      "away": 0
+      "away": 1
     },
-    "winner": null,
+    "winner": "away",
     "status": "live",
     "matchday": 1
   },
@@ -67,8 +67,8 @@
     "home": 4,
     "away": 94,
     "score": {
-      "home": 0,
-      "away": 0
+      "home": 1,
+      "away": 1
     },
     "winner": null,
     "status": "live",
@@ -82,10 +82,10 @@
     "home": 521,
     "away": 90,
     "score": {
-      "home": 1,
-      "away": 0
+      "home": 2,
+      "away": 3
     },
-    "winner": "home",
+    "winner": "away",
     "status": "live",
     "matchday": 1
   },
