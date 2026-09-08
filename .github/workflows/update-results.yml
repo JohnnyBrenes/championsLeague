@@ -31,6 +31,12 @@ on:
     # Daily full sync at 12:07 UTC (catches schedule/fixture changes).
     # Keep this string identical to the one in MATCH_WINDOW_ONLY below.
     - cron: "7 12 * * *"
+    #
+    # GitHub only registers these crons when THIS FILE changes on the default
+    # branch. The repo started life as a fork of the World Cup calendar, and
+    # forks have the schedule event disabled, so the crons above were never
+    # registered; leaving the fork network does not register them retroactively.
+    # If they ever go quiet again, a commit touching this file re-arms them.
   workflow_dispatch: {}
 
 concurrency:
