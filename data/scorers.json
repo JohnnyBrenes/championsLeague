@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "name": "John McGinn",
+    "goals": 1,
+    "assists": null,
+    "team": 58
+  },
+  {
+    "name": "Hugo Vetlesen",
+    "goals": 1,
+    "assists": null,
+    "team": 851
+  },
+  {
+    "name": "Emiliano Buendía",
+    "goals": 1,
+    "assists": null,
+    "team": 58
+  },
+  {
+    "name": "Nicolas Jackson",
+    "goals": 1,
+    "assists": null,
+    "team": 58
+  },
+  {
+    "name": "Răzvan Marin",
+    "goals": 1,
+    "assists": null,
+    "team": 1899
+  }
+]
