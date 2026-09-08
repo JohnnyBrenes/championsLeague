@@ -7,11 +7,11 @@
     "home": 851,
     "away": 58,
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 3
     },
     "winner": "away",
-    "status": "live",
+    "status": "finished",
     "matchday": 1
   },
   {
@@ -22,11 +22,11 @@
     "home": 1899,
     "away": 2016,
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 0
     },
     "winner": "home",
-    "status": "live",
+    "status": "finished",
     "matchday": 1
   },
   {
