@@ -34,5 +34,23 @@
     "goals": 1,
     "assists": null,
     "team": 1899
+  },
+  {
+    "name": "Kylian Mbappé",
+    "goals": 1,
+    "assists": null,
+    "team": 86
+  },
+  {
+    "name": "Federico Valverde",
+    "goals": 1,
+    "assists": null,
+    "team": 86
+  },
+  {
+    "name": "Ayase Ueda",
+    "goals": 1,
+    "assists": null,
+    "team": 521
   }
 ]

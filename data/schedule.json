@@ -37,11 +37,11 @@
     "home": 86,
     "away": 108,
     "score": {
-      "home": null,
-      "away": null
+      "home": 1,
+      "away": 0
     },
-    "winner": null,
-    "status": "scheduled",
+    "winner": "home",
+    "status": "live",
     "matchday": 1
   },
   {
@@ -52,11 +52,11 @@
     "home": 503,
     "away": 65,
     "score": {
-      "home": null,
-      "away": null
+      "home": 0,
+      "away": 0
     },
     "winner": null,
-    "status": "scheduled",
+    "status": "live",
     "matchday": 1
   },
   {
@@ -67,11 +67,11 @@
     "home": 4,
     "away": 94,
     "score": {
-      "home": null,
-      "away": null
+      "home": 0,
+      "away": 0
     },
     "winner": null,
-    "status": "scheduled",
+    "status": "live",
     "matchday": 1
   },
   {
@@ -82,11 +82,11 @@
     "home": 521,
     "away": 90,
     "score": {
-      "home": null,
-      "away": null
+      "home": 1,
+      "away": 0
     },
-    "winner": null,
-    "status": "scheduled",
+    "winner": "home",
+    "status": "live",
     "matchday": 1
   },
   {
