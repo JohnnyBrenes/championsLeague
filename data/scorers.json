@@ -1,5 +1,17 @@
 [
   {
+    "name": "Erling Haaland",
+    "goals": 2,
+    "assists": null,
+    "team": 65
+  },
+  {
+    "name": "Sehrou Guirassy",
+    "goals": 2,
+    "assists": null,
+    "team": 4
+  },
+  {
     "name": "Bartra",
     "goals": 2,
     "assists": null,
@@ -54,10 +66,10 @@
     "team": 86
   },
   {
-    "name": "Erling Haaland",
+    "name": "Carlos Augusto Lobaton",
     "goals": 1,
     "assists": null,
-    "team": 65
+    "team": 108
   },
   {
     "name": "Santiago Mouriño",
