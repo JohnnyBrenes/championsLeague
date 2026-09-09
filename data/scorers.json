@@ -1,5 +1,11 @@
 [
   {
+    "name": "Ermedin Demirovic",
+    "goals": 3,
+    "assists": null,
+    "team": 10
+  },
+  {
     "name": "Erling Haaland",
     "goals": 2,
     "assists": null,
@@ -16,6 +22,12 @@
     "goals": 2,
     "assists": null,
     "team": 90
+  },
+  {
+    "name": "Raphinha",
+    "goals": 2,
+    "assists": null,
+    "team": 81
   },
   {
     "name": "John McGinn",
@@ -94,5 +106,41 @@
     "goals": 1,
     "assists": null,
     "team": 90
+  },
+  {
+    "name": "Karim Adeyemi",
+    "goals": 1,
+    "assists": null,
+    "team": 81
+  },
+  {
+    "name": "Lamine Yamal",
+    "goals": 1,
+    "assists": 2,
+    "team": 81
+  },
+  {
+    "name": "Sem Steijn",
+    "goals": 1,
+    "assists": null,
+    "team": 675
+  },
+  {
+    "name": "Gabriel Jesus",
+    "goals": 1,
+    "assists": null,
+    "team": 81
+  },
+  {
+    "name": "Zlatko Tripić",
+    "goals": 1,
+    "assists": null,
+    "team": 5720
+  },
+  {
+    "name": "Lucas Torreira",
+    "goals": 1,
+    "assists": null,
+    "team": 610
   }
 ]
