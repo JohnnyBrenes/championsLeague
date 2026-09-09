@@ -6,6 +6,12 @@
     "team": 10
   },
   {
+    "name": "Ferrán Torres",
+    "goals": 3,
+    "assists": null,
+    "team": 524
+  },
+  {
     "name": "Erling Haaland",
     "goals": 2,
     "assists": null,
@@ -28,6 +34,12 @@
     "goals": 2,
     "assists": null,
     "team": 81
+  },
+  {
+    "name": "Ousmane Dembélé",
+    "goals": 2,
+    "assists": 2,
+    "team": 524
   },
   {
     "name": "John McGinn",
@@ -138,9 +150,57 @@
     "team": 5720
   },
   {
-    "name": "Lucas Torreira",
+    "name": "Marcos Llorente",
     "goals": 1,
     "assists": null,
-    "team": 610
+    "team": 78
+  },
+  {
+    "name": "Dominik Szoboszlai",
+    "goals": 1,
+    "assists": null,
+    "team": 64
+  },
+  {
+    "name": "Alexis Mac Allister",
+    "goals": 1,
+    "assists": null,
+    "team": 64
+  },
+  {
+    "name": "Suleiman Camara Sanneh",
+    "goals": 1,
+    "assists": null,
+    "team": 7509
+  },
+  {
+    "name": "Fabián Ruiz",
+    "goals": 1,
+    "assists": null,
+    "team": 524
+  },
+  {
+    "name": "Martin Ødegaard",
+    "goals": 1,
+    "assists": null,
+    "team": 57
+  },
+  {
+    "name": "Geny Catamo",
+    "goals": 1,
+    "assists": null,
+    "team": 498
+  },
+  {
+    "name": "Luis Suárez",
+    "goals": 1,
+    "assists": null,
+    "team": 498
+  },
+  {
+    "name": "Rodrigo Zalazar",
+    "goals": 1,
+    "assists": null,
+    "team": 498
   }
 ]
