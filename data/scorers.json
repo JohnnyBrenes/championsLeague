@@ -42,6 +42,18 @@
     "team": 524
   },
   {
+    "name": "Michael Olise",
+    "goals": 2,
+    "assists": 1,
+    "team": 5
+  },
+  {
+    "name": "Danijel Sturm",
+    "goals": 2,
+    "assists": null,
+    "team": 930
+  },
+  {
     "name": "John McGinn",
     "goals": 1,
     "assists": null,
@@ -240,6 +252,12 @@
     "team": 5
   },
   {
+    "name": "Alphonso Davies",
+    "goals": 1,
+    "assists": null,
+    "team": 5
+  },
+  {
     "name": "Matheus Cunha",
     "goals": 1,
     "assists": null,
@@ -288,13 +306,25 @@
     "team": 721
   },
   {
-    "name": "Danijel Sturm",
+    "name": "Maximo Perrone",
     "goals": 1,
     "assists": null,
-    "team": 930
+    "team": 7397
   },
   {
     "name": "Abdallah Sima",
+    "goals": 1,
+    "assists": null,
+    "team": 546
+  },
+  {
+    "name": "Florian Thauvin",
+    "goals": 1,
+    "assists": null,
+    "team": 546
+  },
+  {
+    "name": "Ruben Aguilar",
     "goals": 1,
     "assists": null,
     "team": 546
