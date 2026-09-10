@@ -202,5 +202,101 @@
     "goals": 1,
     "assists": null,
     "team": 498
+  },
+  {
+    "name": "Bryan Cristante",
+    "goals": 1,
+    "assists": null,
+    "team": 100
+  },
+  {
+    "name": "Archie Brown",
+    "goals": 1,
+    "assists": null,
+    "team": 613
+  },
+  {
+    "name": "Gleiker Mendoza",
+    "goals": 1,
+    "assists": null,
+    "team": 1887
+  },
+  {
+    "name": "Sergiño Dest",
+    "goals": 1,
+    "assists": null,
+    "team": 674
+  },
+  {
+    "name": "Jamal Musiala",
+    "goals": 1,
+    "assists": null,
+    "team": 5
+  },
+  {
+    "name": "Harry Kane",
+    "goals": 1,
+    "assists": 1,
+    "team": 5
+  },
+  {
+    "name": "Matheus Cunha",
+    "goals": 1,
+    "assists": null,
+    "team": 66
+  },
+  {
+    "name": "Bruno Fernandes",
+    "goals": 1,
+    "assists": null,
+    "team": 66
+  },
+  {
+    "name": "Benjamin Šeško",
+    "goals": 1,
+    "assists": null,
+    "team": 66
+  },
+  {
+    "name": "Lisandro Martínez",
+    "goals": 1,
+    "assists": null,
+    "team": 66
+  },
+  {
+    "name": "Martin Baturina",
+    "goals": 1,
+    "assists": 1,
+    "team": 7397
+  },
+  {
+    "name": "Anastasios Douvikas",
+    "goals": 1,
+    "assists": null,
+    "team": 7397
+  },
+  {
+    "name": "Assane Diao",
+    "goals": 1,
+    "assists": null,
+    "team": 7397
+  },
+  {
+    "name": "Andrija Maksimović",
+    "goals": 1,
+    "assists": null,
+    "team": 721
+  },
+  {
+    "name": "Danijel Sturm",
+    "goals": 1,
+    "assists": null,
+    "team": 930
+  },
+  {
+    "name": "Abdallah Sima",
+    "goals": 1,
+    "assists": null,
+    "team": 546
   }
 ]
