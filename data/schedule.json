@@ -326,7 +326,7 @@
       "away": 4
     },
     "winner": "away",
-    "status": "live",
+    "status": "finished",
     "matchday": 2
   },
   {
@@ -341,7 +341,7 @@
       "away": 0
     },
     "winner": "home",
-    "status": "live",
+    "status": "finished",
     "matchday": 2
   },
   {
@@ -371,7 +371,7 @@
       "away": 3
     },
     "winner": null,
-    "status": "live",
+    "status": "finished",
     "matchday": 2
   },
   {
@@ -386,7 +386,7 @@
       "away": 0
     },
     "winner": "home",
-    "status": "live",
+    "status": "finished",
     "matchday": 2
   },
   {
