@@ -1,5 +1,11 @@
 [
   {
+    "name": "Nicolo Tresoldi",
+    "goals": 4,
+    "assists": null,
+    "team": 851
+  },
+  {
     "name": "Ermedin Demirovic",
     "goals": 3,
     "assists": null,
@@ -12,10 +18,22 @@
     "team": 524
   },
   {
+    "name": "Harry Kane",
+    "goals": 3,
+    "assists": 1,
+    "team": 5
+  },
+  {
     "name": "Erling Haaland",
     "goals": 2,
     "assists": null,
     "team": 65
+  },
+  {
+    "name": "Santiago Mouriño",
+    "goals": 2,
+    "assists": null,
+    "team": 94
   },
   {
     "name": "Sehrou Guirassy",
@@ -31,6 +49,12 @@
   },
   {
     "name": "Raphinha",
+    "goals": 2,
+    "assists": null,
+    "team": 81
+  },
+  {
+    "name": "Karim Adeyemi",
     "goals": 2,
     "assists": null,
     "team": 81
@@ -60,6 +84,12 @@
     "team": 930
   },
   {
+    "name": "Lautaro Martínez",
+    "goals": 2,
+    "assists": 1,
+    "team": 108
+  },
+  {
     "name": "John McGinn",
     "goals": 1,
     "assists": null,
@@ -82,12 +112,6 @@
     "goals": 1,
     "assists": null,
     "team": 58
-  },
-  {
-    "name": "Nicolo Tresoldi",
-    "goals": 1,
-    "assists": null,
-    "team": 851
   },
   {
     "name": "Răzvan Marin",
@@ -114,12 +138,6 @@
     "team": 108
   },
   {
-    "name": "Santiago Mouriño",
-    "goals": 1,
-    "assists": null,
-    "team": 94
-  },
-  {
     "name": "Ayase Ueda",
     "goals": 1,
     "assists": null,
@@ -138,15 +156,9 @@
     "team": 90
   },
   {
-    "name": "Karim Adeyemi",
-    "goals": 1,
-    "assists": null,
-    "team": 81
-  },
-  {
     "name": "Lamine Yamal",
     "goals": 1,
-    "assists": 2,
+    "assists": 4,
     "team": 81
   },
   {
@@ -158,13 +170,13 @@
   {
     "name": "Gabriel Jesus",
     "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 81
   },
   {
     "name": "Zlatko Tripić",
     "goals": 1,
-    "assists": 1,
+    "assists": 2,
     "team": 5720
   },
   {
@@ -243,12 +255,6 @@
     "name": "Jamal Musiala",
     "goals": 1,
     "assists": null,
-    "team": 5
-  },
-  {
-    "name": "Harry Kane",
-    "goals": 1,
-    "assists": 1,
     "team": 5
   },
   {
@@ -348,10 +354,70 @@
     "team": 10233
   },
   {
+    "name": "Romeo Vermant",
+    "goals": 1,
+    "assists": null,
+    "team": 851
+  },
+  {
+    "name": "Ange-Yoan Bonny",
+    "goals": 1,
+    "assists": null,
+    "team": 108
+  },
+  {
+    "name": "Aleksey Batrakov",
+    "goals": 1,
+    "assists": null,
+    "team": 610
+  },
+  {
+    "name": "João Cancelo",
+    "goals": 1,
+    "assists": 1,
+    "team": 81
+  },
+  {
+    "name": "Fermín López",
+    "goals": 1,
+    "assists": null,
+    "team": 81
+  },
+  {
+    "name": "Anthony Gordon",
+    "goals": 1,
+    "assists": null,
+    "team": 81
+  },
+  {
     "name": "Pablo Barrios",
     "goals": 1,
     "assists": null,
     "team": 78
+  },
+  {
+    "name": "Ademola Lookman",
+    "goals": 1,
+    "assists": null,
+    "team": 78
+  },
+  {
+    "name": "Jurrien Timber",
+    "goals": 1,
+    "assists": null,
+    "team": 57
+  },
+  {
+    "name": "Eberechi Eze",
+    "goals": 1,
+    "assists": null,
+    "team": 57
+  },
+  {
+    "name": "Bukayo Saka",
+    "goals": 1,
+    "assists": 1,
+    "team": 57
   },
   {
     "name": "Gianni Stensness",
@@ -360,9 +426,45 @@
     "team": 5720
   },
   {
+    "name": "Peter Christiansen",
+    "goals": 1,
+    "assists": null,
+    "team": 5720
+  },
+  {
+    "name": "Luis Díaz",
+    "goals": 1,
+    "assists": null,
+    "team": 5
+  },
+  {
+    "name": "Herman Haugen",
+    "goals": 1,
+    "assists": null,
+    "team": 5720
+  },
+  {
+    "name": "Brajan Gruda",
+    "goals": 1,
+    "assists": null,
+    "team": 721
+  },
+  {
     "name": "Amir Rrahmani",
     "goals": 1,
     "assists": null,
     "team": 113
+  },
+  {
+    "name": "Georges Mikautadze",
+    "goals": 1,
+    "assists": 1,
+    "team": 94
+  },
+  {
+    "name": "Tani Oluwaseyi",
+    "goals": 1,
+    "assists": null,
+    "team": 94
   }
 ]
