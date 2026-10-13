@@ -42,6 +42,12 @@
     "team": 524
   },
   {
+    "name": "Luis Suárez",
+    "goals": 2,
+    "assists": null,
+    "team": 498
+  },
+  {
     "name": "Michael Olise",
     "goals": 2,
     "assists": 1,
@@ -158,7 +164,7 @@
   {
     "name": "Zlatko Tripić",
     "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 5720
   },
   {
@@ -199,12 +205,6 @@
   },
   {
     "name": "Geny Catamo",
-    "goals": 1,
-    "assists": null,
-    "team": 498
-  },
-  {
-    "name": "Luis Suárez",
     "goals": 1,
     "assists": null,
     "team": 498
@@ -328,5 +328,41 @@
     "goals": 1,
     "assists": null,
     "team": 546
+  },
+  {
+    "name": "Issa Doumbia",
+    "goals": 1,
+    "assists": null,
+    "team": 498
+  },
+  {
+    "name": "Kaheem Parris",
+    "goals": 1,
+    "assists": null,
+    "team": 10233
+  },
+  {
+    "name": "Joy-Lance Mickels",
+    "goals": 1,
+    "assists": null,
+    "team": 10233
+  },
+  {
+    "name": "Pablo Barrios",
+    "goals": 1,
+    "assists": null,
+    "team": 78
+  },
+  {
+    "name": "Gianni Stensness",
+    "goals": 1,
+    "assists": null,
+    "team": 5720
+  },
+  {
+    "name": "Amir Rrahmani",
+    "goals": 1,
+    "assists": null,
+    "team": 113
   }
 ]
