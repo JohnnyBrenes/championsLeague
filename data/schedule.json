@@ -412,11 +412,11 @@
     "home": 2016,
     "away": 64,
     "score": {
-      "home": null,
-      "away": null
+      "home": 0,
+      "away": 0
     },
     "winner": null,
-    "status": "scheduled",
+    "status": "live",
     "matchday": 2
   },
   {
@@ -427,11 +427,11 @@
     "home": 675,
     "away": 7397,
     "score": {
-      "home": null,
-      "away": null
+      "home": 0,
+      "away": 0
     },
     "winner": null,
-    "status": "scheduled",
+    "status": "live",
     "matchday": 2
   },
   {
