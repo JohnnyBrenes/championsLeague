@@ -6,21 +6,27 @@
     "team": 851
   },
   {
+    "name": "Erling Haaland",
+    "goals": 4,
+    "assists": null,
+    "team": 65
+  },
+  {
+    "name": "Ermedin Demirovic",
+    "goals": 4,
+    "assists": null,
+    "team": 10
+  },
+  {
     "name": "Nicolas Jackson",
     "goals": 3,
     "assists": null,
     "team": 58
   },
   {
-    "name": "Ermedin Demirovic",
-    "goals": 3,
-    "assists": null,
-    "team": 10
-  },
-  {
     "name": "Ousmane Dembélé",
     "goals": 3,
-    "assists": 2,
+    "assists": 3,
     "team": 524
   },
   {
@@ -46,12 +52,6 @@
     "goals": 2,
     "assists": null,
     "team": 86
-  },
-  {
-    "name": "Erling Haaland",
-    "goals": 2,
-    "assists": null,
-    "team": 65
   },
   {
     "name": "Santiago Mouriño",
@@ -90,6 +90,12 @@
     "team": 498
   },
   {
+    "name": "Gleiker Mendoza",
+    "goals": 2,
+    "assists": null,
+    "team": 1887
+  },
+  {
     "name": "Michael Olise",
     "goals": 2,
     "assists": 1,
@@ -124,6 +130,18 @@
     "goals": 2,
     "assists": null,
     "team": 2016
+  },
+  {
+    "name": "Donyell Malen",
+    "goals": 2,
+    "assists": 1,
+    "team": 100
+  },
+  {
+    "name": "Ross Barkley",
+    "goals": 2,
+    "assists": 1,
+    "team": 58
   },
   {
     "name": "John McGinn",
@@ -262,12 +280,6 @@
     "goals": 1,
     "assists": null,
     "team": 613
-  },
-  {
-    "name": "Gleiker Mendoza",
-    "goals": 1,
-    "assists": null,
-    "team": 1887
   },
   {
     "name": "Sergiño Dest",
@@ -522,6 +534,24 @@
     "team": 100
   },
   {
+    "name": "Carlos Espí",
+    "goals": 1,
+    "assists": null,
+    "team": 86
+  },
+  {
+    "name": "Endrick",
+    "goals": 1,
+    "assists": null,
+    "team": 86
+  },
+  {
+    "name": "Antonio Rüdiger",
+    "goals": 1,
+    "assists": null,
+    "team": 86
+  },
+  {
     "name": "Desire Doue",
     "goals": 1,
     "assists": 1,
@@ -531,6 +561,12 @@
     "name": "Vitinha",
     "goals": 1,
     "assists": null,
+    "team": 524
+  },
+  {
+    "name": "Maghnes Akliouche",
+    "goals": 1,
+    "assists": 1,
     "team": 524
   },
   {
@@ -546,27 +582,21 @@
     "team": 58
   },
   {
+    "name": "Tammy Abraham",
+    "goals": 1,
+    "assists": null,
+    "team": 58
+  },
+  {
     "name": "Abdessamad Ezzalzouli",
     "goals": 1,
     "assists": null,
     "team": 90
   },
   {
-    "name": "Lovro Majer",
+    "name": "Gabriel Veiga",
     "goals": 1,
     "assists": null,
-    "team": 1899
-  },
-  {
-    "name": "Pedrinho",
-    "goals": 1,
-    "assists": null,
-    "team": 1887
-  },
-  {
-    "name": "Deniz Undav",
-    "goals": 1,
-    "assists": 2,
-    "team": 10
+    "team": 503
   }
 ]

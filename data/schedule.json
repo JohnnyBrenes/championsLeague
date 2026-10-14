@@ -277,11 +277,11 @@
     "home": 546,
     "away": 498,
     "score": {
-      "home": 0,
-      "away": 2
+      "home": null,
+      "away": null
     },
-    "winner": "away",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 2
   },
   {
@@ -292,11 +292,11 @@
     "home": 10233,
     "away": 930,
     "score": {
-      "home": 2,
-      "away": 0
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 2
   },
   {
@@ -307,11 +307,11 @@
     "home": 108,
     "away": 851,
     "score": {
-      "home": 3,
-      "away": 4
+      "home": null,
+      "away": null
     },
-    "winner": "away",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 2
   },
   {
@@ -322,11 +322,11 @@
     "home": 610,
     "away": 81,
     "score": {
-      "home": 1,
-      "away": 4
+      "home": null,
+      "away": null
     },
-    "winner": "away",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 2
   },
   {
@@ -337,11 +337,11 @@
     "home": 78,
     "away": 66,
     "score": {
-      "home": 2,
-      "away": 0
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 2
   },
   {
@@ -352,11 +352,11 @@
     "home": 57,
     "away": 521,
     "score": {
-      "home": 3,
-      "away": 0
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 2
   },
   {
@@ -367,11 +367,11 @@
     "home": 5720,
     "away": 5,
     "score": {
-      "home": 3,
-      "away": 3
+      "home": null,
+      "away": null
     },
     "winner": null,
-    "status": "finished",
+    "status": "scheduled",
     "matchday": 2
   },
   {
@@ -382,11 +382,11 @@
     "home": 721,
     "away": 674,
     "score": {
-      "home": 1,
-      "away": 0
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 2
   },
   {
@@ -397,11 +397,11 @@
     "home": 94,
     "away": 113,
     "score": {
-      "home": 3,
-      "away": 1
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 2
   },
   {
@@ -442,10 +442,10 @@
     "home": 100,
     "away": 86,
     "score": {
-      "home": 1,
-      "away": 1
+      "home": 3,
+      "away": 4
     },
-    "winner": null,
+    "winner": "away",
     "status": "live",
     "matchday": 2
   },
@@ -457,8 +457,8 @@
     "home": 65,
     "away": 524,
     "score": {
-      "home": 0,
-      "away": 3
+      "home": 2,
+      "away": 4
     },
     "winner": "away",
     "status": "live",
@@ -472,11 +472,11 @@
     "home": 5721,
     "away": 4,
     "score": {
-      "home": 0,
+      "home": 1,
       "away": 0
     },
-    "winner": null,
-    "status": "live",
+    "winner": "home",
+    "status": "finished",
     "matchday": 2
   },
   {
@@ -487,11 +487,11 @@
     "home": 58,
     "away": 613,
     "score": {
-      "home": 3,
+      "home": 6,
       "away": 0
     },
     "winner": "home",
-    "status": "live",
+    "status": "finished",
     "matchday": 2
   },
   {
@@ -502,10 +502,10 @@
     "home": 90,
     "away": 503,
     "score": {
-      "home": 0,
-      "away": 0
+      "home": 3,
+      "away": 2
     },
-    "winner": null,
+    "winner": "home",
     "status": "live",
     "matchday": 2
   },
@@ -517,10 +517,10 @@
     "home": 1887,
     "away": 1899,
     "score": {
-      "home": 1,
+      "home": 3,
       "away": 1
     },
-    "winner": null,
+    "winner": "home",
     "status": "live",
     "matchday": 2
   },
@@ -533,7 +533,7 @@
     "away": 10,
     "score": {
       "home": 0,
-      "away": 1
+      "away": 3
     },
     "winner": "away",
     "status": "live",
