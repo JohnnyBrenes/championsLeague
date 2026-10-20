@@ -30,6 +30,12 @@
     "team": 58
   },
   {
+    "name": "Alexis Mac Allister",
+    "goals": 3,
+    "assists": null,
+    "team": 64
+  },
+  {
     "name": "Ousmane Dembélé",
     "goals": 3,
     "assists": 3,
@@ -52,6 +58,18 @@
     "goals": 3,
     "assists": null,
     "team": 64
+  },
+  {
+    "name": "Donyell Malen",
+    "goals": 3,
+    "assists": 2,
+    "team": 100
+  },
+  {
+    "name": "Phil Foden",
+    "goals": 3,
+    "assists": 1,
+    "team": 65
   },
   {
     "name": "Kylian Mbappé",
@@ -82,12 +100,6 @@
     "goals": 2,
     "assists": null,
     "team": 81
-  },
-  {
-    "name": "Alexis Mac Allister",
-    "goals": 2,
-    "assists": null,
-    "team": 64
   },
   {
     "name": "Luis Suárez",
@@ -150,15 +162,9 @@
     "team": 2016
   },
   {
-    "name": "Donyell Malen",
-    "goals": 2,
-    "assists": 1,
-    "team": 100
-  },
-  {
     "name": "Desire Doue",
     "goals": 2,
-    "assists": 1,
+    "assists": 2,
     "team": 524
   },
   {
@@ -166,6 +172,12 @@
     "goals": 2,
     "assists": 1,
     "team": 58
+  },
+  {
+    "name": "Scott McTominay",
+    "goals": 2,
+    "assists": null,
+    "team": 113
   },
   {
     "name": "John McGinn",
@@ -422,7 +434,7 @@
   {
     "name": "Fermín López",
     "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 81
   },
   {
@@ -440,7 +452,7 @@
   {
     "name": "Ademola Lookman",
     "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 78
   },
   {
@@ -586,17 +598,5 @@
     "goals": 1,
     "assists": null,
     "team": 58
-  },
-  {
-    "name": "Abdessamad Ezzalzouli",
-    "goals": 1,
-    "assists": null,
-    "team": 90
-  },
-  {
-    "name": "Gabriel Veiga",
-    "goals": 1,
-    "assists": null,
-    "team": 503
   }
 ]
