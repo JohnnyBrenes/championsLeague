@@ -84,6 +84,12 @@
     "team": 81
   },
   {
+    "name": "Alexis Mac Allister",
+    "goals": 2,
+    "assists": null,
+    "team": 64
+  },
+  {
     "name": "Luis Suárez",
     "goals": 2,
     "assists": null,
@@ -132,6 +138,12 @@
     "team": 94
   },
   {
+    "name": "Ronald Araújo",
+    "goals": 2,
+    "assists": 1,
+    "team": 64
+  },
+  {
     "name": "Florian Flecker",
     "goals": 2,
     "assists": null,
@@ -142,6 +154,12 @@
     "goals": 2,
     "assists": 1,
     "team": 100
+  },
+  {
+    "name": "Desire Doue",
+    "goals": 2,
+    "assists": 1,
+    "team": 524
   },
   {
     "name": "Ross Barkley",
@@ -235,12 +253,6 @@
   },
   {
     "name": "Dominik Szoboszlai",
-    "goals": 1,
-    "assists": null,
-    "team": 64
-  },
-  {
-    "name": "Alexis Mac Allister",
     "goals": 1,
     "assists": null,
     "team": 64
@@ -492,12 +504,6 @@
     "team": 94
   },
   {
-    "name": "Ronald Araújo",
-    "goals": 1,
-    "assists": 1,
-    "team": 64
-  },
-  {
     "name": "Jeremie Frimpong",
     "goals": 1,
     "assists": 2,
@@ -550,12 +556,6 @@
     "goals": 1,
     "assists": null,
     "team": 86
-  },
-  {
-    "name": "Desire Doue",
-    "goals": 1,
-    "assists": 1,
-    "team": 524
   },
   {
     "name": "Vitinha",
