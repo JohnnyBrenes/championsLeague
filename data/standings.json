@@ -2,17 +2,41 @@
   {
     "position": 1,
     "teamId": 524,
-    "played": 2,
-    "won": 2,
+    "played": 3,
+    "won": 3,
     "drawn": 0,
     "lost": 0,
-    "gf": 10,
-    "ga": 3,
-    "gd": 7,
-    "points": 6
+    "gf": 14,
+    "ga": 5,
+    "gd": 9,
+    "points": 9
   },
   {
     "position": 2,
+    "teamId": 64,
+    "played": 3,
+    "won": 3,
+    "drawn": 0,
+    "lost": 0,
+    "gf": 12,
+    "ga": 7,
+    "gd": 5,
+    "points": 9
+  },
+  {
+    "position": 3,
+    "teamId": 10,
+    "played": 3,
+    "won": 2,
+    "drawn": 1,
+    "lost": 0,
+    "gf": 7,
+    "ga": 2,
+    "gd": 5,
+    "points": 7
+  },
+  {
+    "position": 4,
     "teamId": 58,
     "played": 2,
     "won": 2,
@@ -24,43 +48,31 @@
     "points": 6
   },
   {
-    "position": 3,
+    "position": 5,
     "teamId": 81,
-    "played": 2,
+    "played": 3,
     "won": 2,
     "drawn": 0,
-    "lost": 0,
-    "gf": 9,
-    "ga": 2,
-    "gd": 7,
-    "points": 6
-  },
-  {
-    "position": 4,
-    "teamId": 10,
-    "played": 2,
-    "won": 2,
-    "drawn": 0,
-    "lost": 0,
-    "gf": 6,
-    "ga": 1,
+    "lost": 1,
+    "gf": 11,
+    "ga": 6,
     "gd": 5,
     "points": 6
   },
   {
-    "position": 5,
-    "teamId": 64,
-    "played": 2,
+    "position": 6,
+    "teamId": 65,
+    "played": 3,
     "won": 2,
     "drawn": 0,
-    "lost": 0,
-    "gf": 8,
-    "ga": 4,
+    "lost": 1,
+    "gf": 9,
+    "ga": 5,
     "gd": 4,
     "points": 6
   },
   {
-    "position": 6,
+    "position": 7,
     "teamId": 498,
     "played": 2,
     "won": 2,
@@ -72,7 +84,7 @@
     "points": 6
   },
   {
-    "position": 7,
+    "position": 8,
     "teamId": 57,
     "played": 2,
     "won": 2,
@@ -84,7 +96,7 @@
     "points": 6
   },
   {
-    "position": 8,
+    "position": 9,
     "teamId": 86,
     "played": 2,
     "won": 2,
@@ -96,7 +108,7 @@
     "points": 6
   },
   {
-    "position": 9,
+    "position": 10,
     "teamId": 90,
     "played": 2,
     "won": 2,
@@ -108,7 +120,7 @@
     "points": 6
   },
   {
-    "position": 10,
+    "position": 11,
     "teamId": 4,
     "played": 3,
     "won": 2,
@@ -120,7 +132,7 @@
     "points": 6
   },
   {
-    "position": 11,
+    "position": 12,
     "teamId": 5,
     "played": 2,
     "won": 1,
@@ -132,7 +144,19 @@
     "points": 4
   },
   {
-    "position": 12,
+    "position": 13,
+    "teamId": 100,
+    "played": 3,
+    "won": 1,
+    "drawn": 1,
+    "lost": 1,
+    "gf": 8,
+    "ga": 5,
+    "gd": 3,
+    "points": 4
+  },
+  {
+    "position": 14,
     "teamId": 1887,
     "played": 2,
     "won": 1,
@@ -144,7 +168,31 @@
     "points": 4
   },
   {
-    "position": 13,
+    "position": 15,
+    "teamId": 78,
+    "played": 3,
+    "won": 1,
+    "drawn": 1,
+    "lost": 1,
+    "gf": 4,
+    "ga": 3,
+    "gd": 1,
+    "points": 4
+  },
+  {
+    "position": 16,
+    "teamId": 674,
+    "played": 3,
+    "won": 1,
+    "drawn": 1,
+    "lost": 1,
+    "gf": 2,
+    "ga": 2,
+    "gd": 0,
+    "points": 4
+  },
+  {
+    "position": 17,
     "teamId": 7397,
     "played": 2,
     "won": 1,
@@ -156,7 +204,7 @@
     "points": 3
   },
   {
-    "position": 14,
+    "position": 18,
     "teamId": 66,
     "played": 2,
     "won": 1,
@@ -168,31 +216,19 @@
     "points": 3
   },
   {
-    "position": 15,
+    "position": 19,
     "teamId": 94,
-    "played": 2,
+    "played": 3,
     "won": 1,
     "drawn": 0,
-    "lost": 1,
-    "gf": 5,
-    "ga": 4,
-    "gd": 1,
+    "lost": 2,
+    "gf": 8,
+    "ga": 8,
+    "gd": 0,
     "points": 3
   },
   {
-    "position": 16,
-    "teamId": 78,
-    "played": 2,
-    "won": 1,
-    "drawn": 0,
-    "lost": 1,
-    "gf": 3,
-    "ga": 2,
-    "gd": 1,
-    "points": 3
-  },
-  {
-    "position": 17,
+    "position": 20,
     "teamId": 851,
     "played": 2,
     "won": 1,
@@ -204,19 +240,7 @@
     "points": 3
   },
   {
-    "position": 18,
-    "teamId": 65,
-    "played": 2,
-    "won": 1,
-    "drawn": 0,
-    "lost": 1,
-    "gf": 4,
-    "ga": 4,
-    "gd": 0,
-    "points": 3
-  },
-  {
-    "position": 19,
+    "position": 21,
     "teamId": 546,
     "played": 2,
     "won": 1,
@@ -228,19 +252,19 @@
     "points": 3
   },
   {
-    "position": 20,
-    "teamId": 1899,
-    "played": 2,
+    "position": 22,
+    "teamId": 113,
+    "played": 3,
     "won": 1,
     "drawn": 0,
-    "lost": 1,
-    "gf": 2,
-    "ga": 3,
-    "gd": -1,
+    "lost": 2,
+    "gf": 5,
+    "ga": 7,
+    "gd": -2,
     "points": 3
   },
   {
-    "position": 21,
+    "position": 23,
     "teamId": 721,
     "played": 2,
     "won": 1,
@@ -252,7 +276,7 @@
     "points": 3
   },
   {
-    "position": 22,
+    "position": 24,
     "teamId": 675,
     "played": 2,
     "won": 1,
@@ -264,7 +288,7 @@
     "points": 3
   },
   {
-    "position": 23,
+    "position": 25,
     "teamId": 10233,
     "played": 3,
     "won": 1,
@@ -276,19 +300,31 @@
     "points": 3
   },
   {
-    "position": 24,
+    "position": 26,
     "teamId": 5721,
-    "played": 2,
+    "played": 3,
     "won": 1,
     "drawn": 0,
-    "lost": 1,
-    "gf": 1,
-    "ga": 5,
-    "gd": -4,
+    "lost": 2,
+    "gf": 4,
+    "ga": 9,
+    "gd": -5,
     "points": 3
   },
   {
-    "position": 25,
+    "position": 27,
+    "teamId": 1899,
+    "played": 3,
+    "won": 1,
+    "drawn": 0,
+    "lost": 2,
+    "gf": 3,
+    "ga": 8,
+    "gd": -5,
+    "points": 3
+  },
+  {
+    "position": 28,
     "teamId": 613,
     "played": 3,
     "won": 0,
@@ -300,31 +336,7 @@
     "points": 2
   },
   {
-    "position": 26,
-    "teamId": 100,
-    "played": 2,
-    "won": 0,
-    "drawn": 1,
-    "lost": 1,
-    "gf": 4,
-    "ga": 5,
-    "gd": -1,
-    "points": 1
-  },
-  {
-    "position": 27,
-    "teamId": 674,
-    "played": 2,
-    "won": 0,
-    "drawn": 1,
-    "lost": 1,
-    "gf": 1,
-    "ga": 2,
-    "gd": -1,
-    "points": 1
-  },
-  {
-    "position": 28,
+    "position": 29,
     "teamId": 5720,
     "played": 2,
     "won": 0,
@@ -336,7 +348,7 @@
     "points": 1
   },
   {
-    "position": 29,
+    "position": 30,
     "teamId": 930,
     "played": 3,
     "won": 0,
@@ -348,7 +360,7 @@
     "points": 1
   },
   {
-    "position": 30,
+    "position": 31,
     "teamId": 108,
     "played": 2,
     "won": 0,
@@ -360,31 +372,7 @@
     "points": 0
   },
   {
-    "position": 31,
-    "teamId": 503,
-    "played": 2,
-    "won": 0,
-    "drawn": 0,
-    "lost": 2,
-    "gf": 2,
-    "ga": 5,
-    "gd": -3,
-    "points": 0
-  },
-  {
     "position": 32,
-    "teamId": 113,
-    "played": 2,
-    "won": 0,
-    "drawn": 0,
-    "lost": 2,
-    "gf": 1,
-    "ga": 4,
-    "gd": -3,
-    "points": 0
-  },
-  {
-    "position": 33,
     "teamId": 2016,
     "played": 2,
     "won": 0,
@@ -392,6 +380,18 @@
     "lost": 2,
     "gf": 3,
     "ga": 7,
+    "gd": -4,
+    "points": 0
+  },
+  {
+    "position": 33,
+    "teamId": 503,
+    "played": 3,
+    "won": 0,
+    "drawn": 0,
+    "lost": 3,
+    "gf": 2,
+    "ga": 6,
     "gd": -4,
     "points": 0
   },
@@ -422,13 +422,13 @@
   {
     "position": 36,
     "teamId": 7509,
-    "played": 2,
+    "played": 3,
     "won": 0,
     "drawn": 0,
-    "lost": 2,
+    "lost": 3,
     "gf": 1,
-    "ga": 9,
-    "gd": -8,
+    "ga": 13,
+    "gd": -12,
     "points": 0
   }
 ]

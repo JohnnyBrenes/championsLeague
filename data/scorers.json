@@ -102,6 +102,18 @@
     "team": 81
   },
   {
+    "name": "Lamine Yamal",
+    "goals": 2,
+    "assists": 4,
+    "team": 81
+  },
+  {
+    "name": "Fabián Ruiz",
+    "goals": 2,
+    "assists": 1,
+    "team": 524
+  },
+  {
     "name": "Luis Suárez",
     "goals": 2,
     "assists": null,
@@ -150,6 +162,12 @@
     "team": 94
   },
   {
+    "name": "Tani Oluwaseyi",
+    "goals": 2,
+    "assists": null,
+    "team": 94
+  },
+  {
     "name": "Ronald Araújo",
     "goals": 2,
     "assists": 1,
@@ -165,6 +183,12 @@
     "name": "Desire Doue",
     "goals": 2,
     "assists": 2,
+    "team": 524
+  },
+  {
+    "name": "Vitinha",
+    "goals": 2,
+    "assists": null,
     "team": 524
   },
   {
@@ -234,12 +258,6 @@
     "team": 90
   },
   {
-    "name": "Lamine Yamal",
-    "goals": 1,
-    "assists": 4,
-    "team": 81
-  },
-  {
     "name": "Sem Steijn",
     "goals": 1,
     "assists": null,
@@ -274,12 +292,6 @@
     "goals": 1,
     "assists": null,
     "team": 7509
-  },
-  {
-    "name": "Fabián Ruiz",
-    "goals": 1,
-    "assists": 1,
-    "team": 524
   },
   {
     "name": "Martin Ødegaard",
@@ -510,12 +522,6 @@
     "team": 113
   },
   {
-    "name": "Tani Oluwaseyi",
-    "goals": 1,
-    "assists": null,
-    "team": 94
-  },
-  {
     "name": "Jeremie Frimpong",
     "goals": 1,
     "assists": 2,
@@ -568,12 +574,6 @@
     "goals": 1,
     "assists": null,
     "team": 86
-  },
-  {
-    "name": "Vitinha",
-    "goals": 1,
-    "assists": null,
-    "team": 524
   },
   {
     "name": "Maghnes Akliouche",
