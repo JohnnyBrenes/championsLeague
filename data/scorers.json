@@ -12,6 +12,12 @@
     "team": 65
   },
   {
+    "name": "Sehrou Guirassy",
+    "goals": 4,
+    "assists": null,
+    "team": 4
+  },
+  {
     "name": "Ermedin Demirovic",
     "goals": 4,
     "assists": null,
@@ -58,12 +64,6 @@
     "goals": 2,
     "assists": null,
     "team": 94
-  },
-  {
-    "name": "Sehrou Guirassy",
-    "goals": 2,
-    "assists": null,
-    "team": 4
   },
   {
     "name": "Bartra",
@@ -124,6 +124,12 @@
     "goals": 2,
     "assists": 1,
     "team": 108
+  },
+  {
+    "name": "Georges Mikautadze",
+    "goals": 2,
+    "assists": 1,
+    "team": 94
   },
   {
     "name": "Florian Flecker",
@@ -478,12 +484,6 @@
     "goals": 1,
     "assists": null,
     "team": 113
-  },
-  {
-    "name": "Georges Mikautadze",
-    "goals": 1,
-    "assists": 1,
-    "team": 94
   },
   {
     "name": "Tani Oluwaseyi",
