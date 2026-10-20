@@ -653,10 +653,10 @@
     "away": 5721,
     "score": {
       "home": 4,
-      "away": 2
+      "away": 3
     },
     "winner": "home",
-    "status": "live",
+    "status": "finished",
     "matchday": 3
   },
   {
@@ -671,7 +671,7 @@
       "away": 2
     },
     "winner": "home",
-    "status": "live",
+    "status": "finished",
     "matchday": 3
   },
   {
