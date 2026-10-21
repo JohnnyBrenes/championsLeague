@@ -24,10 +24,22 @@
     "team": 10
   },
   {
+    "name": "Harry Kane",
+    "goals": 4,
+    "assists": 2,
+    "team": 5
+  },
+  {
     "name": "Nicolas Jackson",
     "goals": 3,
     "assists": null,
     "team": 58
+  },
+  {
+    "name": "Kylian Mbappé",
+    "goals": 3,
+    "assists": 1,
+    "team": 86
   },
   {
     "name": "Alexis Mac Allister",
@@ -52,12 +64,6 @@
     "goals": 3,
     "assists": null,
     "team": 498
-  },
-  {
-    "name": "Harry Kane",
-    "goals": 3,
-    "assists": 2,
-    "team": 5
   },
   {
     "name": "Anastasios Douvikas",
@@ -96,10 +102,10 @@
     "team": 58
   },
   {
-    "name": "Kylian Mbappé",
+    "name": "Carlos Augusto Lobaton",
     "goals": 2,
     "assists": null,
-    "team": 86
+    "team": 108
   },
   {
     "name": "Santiago Mouriño",
@@ -222,6 +228,12 @@
     "team": 524
   },
   {
+    "name": "Isco",
+    "goals": 2,
+    "assists": 1,
+    "team": 90
+  },
+  {
     "name": "Scott McTominay",
     "goals": 2,
     "assists": null,
@@ -248,7 +260,7 @@
   {
     "name": "Hugo Vetlesen",
     "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 851
   },
   {
@@ -262,12 +274,6 @@
     "goals": 1,
     "assists": null,
     "team": 86
-  },
-  {
-    "name": "Carlos Augusto Lobaton",
-    "goals": 1,
-    "assists": null,
-    "team": 108
   },
   {
     "name": "Ayase Ueda",
@@ -542,7 +548,7 @@
   {
     "name": "Robert Ljubicic",
     "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 2016
   },
   {
@@ -592,11 +598,5 @@
     "goals": 1,
     "assists": 1,
     "team": 524
-  },
-  {
-    "name": "Fredrik Sjøvold",
-    "goals": 1,
-    "assists": null,
-    "team": 5721
   }
 ]
