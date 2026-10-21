@@ -24,6 +24,12 @@
     "team": 10
   },
   {
+    "name": "Luis Suárez",
+    "goals": 4,
+    "assists": null,
+    "team": 498
+  },
+  {
     "name": "Harry Kane",
     "goals": 4,
     "assists": 2,
@@ -58,12 +64,6 @@
     "goals": 3,
     "assists": null,
     "team": 524
-  },
-  {
-    "name": "Luis Suárez",
-    "goals": 3,
-    "assists": null,
-    "team": 498
   },
   {
     "name": "Anastasios Douvikas",
@@ -190,6 +190,12 @@
     "goals": 2,
     "assists": null,
     "team": 57
+  },
+  {
+    "name": "Peter Christiansen",
+    "goals": 2,
+    "assists": null,
+    "team": 5720
   },
   {
     "name": "Georges Mikautadze",
@@ -505,12 +511,6 @@
   },
   {
     "name": "Gianni Stensness",
-    "goals": 1,
-    "assists": null,
-    "team": 5720
-  },
-  {
-    "name": "Peter Christiansen",
     "goals": 1,
     "assists": null,
     "team": 5720

@@ -712,8 +712,8 @@
     "home": 86,
     "away": 721,
     "score": {
-      "home": 2,
-      "away": 0
+      "home": 4,
+      "away": 1
     },
     "winner": "home",
     "status": "live",
@@ -743,9 +743,9 @@
     "away": 57,
     "score": {
       "home": 2,
-      "away": 1
+      "away": 2
     },
-    "winner": "home",
+    "winner": null,
     "status": "live",
     "matchday": 3
   },
@@ -773,7 +773,7 @@
     "away": 5720,
     "score": {
       "home": 3,
-      "away": 0
+      "away": 1
     },
     "winner": "home",
     "status": "live",
