@@ -48,10 +48,22 @@
     "team": 524
   },
   {
+    "name": "Luis Suárez",
+    "goals": 3,
+    "assists": null,
+    "team": 498
+  },
+  {
     "name": "Harry Kane",
     "goals": 3,
-    "assists": 1,
+    "assists": 2,
     "team": 5
+  },
+  {
+    "name": "Anastasios Douvikas",
+    "goals": 3,
+    "assists": null,
+    "team": 7397
   },
   {
     "name": "Bradley Barcola",
@@ -66,10 +78,22 @@
     "team": 100
   },
   {
+    "name": "Ross Barkley",
+    "goals": 3,
+    "assists": 1,
+    "team": 58
+  },
+  {
     "name": "Phil Foden",
     "goals": 3,
     "assists": 1,
     "team": 65
+  },
+  {
+    "name": "Emiliano Buendía",
+    "goals": 2,
+    "assists": null,
+    "team": 58
   },
   {
     "name": "Kylian Mbappé",
@@ -114,28 +138,22 @@
     "team": 524
   },
   {
-    "name": "Luis Suárez",
-    "goals": 2,
-    "assists": null,
-    "team": 498
-  },
-  {
     "name": "Gleiker Mendoza",
     "goals": 2,
     "assists": null,
     "team": 1887
   },
   {
+    "name": "Alphonso Davies",
+    "goals": 2,
+    "assists": null,
+    "team": 5
+  },
+  {
     "name": "Michael Olise",
     "goals": 2,
     "assists": 1,
     "team": 5
-  },
-  {
-    "name": "Anastasios Douvikas",
-    "goals": 2,
-    "assists": null,
-    "team": 7397
   },
   {
     "name": "Assane Diao",
@@ -154,6 +172,18 @@
     "goals": 2,
     "assists": 1,
     "team": 108
+  },
+  {
+    "name": "Aleksey Batrakov",
+    "goals": 2,
+    "assists": null,
+    "team": 610
+  },
+  {
+    "name": "Eberechi Eze",
+    "goals": 2,
+    "assists": null,
+    "team": 57
   },
   {
     "name": "Georges Mikautadze",
@@ -192,16 +222,22 @@
     "team": 524
   },
   {
-    "name": "Ross Barkley",
-    "goals": 2,
-    "assists": 1,
-    "team": 58
-  },
-  {
     "name": "Scott McTominay",
     "goals": 2,
     "assists": null,
     "team": 113
+  },
+  {
+    "name": "Nico Paz",
+    "goals": 2,
+    "assists": 3,
+    "team": 7397
+  },
+  {
+    "name": "Soriba Diaoune",
+    "goals": 2,
+    "assists": null,
+    "team": 521
   },
   {
     "name": "John McGinn",
@@ -214,12 +250,6 @@
     "goals": 1,
     "assists": null,
     "team": 851
-  },
-  {
-    "name": "Emiliano Buendía",
-    "goals": 1,
-    "assists": null,
-    "team": 58
   },
   {
     "name": "Răzvan Marin",
@@ -296,7 +326,7 @@
   {
     "name": "Martin Ødegaard",
     "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 57
   },
   {
@@ -331,12 +361,6 @@
   },
   {
     "name": "Jamal Musiala",
-    "goals": 1,
-    "assists": null,
-    "team": 5
-  },
-  {
-    "name": "Alphonso Davies",
     "goals": 1,
     "assists": null,
     "team": 5
@@ -432,12 +456,6 @@
     "team": 108
   },
   {
-    "name": "Aleksey Batrakov",
-    "goals": 1,
-    "assists": null,
-    "team": 610
-  },
-  {
     "name": "João Cancelo",
     "goals": 1,
     "assists": 1,
@@ -469,12 +487,6 @@
   },
   {
     "name": "Jurrien Timber",
-    "goals": 1,
-    "assists": null,
-    "team": 57
-  },
-  {
-    "name": "Eberechi Eze",
     "goals": 1,
     "assists": null,
     "team": 57
@@ -586,17 +598,5 @@
     "goals": 1,
     "assists": null,
     "team": 5721
-  },
-  {
-    "name": "Johan Manzambi",
-    "goals": 1,
-    "assists": null,
-    "team": 58
-  },
-  {
-    "name": "Tammy Abraham",
-    "goals": 1,
-    "assists": null,
-    "team": 58
   }
 ]
