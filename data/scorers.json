@@ -36,6 +36,12 @@
     "team": 5
   },
   {
+    "name": "Aleksey Batrakov",
+    "goals": 4,
+    "assists": null,
+    "team": 610
+  },
+  {
     "name": "Nicolas Jackson",
     "goals": 3,
     "assists": null,
@@ -174,16 +180,16 @@
     "team": 930
   },
   {
+    "name": "Issa Doumbia",
+    "goals": 2,
+    "assists": null,
+    "team": 498
+  },
+  {
     "name": "Lautaro Martínez",
     "goals": 2,
     "assists": 1,
     "team": 108
-  },
-  {
-    "name": "Aleksey Batrakov",
-    "goals": 2,
-    "assists": null,
-    "team": 610
   },
   {
     "name": "Eberechi Eze",
@@ -436,12 +442,6 @@
     "goals": 1,
     "assists": null,
     "team": 546
-  },
-  {
-    "name": "Issa Doumbia",
-    "goals": 1,
-    "assists": null,
-    "team": 498
   },
   {
     "name": "Kaheem Parris",
