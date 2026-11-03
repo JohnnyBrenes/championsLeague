@@ -42,6 +42,12 @@
     "team": 610
   },
   {
+    "name": "Donyell Malen",
+    "goals": 4,
+    "assists": 2,
+    "team": 100
+  },
+  {
     "name": "Nicolas Jackson",
     "goals": 3,
     "assists": null,
@@ -52,6 +58,12 @@
     "goals": 3,
     "assists": 1,
     "team": 86
+  },
+  {
+    "name": "Lamine Yamal",
+    "goals": 3,
+    "assists": 4,
+    "team": 81
   },
   {
     "name": "Alexis Mac Allister",
@@ -72,6 +84,12 @@
     "team": 524
   },
   {
+    "name": "Fabián Ruiz",
+    "goals": 3,
+    "assists": 1,
+    "team": 524
+  },
+  {
     "name": "Anastasios Douvikas",
     "goals": 3,
     "assists": null,
@@ -84,10 +102,10 @@
     "team": 64
   },
   {
-    "name": "Donyell Malen",
+    "name": "Desire Doue",
     "goals": 3,
     "assists": 2,
-    "team": 100
+    "team": 524
   },
   {
     "name": "Ross Barkley",
@@ -136,18 +154,6 @@
     "goals": 2,
     "assists": null,
     "team": 81
-  },
-  {
-    "name": "Lamine Yamal",
-    "goals": 2,
-    "assists": 4,
-    "team": 81
-  },
-  {
-    "name": "Fabián Ruiz",
-    "goals": 2,
-    "assists": 1,
-    "team": 524
   },
   {
     "name": "Gleiker Mendoza",
@@ -228,12 +234,6 @@
     "team": 2016
   },
   {
-    "name": "Desire Doue",
-    "goals": 2,
-    "assists": 2,
-    "team": 524
-  },
-  {
     "name": "Vitinha",
     "goals": 2,
     "assists": null,
@@ -262,6 +262,12 @@
     "goals": 2,
     "assists": null,
     "team": 521
+  },
+  {
+    "name": "Kasper Jørgensen",
+    "goals": 2,
+    "assists": 1,
+    "team": 2016
   },
   {
     "name": "John McGinn",
@@ -592,11 +598,5 @@
     "goals": 1,
     "assists": null,
     "team": 86
-  },
-  {
-    "name": "Maghnes Akliouche",
-    "goals": 1,
-    "assists": 1,
-    "team": 524
   }
 ]
