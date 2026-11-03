@@ -96,6 +96,12 @@
     "team": 524
   },
   {
+    "name": "Matheus Cunha",
+    "goals": 3,
+    "assists": null,
+    "team": 66
+  },
+  {
     "name": "Anastasios Douvikas",
     "goals": 3,
     "assists": null,
@@ -400,12 +406,6 @@
     "goals": 1,
     "assists": null,
     "team": 5
-  },
-  {
-    "name": "Matheus Cunha",
-    "goals": 1,
-    "assists": null,
-    "team": 66
   },
   {
     "name": "Benjamin Šeško",

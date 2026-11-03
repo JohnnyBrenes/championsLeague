@@ -866,7 +866,7 @@
       "away": 0
     },
     "winner": "home",
-    "status": "live",
+    "status": "finished",
     "matchday": 4
   },
   {
@@ -881,7 +881,7 @@
       "away": 2
     },
     "winner": "away",
-    "status": "live",
+    "status": "finished",
     "matchday": 4
   },
   {
@@ -893,10 +893,10 @@
     "away": 524,
     "score": {
       "home": 0,
-      "away": 5
+      "away": 6
     },
     "winner": "away",
-    "status": "live",
+    "status": "finished",
     "matchday": 4
   },
   {
@@ -907,10 +907,10 @@
     "home": 66,
     "away": 100,
     "score": {
-      "home": 1,
+      "home": 3,
       "away": 2
     },
-    "winner": "away",
+    "winner": "home",
     "status": "live",
     "matchday": 4
   },
@@ -926,7 +926,7 @@
       "away": 0
     },
     "winner": null,
-    "status": "live",
+    "status": "finished",
     "matchday": 4
   },
   {
@@ -941,7 +941,7 @@
       "away": 0
     },
     "winner": "home",
-    "status": "live",
+    "status": "finished",
     "matchday": 4
   },
   {
