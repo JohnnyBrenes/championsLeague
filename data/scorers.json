@@ -18,10 +18,22 @@
     "team": 4
   },
   {
+    "name": "Raphinha",
+    "goals": 4,
+    "assists": null,
+    "team": 81
+  },
+  {
     "name": "Ermedin Demirovic",
     "goals": 4,
     "assists": null,
     "team": 10
+  },
+  {
+    "name": "Fabián Ruiz",
+    "goals": 4,
+    "assists": 1,
+    "team": 524
   },
   {
     "name": "Luis Suárez",
@@ -32,7 +44,7 @@
   {
     "name": "Harry Kane",
     "goals": 4,
-    "assists": 2,
+    "assists": 3,
     "team": 5
   },
   {
@@ -81,12 +93,6 @@
     "name": "Ferrán Torres",
     "goals": 3,
     "assists": null,
-    "team": 524
-  },
-  {
-    "name": "Fabián Ruiz",
-    "goals": 3,
-    "assists": 1,
     "team": 524
   },
   {
@@ -144,12 +150,6 @@
     "team": 90
   },
   {
-    "name": "Raphinha",
-    "goals": 2,
-    "assists": null,
-    "team": 81
-  },
-  {
     "name": "Karim Adeyemi",
     "goals": 2,
     "assists": null,
@@ -172,6 +172,12 @@
     "goals": 2,
     "assists": 1,
     "team": 5
+  },
+  {
+    "name": "Bruno Fernandes",
+    "goals": 2,
+    "assists": null,
+    "team": 66
   },
   {
     "name": "Assane Diao",
@@ -228,6 +234,12 @@
     "team": 64
   },
   {
+    "name": "Robert Ljubicic",
+    "goals": 2,
+    "assists": 1,
+    "team": 2016
+  },
+  {
     "name": "Florian Flecker",
     "goals": 2,
     "assists": null,
@@ -236,7 +248,7 @@
   {
     "name": "Vitinha",
     "goals": 2,
-    "assists": null,
+    "assists": 1,
     "team": 524
   },
   {
@@ -396,12 +408,6 @@
     "team": 66
   },
   {
-    "name": "Bruno Fernandes",
-    "goals": 1,
-    "assists": null,
-    "team": 66
-  },
-  {
     "name": "Benjamin Šeško",
     "goals": 1,
     "assists": null,
@@ -476,13 +482,13 @@
   {
     "name": "João Cancelo",
     "goals": 1,
-    "assists": 1,
+    "assists": 2,
     "team": 81
   },
   {
     "name": "Fermín López",
     "goals": 1,
-    "assists": 1,
+    "assists": 2,
     "team": 81
   },
   {
@@ -550,12 +556,6 @@
     "goals": 1,
     "assists": 2,
     "team": 64
-  },
-  {
-    "name": "Robert Ljubicic",
-    "goals": 1,
-    "assists": 1,
-    "team": 2016
   },
   {
     "name": "Lewis Koumas",
