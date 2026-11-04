@@ -1,21 +1,27 @@
 [
   {
+    "name": "Anastasios Douvikas",
+    "goals": 6,
+    "assists": 1,
+    "team": 7397
+  },
+  {
     "name": "Nicolo Tresoldi",
-    "goals": 4,
+    "goals": 5,
     "assists": null,
     "team": 851
+  },
+  {
+    "name": "Erling Haaland",
+    "goals": 5,
+    "assists": null,
+    "team": 65
   },
   {
     "name": "Kylian Mbappé",
     "goals": 4,
     "assists": 1,
     "team": 86
-  },
-  {
-    "name": "Erling Haaland",
-    "goals": 4,
-    "assists": null,
-    "team": 65
   },
   {
     "name": "Sehrou Guirassy",
@@ -102,12 +108,6 @@
     "team": 66
   },
   {
-    "name": "Anastasios Douvikas",
-    "goals": 3,
-    "assists": null,
-    "team": 7397
-  },
-  {
     "name": "Bradley Barcola",
     "goals": 3,
     "assists": null,
@@ -130,6 +130,18 @@
     "goals": 3,
     "assists": 1,
     "team": 65
+  },
+  {
+    "name": "Scott McTominay",
+    "goals": 3,
+    "assists": null,
+    "team": 113
+  },
+  {
+    "name": "Nico Paz",
+    "goals": 3,
+    "assists": 5,
+    "team": 7397
   },
   {
     "name": "Emiliano Buendía",
@@ -168,6 +180,12 @@
     "team": 81
   },
   {
+    "name": "Zlatko Tripić",
+    "goals": 2,
+    "assists": 3,
+    "team": 5720
+  },
+  {
     "name": "Archie Brown",
     "goals": 2,
     "assists": 1,
@@ -198,6 +216,12 @@
     "team": 66
   },
   {
+    "name": "Martin Baturina",
+    "goals": 2,
+    "assists": 1,
+    "team": 7397
+  },
+  {
     "name": "Assane Diao",
     "goals": 2,
     "assists": null,
@@ -208,6 +232,12 @@
     "goals": 2,
     "assists": null,
     "team": 930
+  },
+  {
+    "name": "Ruben Aguilar",
+    "goals": 2,
+    "assists": null,
+    "team": 546
   },
   {
     "name": "Issa Doumbia",
@@ -270,6 +300,12 @@
     "team": 524
   },
   {
+    "name": "Gabriel Veiga",
+    "goals": 2,
+    "assists": 1,
+    "team": 503
+  },
+  {
     "name": "Isco",
     "goals": 2,
     "assists": 1,
@@ -288,22 +324,16 @@
     "team": 1899
   },
   {
-    "name": "Scott McTominay",
-    "goals": 2,
-    "assists": null,
-    "team": 113
-  },
-  {
-    "name": "Nico Paz",
-    "goals": 2,
-    "assists": 3,
-    "team": 7397
-  },
-  {
     "name": "Soriba Diaoune",
     "goals": 2,
     "assists": null,
     "team": 521
+  },
+  {
+    "name": "Carlos Forbs",
+    "goals": 2,
+    "assists": 2,
+    "team": 851
   },
   {
     "name": "Kasper Jørgensen",
@@ -358,12 +388,6 @@
     "goals": 1,
     "assists": 1,
     "team": 81
-  },
-  {
-    "name": "Zlatko Tripić",
-    "goals": 1,
-    "assists": 2,
-    "team": 5720
   },
   {
     "name": "Marcos Llorente",
@@ -432,12 +456,6 @@
     "team": 66
   },
   {
-    "name": "Martin Baturina",
-    "goals": 1,
-    "assists": 1,
-    "team": 7397
-  },
-  {
     "name": "Andrija Maksimović",
     "goals": 1,
     "assists": null,
@@ -446,7 +464,7 @@
   {
     "name": "Maximo Perrone",
     "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 7397
   },
   {
@@ -458,13 +476,7 @@
   {
     "name": "Florian Thauvin",
     "goals": 1,
-    "assists": null,
-    "team": 546
-  },
-  {
-    "name": "Ruben Aguilar",
-    "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 546
   },
   {
@@ -554,7 +566,7 @@
   {
     "name": "Brajan Gruda",
     "goals": 1,
-    "assists": null,
+    "assists": 1,
     "team": 721
   },
   {
@@ -586,17 +598,5 @@
     "goals": 1,
     "assists": null,
     "team": 675
-  },
-  {
-    "name": "Marten de Roon",
-    "goals": 1,
-    "assists": null,
-    "team": 100
-  },
-  {
-    "name": "Carlos Espí",
-    "goals": 1,
-    "assists": null,
-    "team": 86
   }
 ]
