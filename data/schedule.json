@@ -952,8 +952,8 @@
     "home": 1899,
     "away": 86,
     "score": {
-      "home": null,
-      "away": null
+      "home": 2,
+      "away": 2
     },
     "winner": null,
     "status": "scheduled",
@@ -967,11 +967,11 @@
     "home": 613,
     "away": 64,
     "score": {
-      "home": null,
-      "away": null
+      "home": 3,
+      "away": 2
     },
-    "winner": null,
-    "status": "scheduled",
+    "winner": "home",
+    "status": "live",
     "matchday": 4
   },
   {

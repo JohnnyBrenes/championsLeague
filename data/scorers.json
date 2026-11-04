@@ -6,6 +6,12 @@
     "team": 851
   },
   {
+    "name": "Kylian Mbappé",
+    "goals": 4,
+    "assists": 1,
+    "team": 86
+  },
+  {
     "name": "Erling Haaland",
     "goals": 4,
     "assists": null,
@@ -64,12 +70,6 @@
     "goals": 3,
     "assists": null,
     "team": 58
-  },
-  {
-    "name": "Kylian Mbappé",
-    "goals": 3,
-    "assists": 1,
-    "team": 86
   },
   {
     "name": "Lamine Yamal",
@@ -138,6 +138,12 @@
     "team": 58
   },
   {
+    "name": "Federico Valverde",
+    "goals": 2,
+    "assists": null,
+    "team": 86
+  },
+  {
     "name": "Carlos Augusto Lobaton",
     "goals": 2,
     "assists": null,
@@ -160,6 +166,12 @@
     "goals": 2,
     "assists": null,
     "team": 81
+  },
+  {
+    "name": "Archie Brown",
+    "goals": 2,
+    "assists": 1,
+    "team": 613
   },
   {
     "name": "Gleiker Mendoza",
@@ -264,6 +276,18 @@
     "team": 90
   },
   {
+    "name": "Mason Greenwood",
+    "goals": 2,
+    "assists": 1,
+    "team": 613
+  },
+  {
+    "name": "Stavros Pilios",
+    "goals": 2,
+    "assists": 1,
+    "team": 1899
+  },
+  {
     "name": "Scott McTominay",
     "goals": 2,
     "assists": null,
@@ -304,12 +328,6 @@
     "goals": 1,
     "assists": null,
     "team": 1899
-  },
-  {
-    "name": "Federico Valverde",
-    "goals": 1,
-    "assists": null,
-    "team": 86
   },
   {
     "name": "Ayase Ueda",
@@ -388,12 +406,6 @@
     "goals": 1,
     "assists": null,
     "team": 100
-  },
-  {
-    "name": "Archie Brown",
-    "goals": 1,
-    "assists": null,
-    "team": 613
   },
   {
     "name": "Sergiño Dest",
@@ -583,18 +595,6 @@
   },
   {
     "name": "Carlos Espí",
-    "goals": 1,
-    "assists": null,
-    "team": 86
-  },
-  {
-    "name": "Endrick",
-    "goals": 1,
-    "assists": null,
-    "team": 86
-  },
-  {
-    "name": "Antonio Rüdiger",
     "goals": 1,
     "assists": null,
     "team": 86
