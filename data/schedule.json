@@ -953,10 +953,10 @@
     "away": 86,
     "score": {
       "home": 2,
-      "away": 2
+      "away": 3
     },
-    "winner": null,
-    "status": "scheduled",
+    "winner": "away",
+    "status": "live",
     "matchday": 4
   },
   {
