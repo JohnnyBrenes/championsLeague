@@ -260,7 +260,7 @@
   {
     "name": "Peter Christiansen",
     "goals": 2,
-    "assists": null,
+    "assists": 1,
     "team": 5720
   },
   {
@@ -306,6 +306,12 @@
     "team": 503
   },
   {
+    "name": "Samu Aghehowa",
+    "goals": 2,
+    "assists": null,
+    "team": 503
+  },
+  {
     "name": "Isco",
     "goals": 2,
     "assists": 1,
@@ -340,6 +346,12 @@
     "goals": 2,
     "assists": 1,
     "team": 2016
+  },
+  {
+    "name": "Erik Botheim",
+    "goals": 2,
+    "assists": 1,
+    "team": 5720
   },
   {
     "name": "John McGinn",
@@ -586,17 +598,5 @@
     "goals": 1,
     "assists": 1,
     "team": 64
-  },
-  {
-    "name": "Gjivai Zechiël",
-    "goals": 1,
-    "assists": null,
-    "team": 675
-  },
-  {
-    "name": "Anis Moussa",
-    "goals": 1,
-    "assists": null,
-    "team": 675
   }
 ]
