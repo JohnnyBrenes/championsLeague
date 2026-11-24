@@ -1087,11 +1087,11 @@
     "home": 610,
     "away": 58,
     "score": {
-      "home": 1,
-      "away": 0
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
@@ -1102,11 +1102,11 @@
     "home": 5721,
     "away": 2016,
     "score": {
-      "home": 1,
-      "away": 0
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
