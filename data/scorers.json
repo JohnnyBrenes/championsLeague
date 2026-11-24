@@ -330,6 +330,12 @@
     "team": 1899
   },
   {
+    "name": "Andreas Helmersen",
+    "goals": 2,
+    "assists": null,
+    "team": 5721
+  },
+  {
     "name": "Soriba Diaoune",
     "goals": 2,
     "assists": null,
@@ -591,12 +597,6 @@
     "name": "Jeremie Frimpong",
     "goals": 1,
     "assists": 2,
-    "team": 64
-  },
-  {
-    "name": "Lewis Koumas",
-    "goals": 1,
-    "assists": 1,
     "team": 64
   }
 ]
