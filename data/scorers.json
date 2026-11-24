@@ -1,5 +1,11 @@
 [
   {
+    "name": "Kylian Mbappé",
+    "goals": 6,
+    "assists": 2,
+    "team": 86
+  },
+  {
     "name": "Anastasios Douvikas",
     "goals": 6,
     "assists": 1,
@@ -16,12 +22,6 @@
     "goals": 5,
     "assists": null,
     "team": 65
-  },
-  {
-    "name": "Kylian Mbappé",
-    "goals": 4,
-    "assists": 1,
-    "team": 86
   },
   {
     "name": "Sehrou Guirassy",
@@ -78,6 +78,12 @@
     "team": 58
   },
   {
+    "name": "Federico Valverde",
+    "goals": 3,
+    "assists": null,
+    "team": 86
+  },
+  {
     "name": "Lamine Yamal",
     "goals": 3,
     "assists": 4,
@@ -126,6 +132,12 @@
     "team": 58
   },
   {
+    "name": "Cucho Hernández",
+    "goals": 3,
+    "assists": null,
+    "team": 90
+  },
+  {
     "name": "Phil Foden",
     "goals": 3,
     "assists": 1,
@@ -144,16 +156,16 @@
     "team": 7397
   },
   {
+    "name": "Antonio Nusa",
+    "goals": 3,
+    "assists": null,
+    "team": 721
+  },
+  {
     "name": "Emiliano Buendía",
     "goals": 2,
     "assists": null,
     "team": 58
-  },
-  {
-    "name": "Federico Valverde",
-    "goals": 2,
-    "assists": null,
-    "team": 86
   },
   {
     "name": "Carlos Augusto Lobaton",
@@ -218,7 +230,7 @@
   {
     "name": "Martin Baturina",
     "goals": 2,
-    "assists": 1,
+    "assists": 2,
     "team": 7397
   },
   {
@@ -314,7 +326,7 @@
   {
     "name": "Isco",
     "goals": 2,
-    "assists": 1,
+    "assists": 2,
     "team": 90
   },
   {
@@ -328,6 +340,12 @@
     "goals": 2,
     "assists": 1,
     "team": 1899
+  },
+  {
+    "name": "Rayan Cherki",
+    "goals": 2,
+    "assists": null,
+    "team": 65
   },
   {
     "name": "Andreas Helmersen",
@@ -352,6 +370,18 @@
     "goals": 2,
     "assists": 1,
     "team": 2016
+  },
+  {
+    "name": "Jude Bellingham",
+    "goals": 2,
+    "assists": 1,
+    "team": 86
+  },
+  {
+    "name": "Viktor Gyökeres",
+    "goals": 2,
+    "assists": 2,
+    "team": 57
   },
   {
     "name": "Erik Botheim",
@@ -568,35 +598,5 @@
     "goals": 1,
     "assists": null,
     "team": 5720
-  },
-  {
-    "name": "Luis Díaz",
-    "goals": 1,
-    "assists": null,
-    "team": 5
-  },
-  {
-    "name": "Herman Haugen",
-    "goals": 1,
-    "assists": null,
-    "team": 5720
-  },
-  {
-    "name": "Brajan Gruda",
-    "goals": 1,
-    "assists": 1,
-    "team": 721
-  },
-  {
-    "name": "Amir Rrahmani",
-    "goals": 1,
-    "assists": null,
-    "team": 113
-  },
-  {
-    "name": "Jeremie Frimpong",
-    "goals": 1,
-    "assists": 2,
-    "team": 64
   }
 ]
