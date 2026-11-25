@@ -1222,11 +1222,11 @@
     "home": 10233,
     "away": 81,
     "score": {
-      "home": 1,
-      "away": 4
+      "home": null,
+      "away": null
     },
-    "winner": "away",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
@@ -1237,11 +1237,11 @@
     "home": 930,
     "away": 94,
     "score": {
-      "home": 0,
-      "away": 1
+      "home": null,
+      "away": null
     },
-    "winner": "away",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
@@ -1252,11 +1252,11 @@
     "home": 108,
     "away": 10,
     "score": {
-      "home": 2,
-      "away": 0
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "live",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
@@ -1267,11 +1267,11 @@
     "home": 78,
     "away": 5720,
     "score": {
-      "home": 2,
-      "away": 0
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "finished",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
@@ -1282,11 +1282,11 @@
     "home": 524,
     "away": 100,
     "score": {
-      "home": 2,
-      "away": 2
+      "home": null,
+      "away": null
     },
     "winner": null,
-    "status": "live",
+    "status": "scheduled",
     "matchday": 5
   },
   {
@@ -1297,11 +1297,11 @@
     "home": 851,
     "away": 64,
     "score": {
-      "home": 0,
-      "away": 3
+      "home": null,
+      "away": null
     },
-    "winner": "away",
-    "status": "live",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
@@ -1312,11 +1312,11 @@
     "home": 521,
     "away": 5,
     "score": {
-      "home": 2,
-      "away": 1
+      "home": null,
+      "away": null
     },
-    "winner": "home",
-    "status": "live",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
@@ -1327,11 +1327,11 @@
     "home": 498,
     "away": 66,
     "score": {
-      "home": 2,
-      "away": 3
+      "home": null,
+      "away": null
     },
-    "winner": "away",
-    "status": "live",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
@@ -1342,11 +1342,11 @@
     "home": 1887,
     "away": 613,
     "score": {
-      "home": 0,
-      "away": 1
+      "home": null,
+      "away": null
     },
-    "winner": "away",
-    "status": "live",
+    "winner": null,
+    "status": "scheduled",
     "matchday": 5
   },
   {
