@@ -84,6 +84,12 @@
     "team": 86
   },
   {
+    "name": "Karim Adeyemi",
+    "goals": 3,
+    "assists": null,
+    "team": 81
+  },
+  {
     "name": "Lamine Yamal",
     "goals": 3,
     "assists": 4,
@@ -112,6 +118,12 @@
     "goals": 3,
     "assists": null,
     "team": 66
+  },
+  {
+    "name": "Anthony Gordon",
+    "goals": 3,
+    "assists": null,
+    "team": 81
   },
   {
     "name": "Bradley Barcola",
@@ -186,12 +198,6 @@
     "team": 90
   },
   {
-    "name": "Karim Adeyemi",
-    "goals": 2,
-    "assists": null,
-    "team": 81
-  },
-  {
     "name": "Zlatko Tripić",
     "goals": 2,
     "assists": 3,
@@ -262,12 +268,6 @@
     "goals": 2,
     "assists": 1,
     "team": 108
-  },
-  {
-    "name": "Anthony Gordon",
-    "goals": 2,
-    "assists": null,
-    "team": 81
   },
   {
     "name": "Eberechi Eze",
