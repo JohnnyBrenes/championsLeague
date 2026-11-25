@@ -24,6 +24,12 @@
     "team": 65
   },
   {
+    "name": "Luis Suárez",
+    "goals": 5,
+    "assists": null,
+    "team": 498
+  },
+  {
     "name": "Sehrou Guirassy",
     "goals": 4,
     "assists": null,
@@ -46,12 +52,6 @@
     "goals": 4,
     "assists": 1,
     "team": 524
-  },
-  {
-    "name": "Luis Suárez",
-    "goals": 4,
-    "assists": null,
-    "team": 498
   },
   {
     "name": "Harry Kane",
