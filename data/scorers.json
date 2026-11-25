@@ -48,6 +48,12 @@
     "team": 10
   },
   {
+    "name": "Ousmane Dembélé",
+    "goals": 4,
+    "assists": 3,
+    "team": 524
+  },
+  {
     "name": "Fabián Ruiz",
     "goals": 4,
     "assists": 1,
@@ -58,6 +64,12 @@
     "goals": 4,
     "assists": 3,
     "team": 5
+  },
+  {
+    "name": "Bruno Fernandes",
+    "goals": 4,
+    "assists": null,
+    "team": 66
   },
   {
     "name": "Aleksey Batrakov",
@@ -102,12 +114,6 @@
     "team": 64
   },
   {
-    "name": "Ousmane Dembélé",
-    "goals": 3,
-    "assists": 3,
-    "team": 524
-  },
-  {
     "name": "Ferrán Torres",
     "goals": 3,
     "assists": null,
@@ -118,6 +124,12 @@
     "goals": 3,
     "assists": null,
     "team": 66
+  },
+  {
+    "name": "Lautaro Martínez",
+    "goals": 3,
+    "assists": 1,
+    "team": 108
   },
   {
     "name": "Anthony Gordon",
@@ -192,6 +204,12 @@
     "team": 94
   },
   {
+    "name": "Ayase Ueda",
+    "goals": 2,
+    "assists": null,
+    "team": 521
+  },
+  {
     "name": "Bartra",
     "goals": 2,
     "assists": null,
@@ -234,12 +252,6 @@
     "team": 5
   },
   {
-    "name": "Bruno Fernandes",
-    "goals": 2,
-    "assists": null,
-    "team": 66
-  },
-  {
     "name": "Martin Baturina",
     "goals": 2,
     "assists": 2,
@@ -274,12 +286,6 @@
     "goals": 2,
     "assists": null,
     "team": 10233
-  },
-  {
-    "name": "Lautaro Martínez",
-    "goals": 2,
-    "assists": 1,
-    "team": 108
   },
   {
     "name": "Eberechi Eze",
@@ -414,6 +420,12 @@
     "team": 64
   },
   {
+    "name": "Vedat Muriqi",
+    "goals": 2,
+    "assists": null,
+    "team": 613
+  },
+  {
     "name": "Viktor Gyökeres",
     "goals": 2,
     "assists": 2,
@@ -442,12 +454,6 @@
     "goals": 1,
     "assists": null,
     "team": 1899
-  },
-  {
-    "name": "Ayase Ueda",
-    "goals": 1,
-    "assists": null,
-    "team": 521
   },
   {
     "name": "Alexsandro Ribeiro",
@@ -591,12 +597,6 @@
     "name": "Pablo Barrios",
     "goals": 1,
     "assists": null,
-    "team": 78
-  },
-  {
-    "name": "Ademola Lookman",
-    "goals": 1,
-    "assists": 1,
     "team": 78
   }
 ]
