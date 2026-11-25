@@ -264,6 +264,12 @@
     "team": 108
   },
   {
+    "name": "Anthony Gordon",
+    "goals": 2,
+    "assists": null,
+    "team": 81
+  },
+  {
     "name": "Eberechi Eze",
     "goals": 2,
     "assists": null,
@@ -561,12 +567,6 @@
     "name": "Fermín López",
     "goals": 1,
     "assists": 2,
-    "team": 81
-  },
-  {
-    "name": "Anthony Gordon",
-    "goals": 1,
-    "assists": null,
     "team": 81
   },
   {
