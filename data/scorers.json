@@ -180,6 +180,12 @@
     "team": 7397
   },
   {
+    "name": "Alexander Isak",
+    "goals": 3,
+    "assists": 1,
+    "team": 64
+  },
+  {
     "name": "Antonio Nusa",
     "goals": 3,
     "assists": null,
@@ -378,6 +384,12 @@
     "team": 78
   },
   {
+    "name": "Florian Wirtz",
+    "goals": 2,
+    "assists": 1,
+    "team": 64
+  },
+  {
     "name": "Mario Hermoso",
     "goals": 2,
     "assists": null,
@@ -412,12 +424,6 @@
     "goals": 2,
     "assists": 1,
     "team": 86
-  },
-  {
-    "name": "Alexander Isak",
-    "goals": 2,
-    "assists": 1,
-    "team": 64
   },
   {
     "name": "Vedat Muriqi",
@@ -592,11 +598,5 @@
     "goals": 1,
     "assists": 2,
     "team": 81
-  },
-  {
-    "name": "Pablo Barrios",
-    "goals": 1,
-    "assists": null,
-    "team": 78
   }
 ]

@@ -1283,9 +1283,9 @@
     "away": 100,
     "score": {
       "home": 2,
-      "away": 1
+      "away": 2
     },
-    "winner": "home",
+    "winner": null,
     "status": "live",
     "matchday": 5
   },
@@ -1298,7 +1298,7 @@
     "away": 64,
     "score": {
       "home": 0,
-      "away": 1
+      "away": 2
     },
     "winner": "away",
     "status": "live",
@@ -1327,10 +1327,10 @@
     "home": 498,
     "away": 66,
     "score": {
-      "home": 1,
+      "home": 2,
       "away": 2
     },
-    "winner": "away",
+    "winner": null,
     "status": "live",
     "matchday": 5
   },
