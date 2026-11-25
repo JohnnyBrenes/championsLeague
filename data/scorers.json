@@ -6,6 +6,12 @@
     "team": 86
   },
   {
+    "name": "Luis Suárez",
+    "goals": 6,
+    "assists": null,
+    "team": 498
+  },
+  {
     "name": "Anastasios Douvikas",
     "goals": 6,
     "assists": 1,
@@ -24,10 +30,10 @@
     "team": 65
   },
   {
-    "name": "Luis Suárez",
+    "name": "Donyell Malen",
     "goals": 5,
-    "assists": null,
-    "team": 498
+    "assists": 2,
+    "team": 100
   },
   {
     "name": "Sehrou Guirassy",
@@ -76,12 +82,6 @@
     "goals": 4,
     "assists": null,
     "team": 610
-  },
-  {
-    "name": "Donyell Malen",
-    "goals": 4,
-    "assists": 2,
-    "team": 100
   },
   {
     "name": "Nicolas Jackson",
